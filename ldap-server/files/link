@@ -1,0 +1,11 @@
+ldap queries
+http://docs.oracle.com/cd/E19450-01/820-6169/ldapsearch-examples.html
+
+ldap-server-configuration
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-a-basic-ldap-server-on-an-ubuntu-12-04-vps#AddOrganizationalUnits,Groups,andUsers
+https://unix.stackexchange.com/questions/309924/change-default-login-shell-to-bin-bash-for-all-ldap-users-from-ldap-server-no
+
+ldap-client-configuration
+https://www.digitalocean.com/community/tutorials/how-to-authenticate-client-computers-using-ldap-on-an-ubuntu-12-04-vps
+
+

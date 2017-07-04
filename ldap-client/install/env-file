@@ -1,0 +1,9 @@
+# variable for ldap-client configuration
+# This variables are optional, if you don't provide this variables, then container will create but ldap-client will not  
+# Run 'lets-ldap' for manual configuration of ldap client
+
+
+BASE_DN=dc=akhil,dc=system,dc=local
+URI=ldap://192.168.1.106:8995
+ROOT_ADDCOUNT=cn=admin,dc=akhil,dc=system,dc=local
+ROOT_PASSWORD=ubuntu

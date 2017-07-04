@@ -1,0 +1,5 @@
+var DISQUSWIDGETS;
+
+if (typeof DISQUSWIDGETS != 'undefined') {
+    DISQUSWIDGETS.displayCount({"text":{"and":"and","comments":{"zero":"0 Comments","multiple":"{num} Comments","one":"1 Comment"}},"counts":[{"id":"2015\/04\/17\/setup_openldap_server_with_openssh_lpk_on_ubuntu","comments":4},{"id":"2015\/05\/21\/setup_nss_ldapd_on_ubuntu_14_04","comments":1},{"id":"2016\/10\/03\/circumventing_internet_censorship_in_china","comments":0},{"id":"2015\/07\/22\/relationships_among_nice_priority_and_weight_in_linux_kernel","comments":0},{"id":"2014\/12\/22\/rabbitmq_clustering_and_high_availability_on_ubuntu_ec2_servers","comments":0},{"id":"2015\/04\/19\/setup_openldap_client_server_with_ssh_access_on_ubuntu","comments":0},{"id":"2015\/12\/13\/personal_hotspot_backup_plan","comments":0},{"id":"2014\/12\/18\/serving_local_filesystem_using_nginx_on_os_x","comments":1},{"id":"2015\/01\/06\/tunneling_rdp_over_ssh_with_xrdp_and_xfreerdp","comments":0},{"id":"2015\/04\/22\/auditing_user_tty_and_root_commands_with_auditd_on_ubuntu","comments":1}]});
+}

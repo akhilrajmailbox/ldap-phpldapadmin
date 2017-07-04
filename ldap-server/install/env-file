@@ -1,0 +1,8 @@
+# mandatory docker variable
+
+LDAP_ADMIN_PASS=ubuntu
+LDAP_DOMAIN=akhil.system.local.in
+LDAP_ORGANISATION=infra
+HTPASSWORD=admin
+ALIAS=myldap
+SSL_CONFIG=N

@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba no-hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style=""><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="Personal Blogging Site of Shichao An">
+        <meta name="viewport" content="width=device-width">
+        <title>Home — Shichao's Blog</title>
+            <link rel="stylesheet" href="2%28a%29.non-interactive_files/normalize.css" type="text/css">
+            <link rel="stylesheet" href="2%28a%29.non-interactive_files/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="2%28a%29.non-interactive_files/main.css" type="text/css">
+            <link rel="stylesheet" href="2%28a%29.non-interactive_files/flat.css" type="text/css">
+            <link rel="stylesheet" href="2%28a%29.non-interactive_files/pygments.css" type="text/css">
+            <link rel="stylesheet" href="2%28a%29.non-interactive_files/font-awesome.css" type="text/css">
+        <link rel="stylesheet" href="2%28a%29.non-interactive_files/style.css" type="text/css"><link rel="shortcut icon" href="https://blog.shichao.io/_static/favicon.ico"><!-- Load modernizr and JQuery -->
+        <script async="" src="2%28a%29.non-interactive_files/analytics.js"></script><script src="2%28a%29.non-interactive_files/modernizr-2.js"></script>
+        <script src="2%28a%29.non-interactive_files/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="2%28a%29.non-interactive_files/plugins.js"></script>
+        <script src="2%28a%29.non-interactive_files/main.js"></script>
+        
+  <link rel="next" title="Older" href="https://blog.shichao.io/page2.html"><link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.shichao.io/rss.html">
+  <link rel="canonical" href="https://blog.shichao.io/index.html"><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="2%28a%29.non-interactive_files/underscore.js"></script><script type="text/javascript" src="2%28a%29.non-interactive_files/doctools.js"></script><script type="text/javascript" src="2%28a%29.non-interactive_files/disqus.js"></script><script type="text/javascript" src="2%28a%29.non-interactive_files/google_analytics.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script>
+<script async="" type="text/javascript" src="2%28a%29.non-interactive_files/count.js"></script><script src="2%28a%29.non-interactive_files/count-data.js"></script></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header role="banner">
+            <hgroup>
+              <h1><a href="#">Shichao's Blog</a></h1><h2>Recording molecular stuff</h2></hgroup>
+          </header>
+      <nav role="navigation">
+            <ul><li class="main-nav">
+                  <a href="#">Home</a>
+                </li>
+              <li class="main-nav">
+                  <a href="https://blog.shichao.io/pages/about.html">About</a>
+                </li>
+              </ul>
+          </nav><div class="main-container" role="main"><div class="main wrapper body clearfix"><article><div class="timestamp postmeta">
+            <span>October 03, 2016</span>
+        </div>
+        <div class="section">
+            <h1><a href="https://blog.shichao.io/2016/10/03/circumventing_internet_censorship_in_china.html">Circumventing Internet Censorship in China</a></h1>
+<p>It’s been a while since I went back to China in June this year. This 
+post is intended as a summary of my most recent Internet experience 
+using some very useful bypassing techniques.</p>
+<div class="section" id="at-t-passport-data">
+<h2>AT&amp;T Passport Data</h2>
+<p>AT&amp;T Passport is the international data roaming plan by AT&amp;T.
+ With this plan enabled, you are able to select available network 
+carriers (such as China Unicom) while in China, but need no further 
+censorship circumvention, as if you were using a non-China network 
+carrier directly. I’m not clear if other mobile network providers behave
+ similarly. However, this method has its limitations of data usage, so 
+you cannot use it freely.</p>
+</div>
+<div class="section" id="ocserv">
+<h2>ocserv</h2>
+<p>OpenConnect VPN server (ocserv) works best of all means. It is fast and stable.</p>
+<p>To ease the server-side setup, I used <a class="reference external" href="https://github.com/wppurking/ocserv-docker">ocserv-docker</a>
+ on a DigitalOcean box and a Linode box. By the time I was setting it 
+up, there was some dependency errors, so I forked it into my <a class="reference external" href="https://github.com/shichao-an/ocserv-docker">own GitHub repo</a>, fixed the errors, and built a <a class="reference external" href="https://hub.docker.com/r/shichaoan/ocserv-docker/">Docker image</a>. I ran the following commands on an Ubuntu 14.04 system that uses UFW:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go"># Add UFW rules</span>
+<span class="go">sudo ufw allow 443/tcp</span>
+<span class="go">sudo ufw allow 443/udp</span>
+<span class="go">sudo service iptables-persistent save</span>
+<span class="go">sudo ufw reload</span>
+
+<span class="go"># Install Docker image</span>
+<span class="go">mkdir -p ~/ocserv-docker/ocserv</span>
+<span class="go">touch ~/ocserv-docker/ocserv/ocpasswd</span>
+<span class="go">wget https://raw.githubusercontent.com/shichao-an/ocserv-docker/master/ocserv/ocserv.conf -O ~/ocserv-docker/ocserv/ocserv.conf</span>
+<span class="go">sudo docker run --name ocserv -d --privileged -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/tcp shichaoan/ocserv-docker</span>
+
+<span class="go"># Add user and prompt for password</span>
+<span class="go">sudo docker exec -it ocserv ocpasswd shichao</span>
+
+<span class="go"># Debug</span>
+<span class="go">sudo docker logs ocserv</span>
+<span class="go">sudo docker exec -ti ocserv /bin/bash</span>
+</pre></div>
+</div>
+<p>Then, you can install Cisco AnyConnect clients on both your computer and mobile devices and try to connect your server.</p>
+</div>
+<div class="section" id="shadowsocks">
+<h2>Shadowsocks</h2>
+<p><a class="reference external" href="https://shadowsocks.org/">Shadowsocks</a>
+ also works well. It’s just that I didn’t bother to set it up my mobile 
+devices, that is, iPhone and iPad. I set up the server side with my <a class="reference external" href="https://hub.docker.com/r/shichaoan/shadowsocks-libev/">Docker image</a>, whose source is <a class="reference external" href="https://github.com/shichao-an/docker-shadowsocks-libev">shichao-an/docker-shadowsocks-libev</a>.</p>
+</div>
+<div class="section" id="expressvpn">
+<h2>ExpressVPN</h2>
+<p><a class="reference external" href="https://www.expressvpn.com/">ExpressVPN</a>, one of the best commercial VPNs, is slow and unstable most of the time, which is basically unusable in China.</p>
+</div>
+<div class="section" id="pulse-secure">
+<h2>Pulse Secure</h2>
+<p>My company provides Pulse Secure SSL VPN. It is usable, but very slow.</p>
+</div>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Shichao An</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="https://blog.shichao.io/tags/network.html">Network</a></span>
+        </div>
+        <div class="comments">
+            <a href="https://blog.shichao.io/2016/10/03/circumventing_internet_censorship_in_china.html#disqus_thread" data-disqus-identifier="2016/10/03/circumventing_internet_censorship_in_china">0 Comments</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>December 13, 2015</span>
+        </div>
+        <div class="section">
+            <h1><a href="https://blog.shichao.io/2015/12/13/personal_hotspot_backup_plan.html">Personal Hotspot Backup Plan</a></h1>
+<p>Although I have bought two ISPs for Internet access at home and have 
+set up a dual WAN router to use them, it often sucks at busy nights when
+ both ISPs churn me up with an over 80% packet loss for several hours 
+due to a range of crappy outbound nodes of AT&amp;T. These can be easily
+ observed with <span class="docutils literal"><span class="pre">mtr</span></span> and <span class="docutils literal"><span class="pre">ping</span></span>. In short, I simply cannot use the Internet with a normal mood.</p>
+<p>Therefore, I decided to make use of my iPhone’s LTE network via 
+personal hotspot. The problem is to connect to the hotspot from my 
+primary MacBook Pro (named ASC-MBP) while maintaining access to the 
+existing home network (named TOKI-MASTER), since I need accessing the 
+NAS through Ethernet. The obvious way is to hack the routing table, so I
+ wrote the following two scripts, along with a backup plan.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://gist.github.com/shichao-an/5be6baa2c6ebc2191ad7#file-switch-default-route">switch-default-route</a></li>
+<li><a class="reference external" href="https://gist.github.com/shichao-an/5be6baa2c6ebc2191ad7#file-restore-default-route">restore-default-route</a></li>
+</ul>
+<p>When Internet (both ISP) are down or unstable, do the following:</p>
+<p>On ASC-MBP, where Ethernet is plugged to TOKI-MASTER (10.0.1.1):</p>
+<ol class="arabic simple">
+<li>On iPhone 6, turn on Personal Hotspot</li>
+<li>On ASC-MBP, turn on Wi-Fi, and connect to ASC-IPHONE6</li>
+<li>On ASC-MBP, run command “switch-default-route”</li>
+<li>If Internet is back up, turn off Wi-Fi, run command “restore-default-route”</li>
+</ol>
+<p>By default, the iPhone Hotspot’s gateway address is 172.20.10.1, which is why it is in the script.</p>
+<p><strong>UPDATE: February 24, 2016</strong></p>
+<p>Turning on/off WiFi and connecting to the hotspot is automated in the
+ scripts. Thus, there is no need to manually connect to the hotspot.</p>
+<p>I also created another script <a class="reference external" href="https://gist.github.com/shichao-an/dee61d0ac7d9134e3e5c#file-sbcsucks-sh">sbcsucks.sh</a>
+ that tests whether the ISP is stable. When the ISP is stable with no 
+significant packet loss, the script, which is running on a separate 
+local machine, will send a notification to ASC-MBP. This script can be 
+run in the background using such tools as GNU Screen.</p>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Shichao An</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="https://blog.shichao.io/tags/os_x.html">OS X</a>, <a href="https://blog.shichao.io/tags/network.html">Network</a></span>
+        </div>
+        <div class="comments">
+            <a href="https://blog.shichao.io/2015/12/13/personal_hotspot_backup_plan.html#disqus_thread" data-disqus-identifier="2015/12/13/personal_hotspot_backup_plan">0 Comments</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>July 22, 2015</span>
+        </div>
+        <div class="section">
+            <h1><a href="https://blog.shichao.io/2015/07/22/relationships_among_nice_priority_and_weight_in_linux_kernel.html">Relationships among nice, priority and weight in Linux kernel</a></h1>
+<div class="section" id="nice-value">
+<h2>nice value</h2>
+<p>On Linux, the nice value ranges from -20 to 19.</p>
+</div>
+<div class="section" id="nice-and-weight">
+<h2>nice and weight</h2>
+<p>In the Linux’s Completely Fair Scheduler (CFS), mapping of nice to 
+weight of a process is critical to calculating the virtual runtime (<span class="docutils literal"><span class="pre">vruntime</span></span>) of its scheduler entity structure (<span class="docutils literal"><span class="pre">struct</span> <span class="pre">sched_entity</span></span>). In Linux 2.6.34, this is defined in <span class="docutils literal"><span class="pre">prio_to_weight</span></span> (<a class="reference external" href="https://github.com/torvalds/linux/blob/v2.6.34/kernel/sched.c#L1356">kernel/sched.c#L1356</a>). The weight is roughly equivalent to <span class="docutils literal"><span class="pre">1024/(1.25)^(nice)</span></span>:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">prio_to_weight</span><span class="p">[</span><span class="mi">40</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="cm">/* -20 */</span>     <span class="mi">88761</span><span class="p">,</span>     <span class="mi">71755</span><span class="p">,</span>     <span class="mi">56483</span><span class="p">,</span>     <span class="mi">46273</span><span class="p">,</span>     <span class="mi">36291</span><span class="p">,</span>
+ <span class="cm">/* -15 */</span>     <span class="mi">29154</span><span class="p">,</span>     <span class="mi">23254</span><span class="p">,</span>     <span class="mi">18705</span><span class="p">,</span>     <span class="mi">14949</span><span class="p">,</span>     <span class="mi">11916</span><span class="p">,</span>
+ <span class="cm">/* -10 */</span>      <span class="mi">9548</span><span class="p">,</span>      <span class="mi">7620</span><span class="p">,</span>      <span class="mi">6100</span><span class="p">,</span>      <span class="mi">4904</span><span class="p">,</span>      <span class="mi">3906</span><span class="p">,</span>
+ <span class="cm">/*  -5 */</span>      <span class="mi">3121</span><span class="p">,</span>      <span class="mi">2501</span><span class="p">,</span>      <span class="mi">1991</span><span class="p">,</span>      <span class="mi">1586</span><span class="p">,</span>      <span class="mi">1277</span><span class="p">,</span>
+ <span class="cm">/*   0 */</span>      <span class="mi">1024</span><span class="p">,</span>       <span class="mi">820</span><span class="p">,</span>       <span class="mi">655</span><span class="p">,</span>       <span class="mi">526</span><span class="p">,</span>       <span class="mi">423</span><span class="p">,</span>
+ <span class="cm">/*   5 */</span>       <span class="mi">335</span><span class="p">,</span>       <span class="mi">272</span><span class="p">,</span>       <span class="mi">215</span><span class="p">,</span>       <span class="mi">172</span><span class="p">,</span>       <span class="mi">137</span><span class="p">,</span>
+ <span class="cm">/*  10 */</span>       <span class="mi">110</span><span class="p">,</span>        <span class="mi">87</span><span class="p">,</span>        <span class="mi">70</span><span class="p">,</span>        <span class="mi">56</span><span class="p">,</span>        <span class="mi">45</span><span class="p">,</span>
+ <span class="cm">/*  15 */</span>        <span class="mi">36</span><span class="p">,</span>        <span class="mi">29</span><span class="p">,</span>        <span class="mi">23</span><span class="p">,</span>        <span class="mi">18</span><span class="p">,</span>        <span class="mi">15</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nice-and-priority">
+<h2>nice and priority</h2>
+<p>The conversion between nice and static priority (priority for <span class="docutils literal"><span class="pre">SCHED_NORMAL</span></span>, or non-“real-time” tasks) is defined by the <span class="docutils literal"><span class="pre">NICE_TO_PRIO</span></span> and <span class="docutils literal"><span class="pre">PRIO_TO_NICE</span></span> macros. Before Linux 3.15, for example, 2.6.34, this is defined in <a class="reference external" href="https://github.com/torvalds/linux/blob/v2.6.34/kernel/sched.c#L89">kernel/sched.c</a>; since Linux 3.15, it is defined in <a class="reference external" href="https://github.com/torvalds/linux/blob/v4.1/include/linux/sched/prio.h#L32">include/linux/sched/prio.h</a>. The relation is literally <span class="docutils literal"><span class="pre">prio</span> <span class="pre">=</span> <span class="pre">nice</span> <span class="pre">+</span> <span class="pre">120</span></span>, so the priority ranges from 100 to 139.</p>
+<p>The following is the macro definition from the 2.6.34 source code</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#define NICE_TO_PRIO(nice)  (MAX_RT_PRIO + (nice) + 20)</span>
+<span class="cp">#define PRIO_TO_NICE(prio)  ((prio) - MAX_RT_PRIO - 20)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nice-value-and-rlimit-style-value">
+<h2>nice value and rlimit style value</h2>
+<p>In the recent man page on <a class="reference external" href="http://man7.org/linux/man-pages/man2/setpriority.2.html">setpriority(2)</a>, there is a formula <span class="docutils literal"><span class="pre">unice</span> <span class="pre">=</span> <span class="pre">20</span> <span class="pre">-</span> <span class="pre">knice</span></span>
+ that converts “user” nice values (-20..19) to “kernel” nice values 
+(40..1), which is said to be handled by glibc wrapper functions for <span class="docutils literal"><span class="pre">setpriority()</span></span> and <span class="docutils literal"><span class="pre">getpriority()</span></span> system calls. This seems vague in definition.</p>
+<p><a class="reference external" href="http://lxr.free-electrons.com/ident?v=3.16;i=nice_to_rlimit">Since Linux 3.16</a>, a new <cite>nice_to_rlimit</cite> function is added to <span class="docutils literal"><span class="pre">include/linux/sched/prio.h</span></span>,
+ which seems to match the above description. This function converts nice
+ value [19,-20] to rlimit style value [1,40]. The formula is equivalent 
+to that on the man page. The <span class="docutils literal"><span class="pre">rlimit_to_nice</span></span> does the reverse operation.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="kr">inline</span> <span class="kt">long</span> <span class="nf">nice_to_rlimit</span><span class="p">(</span><span class="kt">long</span> <span class="n">nice</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">MAX_NICE</span> <span class="o">-</span> <span class="n">nice</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, <span class="docutils literal"><span class="pre">MAX_NICE</span></span> is defined to be 19, so it is essentially <span class="docutils literal"><span class="pre">rlimit</span> <span class="pre">=</span> <span class="pre">20</span> <span class="pre">-</span> <span class="pre">nice</span></span>.</p>
+<p>Note that the rlimit style value is not to be confused with “user priority” (<a class="reference external" href="https://github.com/torvalds/linux/blob/v4.1/include/linux/sched/prio.h#L40">include/linux/sched/prio.h#L40</a>), which has a range of 0 to 39.</p>
+</div>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Shichao An</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="https://blog.shichao.io/tags/linux.html">Linux</a></span>
+        </div>
+        <div class="comments">
+            <a href="https://blog.shichao.io/2015/07/22/relationships_among_nice_priority_and_weight_in_linux_kernel.html#disqus_thread" data-disqus-identifier="2015/07/22/relationships_among_nice_priority_and_weight_in_linux_kernel">0 Comments</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>May 21, 2015</span>
+        </div>
+        <div class="section">
+            <h1><a href="https://blog.shichao.io/2015/05/21/setup_nss_ldapd_on_ubuntu_14_04.html">Setting up nss-ldapd on Ubuntu 14.04</a></h1>
+<p>The last few posts discussed <a class="reference external" href="https://blog.shichao.io/2015/04/17/setup_openldap_server_with_openssh_lpk_on_ubuntu">setting up an OpenLDAP server</a> and <a class="reference external" href="https://blog.shichao.io/2015/04/19/setup_openldap_client_server_with_ssh_access_on_ubuntu">configuring basic client server</a>. However, that client server uses <a class="reference external" href="http://packages.ubuntu.com/trusty/libnss-ldap">nss-ldap</a> with some known issues <a class="reference external" href="https://wiki.debian.org/LDAP/NSS#Configuring_LDAP_Authentication">as presented here</a>.  With this old and seemingly buggy setup, I simply can’t make <cite>nss_initgroups_ignoreuses</cite> option work to bypass querying the LDAP server when authenticating local or system users on the server, and have no idea what <span class="docutils literal"><span class="pre">nssldap-update-ignoreusers</span></span>
+ command actually does. When the LDAP server is down or there is network
+ issues connecting the LDAP server, the default configuration will 
+simply block local users from logging in the server (at least for a long
+ time until the query is considered timed out). Also, as I found after 
+checking <span class="docutils literal"><span class="pre">/var/log/auth.log</span></span>,
+ it queries the LDAP server even when doing a Bash completion, because 
+it was very slow when I pressed the TAB key after a path name. Setting <cite>bind_policy</cite> option to soft and  <cite>timelimit</cite> and <cite>bind_timelimit</cite> to smaller values may just alleviate the symptom but does not solve the problem.</p>
+<p>So I decide to use nss-ldapd that comes with the <span class="docutils literal"><span class="pre">libnss-ldapd</span></span> package.</p>
+<div class="highlight-python"><div class="highlight"><pre>apt-get install libpam-ldap nscd ldap-utils libnss-ldapd
+</pre></div>
+</div>
+<p>Running the above command will automatically remove the <span class="docutils literal"><span class="pre">libnss-ldap</span></span>
+ package and prompt interacive post-install steps for you to configure 
+the LDAP parameters. You can disable this interactive behavior and 
+directly place your config in <span class="docutils literal"><span class="pre">/etc/nslcd.conf</span></span> with the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>export DEBIAN_FRONTEND=noninteractive
+apt-get -y install libpam-ldap nscd ldap-utils libnss-ldapd
+</pre></div>
+</div>
+<p>Then, put your config in <span class="docutils literal"><span class="pre">/etc/nslcd.conf</span></span>:</p>
+<div class="highlight-python"><div class="highlight"><pre>uid nslcd
+gid nslcd
+uri ldaps://ldap.example.com
+base dc=example,dc=com
+binddn cn=OpenLDAP Client,ou=users,dc=example,dc=com
+bindpw password
+tls_reqcert never
+nss_initgroups_ignoreusers ALLLOCAL
+bind_timelimit 3
+timelimit 3
+</pre></div>
+</div>
+<p>The last line <span class="docutils literal"><span class="pre">nss_initgroups_ignoreusers</span> <span class="pre">ALLLOCAL</span></span> prevents group membership lookups through LDAP for all local users.</p>
+<p>The remaining settings for PAM, sudoers and access.conf are 
+essentially the same as the old nss-ldap setup. Just make sure to 
+restart the LDAP nameservice daemon, nslcd, after making changes to <span class="docutils literal"><span class="pre">/etc/nslcd.conf</span></span>:</p>
+<div class="highlight-python"><div class="highlight"><pre>service nslcd restart
+</pre></div>
+</div>
+<p>If nscd cache daemon is also enabled and you make some changes to the user from the LDAP, you may want to clear the cache:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nscd</span> <span class="o">--</span><span class="n">invalidate</span><span class="o">=</span><span class="n">passwd</span>
+<span class="n">nscd</span> <span class="o">--</span><span class="n">invalidate</span><span class="o">=</span><span class="n">group</span>
+</pre></div>
+</div>
+<p>The nslcd daemon also has the advantage that it can be easily stopped
+ in order to temporarily disable the LDAP lookup. This makes the 
+management of LDAP access more easy.</p>
+<p>Finally, here is the setup script:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://gist.github.com/shichao-an/0e7fe33cc540797e3ee0">setup-nss-ldapd.sh</a></li>
+</ul>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Shichao An</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="https://blog.shichao.io/tags/openldap.html">OpenLDAP</a>, <a href="https://blog.shichao.io/tags/ubuntu.html">Ubuntu</a></span>
+        </div>
+        <div class="comments">
+            <a href="https://blog.shichao.io/2015/05/21/setup_nss_ldapd_on_ubuntu_14_04.html#disqus_thread" data-disqus-identifier="2015/05/21/setup_nss_ldapd_on_ubuntu_14_04">1 Comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 22, 2015</span>
+        </div>
+        <div class="section">
+            <h1><a href="https://blog.shichao.io/2015/04/22/auditing_user_tty_and_root_commands_with_auditd_on_ubuntu.html">Auditing user TTY and root commands with auditd on Ubuntu</a></h1>
+<p><span class="docutils literal"><span class="pre">auditd</span></span> can be used to track user commands executed in a TTY. If the system is a server and the user logins through SSH, the <span class="docutils literal"><span class="pre">pam_tty_audit</span></span> PAM module must be enabled in the PAM configuration for sshd (the following line must appear in <span class="docutils literal"><span class="pre">/etc/pam.d/sshd</span></span>):</p>
+<div class="highlight-python"><div class="highlight"><pre>session required pam_tty_audit.so enable=*
+</pre></div>
+</div>
+<p>Then, the audit report can be reviewed using the <span class="docutils literal"><span class="pre">aureport</span></span> command, e.g. tty keystrokes:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go"># aureport --tty</span>
+</pre></div>
+</div>
+<p>However, the above setup cannot audit users that switch to root using the <span class="docutils literal"><span class="pre">sudo</span> <span class="pre">su</span> <span class="pre">-</span></span> command. In order to audit all commands run by root, <a class="reference external" href="http://serverfault.com/questions/470755/log-all-commands-run-by-admins-on-production-servers">as referenced here</a>, the following two lines must be added to <span class="docutils literal"><span class="pre">/etc/audit/audit.rules</span></span>:</p>
+<div class="highlight-text"><div class="highlight"><pre>-a exit,always -F arch=b64 -F euid=0 -S execve
+-a exit,always -F arch=b32 -F euid=0 -S execve
+</pre></div>
+</div>
+<p>And also make sure <span class="docutils literal"><span class="pre">pam_loginuid.so</span></span> is enabled in <span class="docutils literal"><span class="pre">/etc/pam.d/sshd</span></span> (default in Ubuntu 14.04).</p>
+<p>In this way, all processes with euid 0 will be audited and their auid (audit user id, which represents the real user before <span class="docutils literal"><span class="pre">su</span></span>)
+ will be preserved in the log. To check the audit log, for example about
+ a user with uid 1000, the following command can be used:</p>
+<div class="highlight-text"><div class="highlight"><pre>ausearch -ua 1000
+</pre></div>
+</div>
+<p>The <span class="docutils literal"><span class="pre">audit.log</span></span> file is located at <span class="docutils literal"><span class="pre">/var/log/audit</span></span>.</p>
+<p>Note that before auditing takes effect, the system needs reboot after either installing the <span class="docutils literal"><span class="pre">auditd</span></span>
+ package or editing these configuration files. All above were tested on 
+Ubuntu 14.04. Here is a script that can set all these up:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://gist.github.com/shichao-an/f019f7b9ab51c271ad49">setup-audit.sh</a></li>
+</ul>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Shichao An</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="https://blog.shichao.io/tags/ubuntu.html">Ubuntu</a>, <a href="https://blog.shichao.io/tags/auditd.html">auditd</a></span>
+        </div>
+        <div class="comments">
+            <a href="https://blog.shichao.io/2015/04/22/auditing_user_tty_and_root_commands_with_auditd_on_ubuntu.html#disqus_thread" data-disqus-identifier="2015/04/22/auditing_user_tty_and_root_commands_with_auditd_on_ubuntu">1 Comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 19, 2015</span>
+        </div>
+        <div class="section">
+            <h1><a href="https://blog.shichao.io/2015/04/19/setup_openldap_client_server_with_ssh_access_on_ubuntu.html">Setting up OpenLDAP client server with SSH access on Ubuntu 14.04</a></h1>
+<p>This post documents how to set up an OpenLDAP client server (Ubuntu 
+14.04) that can make its OpenSSH server to load authorized keys from a 
+pre-configured OpenLDAP server with <span class="docutils literal"><span class="pre">ldaps://</span></span> available (discussed in the <a class="reference internal" href="https://blog.shichao.io/2015/04/17/setup_openldap_server_with_openssh_lpk_on_ubuntu.html"><em>previous post</em></a>,
+ please read this first if you haven’t). Users are able to SSH access 
+this client server, while their SSH public keys are stored on the 
+OpenLDAP server. The SSH authentication process on the client server is 
+mainly facilitated by <a class="reference external" href="https://github.com/jirutka/ssh-ldap-pubkey">ssh-ldap-pubkey</a>.</p>
+<div class="section" id="script">
+<h2>Script</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://gist.github.com/shichao-an/9005314e10e9a8ffa865">setup-ldap-client.sh</a></li>
+</ul>
+</div>
+<div class="section" id="install-packages">
+<h2>Install packages</h2>
+<div class="highlight-python"><div class="highlight"><pre>apt-get -y install libpam-ldap nscd ldap-utils
+apt-get -y install python-pip python-ldap
+# https://github.com/jirutka/ssh-ldap-pubkey
+pip install ssh-ldap-pubkey
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-ssh-server">
+<h2>Configure SSH server</h2>
+<ul>
+<li><p class="first">Add the following lines to <span class="docutils literal"><span class="pre">/etc/ssh/sshd_config</span></span>:</p>
+<div class="highlight-python"><div class="highlight"><pre>AuthorizedKeysCommand /usr/local/bin/ssh-ldap-pubkey-wrapper
+AuthorizedKeysCommandUser nobody
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart SSH server</p>
+<div class="highlight-python"><div class="highlight"><pre>service ssh restart
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="configure-pam">
+<h2>Configure PAM</h2>
+<ul>
+<li><p class="first">Edit <span class="docutils literal"><span class="pre">/etc/ldap.conf</span></span>:</p>
+<div class="highlight-python"><div class="highlight"><pre>uri ldaps://ldap.example.com
+binddn cn=OpenLDAP Client,ou=users,dc=example,dc=com
+bindpw password
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit <span class="docutils literal"><span class="pre">/etc/pam.d/common-auth</span></span> and add the following line:</p>
+<div class="highlight-python"><div class="highlight"><pre>account required    pam_access.so
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit <span class="docutils literal"><span class="pre">/etc/pam.d/common-password</span></span> and remove <span class="docutils literal"><span class="pre">use_authtok</span></span>
+parameter</p>
+</li>
+<li><p class="first">Edit <span class="docutils literal"><span class="pre">/etc/pam.d/common-session</span></span> and add the following line:</p>
+<div class="highlight-python"><div class="highlight"><pre>session required    pam_mkhomedir.so skel=/etc/skel umask=0022
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="configure-nss-login-access-control-and-sudo">
+<h2>Configure NSS, login access control and sudo</h2>
+<ul>
+<li><p class="first">Edit <span class="docutils literal"><span class="pre">/etc/nsswitch.conf</span></span>:</p>
+<div class="highlight-python"><div class="highlight"><pre>passwd:         compat ldap
+group:          compat ldap
+shadow:         compat ldap
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit <span class="docutils literal"><span class="pre">/etc/security/access.conf</span></span>, replace <span class="docutils literal"><span class="pre">ldap-team</span></span> with actual
+group name:</p>
+<div class="highlight-python"><div class="highlight"><pre>- : ALL EXCEPT root (admin) (wheel) (ldap-team): ALL EXCEPT LOCAL
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit <span class="docutils literal"><span class="pre">/etc/sudoers</span></span> using <span class="docutils literal"><span class="pre">visudo</span></span> command and add the following
+lines. Replace <span class="docutils literal"><span class="pre">ldap-team</span></span> with actual group name:</p>
+<div class="highlight-python"><div class="highlight"><pre>%ldap-team ALL=(ALL) ALL
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart nscd</p>
+<div class="highlight-python"><div class="highlight"><pre>service nscd restart
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Shichao An</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="https://blog.shichao.io/tags/openldap.html">OpenLDAP</a>, <a href="https://blog.shichao.io/tags/ubuntu.html">Ubuntu</a>, <a href="https://blog.shichao.io/tags/ssh.html">SSH</a></span>
+        </div>
+        <div class="comments">
+            <a href="https://blog.shichao.io/2015/04/19/setup_openldap_client_server_with_ssh_access_on_ubuntu.html#disqus_thread" data-disqus-identifier="2015/04/19/setup_openldap_client_server_with_ssh_access_on_ubuntu">0 Comments</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 17, 2015</span>
+        </div>
+        <div class="section">
+            <h1><a href="https://blog.shichao.io/2015/04/17/setup_openldap_server_with_openssh_lpk_on_ubuntu.html">Setting up OpenLDAP server with OpenSSH-LPK on Ubuntu 14.04</a></h1>
+<p>This post documents how to set up a secure OpenLDAP server that is 
+able to make OpenLDAP client servers accept authorized SSH access 
+requests from users.
+The following steps assume the OpenLDAP server (slapd) and phpLDAPadmin 
+are installed as referenced in the <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-a-basic-ldap-server-on-an-ubuntu-12-04-vps">initial setup</a>.</p>
+<div class="section" id="instructions-and-references">
+<h2>Instructions and references</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-a-basic-ldap-server-on-an-ubuntu-12-04-vps">Initial setup</a></li>
+<li><a class="reference external" href="https://code.google.com/p/openssh-lpk/">OpenSSH-LPK</a> and <a class="reference external" href="https://github.com/jirutka/ssh-ldap-pubkey">ssh-ldap-pubkey</a> (on LDAP clients)</li>
+<li><a class="reference external" href="http://lucor.github.io/post/ubuntu-and-ldap-force-authentication-during-a-bind-request/">Force authentication</a></li>
+<li><a class="reference external" href="http://rogermoffatt.com/2011/08/24/ubuntu-openldap-with-ssltls/">Secure LDAP with SSL/TLS</a></li>
+</ul>
+</div>
+<div class="section" id="understanding-cn-config-ldap-database">
+<h2>Understanding cn=config (LDAP database)</h2>
+<p>The default installation of OpenLDAP in recent versions of Ubuntu uses the new <a class="reference external" href="https://help.ubuntu.com/community/OpenLDAPServer#Installation">runtime configuration (RTC)
+system</a> or olc (OpenLDAP Configuration). This installation uses <span class="docutils literal"><span class="pre">cn=config</span></span> (the LDAP database) for configuration rather than the old style <span class="docutils literal"><span class="pre">slapd.conf</span></span>.</p>
+</div>
+<div class="section" id="schemas">
+<h2>Schemas</h2>
+<p>The schemas can be imported dynamically into <span class="docutils literal"><span class="pre">cn=config</span></span> database, without restarting <span class="docutils literal"><span class="pre">slapd</span></span>. The schemas to be imported can placed in
+<span class="docutils literal"><span class="pre">/etc/ldap/schema</span></span>.</p>
+<p>The following schema in ldif format will be used and discussed in the subsequent sections:</p>
+<ul class="simple">
+<li><span class="docutils literal"><span class="pre">openssh-lpk.ldif</span></span></li>
+<li><span class="docutils literal"><span class="pre">ldap_disable_bind_anon.ldif</span></span></li>
+<li><span class="docutils literal"><span class="pre">ssl.ldif</span></span></li>
+</ul>
+</div>
+<div class="section" id="importing-openssh-lpk-scheme">
+<h2>Importing openssh-lpk scheme</h2>
+<div class="highlight-python"><div class="highlight"><pre>ldapadd -Y EXTERNAL -H ldapi:/// -f openssh-lpk.ldif
+</pre></div>
+</div>
+<p>where <span class="docutils literal"><span class="pre">openssh-lpk.ldif</span></span> is:</p>
+<div class="highlight-python"><div class="highlight"><pre>dn: cn=openssh-lpk,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: openssh-lpk
+olcAttributeTypes: ( 1.3.6.1.4.1.24552.500.1.1.1.13 NAME 'sshPublicKey'
+  DESC 'MANDATORY: OpenSSH Public key'
+  EQUALITY octetStringMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.40 )
+olcObjectClasses: ( 1.3.6.1.4.1.24552.500.1.1.2.0 NAME 'ldapPublicKey' SUP top AUXILIARY
+  DESC 'MANDATORY: OpenSSH LPK objectclass'
+  MAY ( sshPublicKey $ uid )
+  )
+</pre></div>
+</div>
+</div>
+<div class="section" id="forcing-authentication">
+<h2>Forcing authentication</h2>
+<p>By default, OpenLDAP allows anonymous query from any client servers. 
+You may want to enable authentication so that only authenticated clients
+ are able to query the server:</p>
+<div class="highlight-python"><div class="highlight"><pre>ldapadd -Y EXTERNAL -H ldapi:/// -f ldap_disable_bind_anon.ldif
+</pre></div>
+</div>
+<p>where <span class="docutils literal"><span class="pre">ldap_disable_bind_anon.ldif</span></span> is:</p>
+<div class="highlight-python"><div class="highlight"><pre>dn: cn=config
+changetype: modify
+add: olcDisallows
+olcDisallows: bind_anon
+
+dn: cn=config
+changetype: modify
+add: olcRequires
+olcRequires: authc
+
+dn: olcDatabase={-1}frontend,cn=config
+changetype: modify
+add: olcRequires
+olcRequires: authc
+</pre></div>
+</div>
+<p class="readmorewrapper"><a class="readmore" href="https://blog.shichao.io/2015/04/17/setup_openldap_server_with_openssh_lpk_on_ubuntu.html#more">Read more...</a></p></div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Shichao An</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="https://blog.shichao.io/tags/openldap.html">OpenLDAP</a>, <a href="https://blog.shichao.io/tags/ubuntu.html">Ubuntu</a>, <a href="https://blog.shichao.io/tags/ssh.html">SSH</a></span>
+        </div>
+        <div class="comments">
+            <a href="https://blog.shichao.io/2015/04/17/setup_openldap_server_with_openssh_lpk_on_ubuntu.html#disqus_thread" data-disqus-identifier="2015/04/17/setup_openldap_server_with_openssh_lpk_on_ubuntu">4 Comments</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>January 06, 2015</span>
+        </div>
+        <div class="section">
+            <h1><a href="https://blog.shichao.io/2015/01/06/tunneling_rdp_over_ssh_with_xrdp_and_xfreerdp.html">Tunneling RDP over SSH with xrdp and xfreerdp</a></h1>
+<p>Suppose you have a remote desktop but you only have SSH access and 
+you need to connect to that desktop with GUI. For example, you have a 
+server at home and you’ve setup port forwarding on your router so that 
+you can SSH to your that home server from office or school, and you 
+don’t want to expose too many ports to the Internet. You can setup xrdp 
+server and tunnel your connection over SSH.</p>
+<p>In the following texts, the home server is Fedora 20 and the client laptop is OS X Yosemite.</p>
+<div class="section" id="install-xrdp-on-home-server">
+<h2>Install xrdp on home server</h2>
+<p>On your home server, run:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go"># yum install xrdp</span>
+<span class="go"># systemctl start xrdp.service</span>
+<span class="go"># systemctl enable xrdp.service</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-firewall">
+<h2>Configure firewall</h2>
+<p>Add SSH service and open port 3389 to the current zone and make it 
+permanent. By opening port 3389, you can connect directly to the home 
+server without SSH when your laptop is in the same network at home.</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go"># firewall-cmd --add-service=ssh --permanent</span>
+<span class="go"># firewall-cmd --add-port=3389/tcp --permanent</span>
+<span class="go"># firewall-cmd --reload</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-xfreerdp-using-homebrew">
+<h2>Install xfreerdp using homebrew</h2>
+<p>Make sure you’ve installed XQuartz. You can download the dmg at <a class="reference external" href="http://xquartz.macosforge.org/landing/">http://xquartz.macosforge.org/landing/</a> .</p>
+<p>On your OS X laptop:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ brew update</span>
+<span class="go">$ brew install freerdp</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-ssh-forwarding">
+<h2>Start SSH forwarding</h2>
+<p>After you make sure you can SSH to your home server (say 1.1.1.1), 
+you can start SSH forwarding. Run the following command in one terminal 
+session:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ ssh -qnN -L 3389:127.0.0.1:3389 1.1.1.1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connect-to-home-server-using-xfreerdp">
+<h2>Connect to home server using xfreerdp</h2>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ xfreerdp localhost</span>
+</pre></div>
+</div>
+<p>Then, you should have a X11 window show up as in the screenshot 
+below. Enter your username and password to login to your home server.</p>
+<p><a class="reference internal" href="https://blog.shichao.io/_images/xquartz-freerdp.png"><img alt="s1" src="2%28a%29.non-interactive_files/xquartz-freerdp.png" style="width: 450px;"></a></p>
+</div>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Shichao An</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="https://blog.shichao.io/tags/fedora.html">Fedora</a>, <a href="https://blog.shichao.io/tags/rdp.html">RDP</a>, <a href="https://blog.shichao.io/tags/os_x.html">OS X</a>, <a href="https://blog.shichao.io/tags/linux.html">Linux</a>, <a href="https://blog.shichao.io/tags/ssh.html">SSH</a>, <a href="https://blog.shichao.io/tags/tunneling.html">Tunneling</a></span>
+        </div>
+        <div class="comments">
+            <a href="https://blog.shichao.io/2015/01/06/tunneling_rdp_over_ssh_with_xrdp_and_xfreerdp.html#disqus_thread" data-disqus-identifier="2015/01/06/tunneling_rdp_over_ssh_with_xrdp_and_xfreerdp">0 Comments</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>December 22, 2014</span>
+        </div>
+        <div class="section">
+            <h1><a href="https://blog.shichao.io/2014/12/22/rabbitmq_clustering_and_high_availability_on_ubuntu_ec2_servers.html">RabbitMQ clustering and high availability on Ubuntu EC2 servers</a></h1>
+<div class="section" id="sample">
+<h2>Sample</h2>
+<p>The following setup and configurations were performed on the production servers listed below:</p>
+<ul class="simple">
+<li>mq-node1.example.com</li>
+<li>mq-node2.example.com</li>
+<li>mq-node3.example.com</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go"># apt-get install rabbitmq-server</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hostname-and-etc-hosts">
+<h2>Hostname and /etc/hosts</h2>
+<p>On each server, the first priority of setup is hostname and <span class="docutils literal"><span class="pre">/etc/hosts</span></span> for internal IP addresses, which are used by RabbitMQ (Erlang) nodes. Use this script (<a class="reference external" href="https://gist.github.com/shichao-an/7c43e22c21c666f384ef">set-hostname.sh</a>) to set the hostname for the corresponding server with the command:</p>
+<div class="highlight-text"><div class="highlight"><pre># ./set-hostname.sh -s mq-nodeN.example.com
+</pre></div>
+</div>
+<p>Then, modify <span class="docutils literal"><span class="pre">/etc/hosts</span></span> so that it looks like this (e.g. on mq-node1.example.com):</p>
+<div class="highlight-text"><div class="highlight"><pre>127.0.1.1 mq-node1.example.com mq-node1
+10.0.1.101 mq-node2
+10.0.1.102 mq-node3
+</pre></div>
+</div>
+</div>
+<div class="section" id="ports">
+<h2>Ports</h2>
+<p>Make sure port 5672 (AMQP) and 45000 (we’ll use this later) are open on each server.</p>
+</div>
+<div class="section" id="config-files">
+<h2>Config files</h2>
+<p>On each server, do the following:</p>
+<p>Edit <span class="docutils literal"><span class="pre">/etc/rabbitmq/rabbitmq-env.conf</span></span> and add the following (port configuration):</p>
+<div class="highlight-text"><div class="highlight"><pre>SERVER_START_ARGS="-kernel inet_dist_listen_min 45000 -kernel inet_dist_listen_max 45000"
+</pre></div>
+</div>
+<p>Edit <span class="docutils literal"><span class="pre">/etc/rabbitmq/rabbitmq.config</span></span> and add the following (clustering configuration):</p>
+<div class="highlight-text"><div class="highlight"><pre>[{rabbit,
+[{cluster_nodes, {['rabbit@mq-node1', 'rabbit@mq-node2', 'rabbit@mq-node3'], disc}}]}].
+</pre></div>
+</div>
+<p>Edit <span class="docutils literal"><span class="pre">/var/lib/rabbitmq/.erlang.cookie</span></span> and make sure they are the same on each server.</p>
+</div>
+<div class="section" id="reset-and-start-nodes">
+<h2>Reset and start nodes</h2>
+<p>The RabbitMQ nodes may be already in running state. To put new configuration in effect, we have to reset and restart:
+First, we reset and stop each node:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go"># rabbitmqctl stop_app; rabbitmqctl reset;  rabbitmqctl stop</span>
+</pre></div>
+</div>
+<p>Then, start each node in turn. Remember, do this IN TURN, not simultaneously:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go"># service rabbitmq start</span>
+</pre></div>
+</div>
+<p class="readmorewrapper"><a class="readmore" href="https://blog.shichao.io/2014/12/22/rabbitmq_clustering_and_high_availability_on_ubuntu_ec2_servers.html#more">Read more...</a></p></div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Shichao An</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="https://blog.shichao.io/tags/aws.html">AWS</a>, <a href="https://blog.shichao.io/tags/ubuntu.html">Ubuntu</a>, <a href="https://blog.shichao.io/tags/rabbitmq.html">RabbitMQ</a></span>
+        </div>
+        <div class="comments">
+            <a href="https://blog.shichao.io/2014/12/22/rabbitmq_clustering_and_high_availability_on_ubuntu_ec2_servers.html#disqus_thread" data-disqus-identifier="2014/12/22/rabbitmq_clustering_and_high_availability_on_ubuntu_ec2_servers">0 Comments</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>December 18, 2014</span>
+        </div>
+        <div class="section">
+            <h1><a href="https://blog.shichao.io/2014/12/18/serving_local_filesystem_using_nginx_on_os_x.html">Serving local filesystem using nginx on OS X</a></h1>
+<p>Sometimes you may want to access certain files on one computer from 
+other LAN clients using web browsers, for example, a directory of PDF 
+files, or some MP4/MOV videos that can be easily streamed through <a class="reference external" href="http://www.w3schools.com/html/html5_video.asp">HTML5 Video</a>.</p>
+<p>To make things easy, we can set up an nginx server with <a class="reference external" href="https://github.com/aperezdc/ngx-fancyindex">Nginx Fancy Index module</a> to serve certain directories on one or more filesystems on your OS X system.</p>
+<p>We can install all required software using homebrew and we need to do
+ some hacks on the forumla. The following setup were tested on OS X 
+10.10.</p>
+<p>First, tap <a class="reference external" href="https://github.com/Homebrew/homebrew-nginx">homebrew-nginx</a>:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ brew tap homebrew/nginx</span>
+</pre></div>
+</div>
+<p>As of writing, the version of fancyindex-nginx-module provided by this formula is 0.3.2, but we need 0.3.3 which <a class="reference external" href="http://wiki.nginx.org/NgxFancyIndex">allows sorting elements by name (default), modification time</a>. So we need to edit the formula file:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ brew edit fancyindex-nginx-module</span>
+</pre></div>
+</div>
+<p>Or, use a text editor to open the formula file:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ vim /usr/local/Library/Taps/homebrew/homebrew-nginx/Formula/fancyindex-nginx-module.rb</span>
+</pre></div>
+</div>
+<p>and change <span class="docutils literal"><span class="pre">https://github.com/aperezdc/ngx-fancyindex/archive/v0.3.2.tar.gz</span></span> into <span class="docutils literal"><span class="pre">https://github.com/aperezdc/ngx-fancyindex/archive/v0.3.3.tar.gz</span></span>.</p>
+<p>Then, install nginx by building with the Fancy Index Module:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ brew install nginx-full --with-fancyindex-module</span>
+</pre></div>
+</div>
+<p>If brew complains about SHA1 error, then you have to modify the <span class="docutils literal"><span class="pre">sha1</span></span> value of the previous fomula to match the actual sha1 in the error output.</p>
+<p>Download <a class="reference external" href="https://github.com/TheInsomniac/Nginx-Fancyindex-Theme">FancyIndex Theme</a> to <span class="docutils literal"><span class="pre">/usr/local/etc/nginx/fancyindex</span></span>:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ git clone https://github.com/TheInsomniac/Nginx-Fancyindex-Theme.git /usr/local/etc/nginx/fancyindex</span>
+</pre></div>
+</div>
+<p>All that remains to be done is configuration. Assume you want to serve <span class="docutils literal"><span class="pre">/path/to/movies</span></span> and <span class="docutils literal"><span class="pre">/another/path/to/pdf</span></span> directories, you can use alias <span class="docutils literal"><span class="pre">movies</span></span> and <span class="docutils literal"><span class="pre">pdf</span></span> to point to these locations. Edit <span class="docutils literal"><span class="pre">/usr/local/etc/nginx/nginx.conf</span></span> and modify the <span class="docutils literal"><span class="pre">server</span></span> block under <span class="docutils literal"><span class="pre">http</span></span> block:</p>
+<div class="highlight-nginx"><div class="highlight"><pre><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="mi">8080</span><span class="p">;</span>
+    <span class="kn">server_name</span>  <span class="s">localhost</span><span class="p">;</span>
+
+    <span class="kn">fancyindex</span> <span class="no">on</span><span class="p">;</span>
+    <span class="kn">fancyindex_exact_size</span> <span class="no">off</span><span class="p">;</span>
+    <span class="kn">fancyindex_localtime</span> <span class="no">on</span><span class="p">;</span>
+    <span class="kn">fancyindex_header</span> <span class="s">"/fancyindex/header.html"</span><span class="p">;</span>
+    <span class="kn">fancyindex_footer</span> <span class="s">"/fancyindex/footer.html"</span><span class="p">;</span>
+    <span class="kn">fancyindex_ignore</span> <span class="s">"fancyindex"</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="s">/movies</span> <span class="p">{</span>
+        <span class="kn">alias</span> <span class="s">/path/to/movies/</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="s">/pdf</span> <span class="p">{</span>
+        <span class="kn">alias</span> <span class="s">/another/path/to/pdf/</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="s">/fancyindex/</span> <span class="p">{</span>
+        <span class="kn">alias</span> <span class="s">/usr/local/etc/nginx/fancyindex/</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The config above is just a minimum configuration. You may add extra configurations (e.g. <span class="docutils literal"><span class="pre">error_log</span></span>, <span class="docutils literal"><span class="pre">error_page</span></span>) according to your need. Note the paths for the <span class="docutils literal"><span class="pre">alias</span></span> directives, there must be trailing slashes, such as <span class="docutils literal"><span class="pre">alias</span> <span class="pre">/path/to/movies/</span></span>.</p>
+<p>Start nginx:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ nginx</span>
+</pre></div>
+</div>
+<p>If you make any changes to the <span class="docutils literal"><span class="pre">nginx.conf</span></span>, remember to reload:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ nginx -s reload</span>
+</pre></div>
+</div>
+<p>You can check whether the port 8080 is in the LISTEN state:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ sudo netstat -anf inet -p tcp | grep LISTEN</span>
+</pre></div>
+</div>
+<p>Finally, if you want to keep your firewall on and nginx trusted, run the following command:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">$ brew install coreutils  # for greadlink command</span>
+<span class="go">$ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add $(greadlink -f /usr/local/bin/nginx)</span>
+</pre></div>
+</div>
+<p>You can test from local <a class="reference external" href="http://127.0.0.1:8080/movies">http://127.0.0.1:8080/movies</a> as well as <a class="reference external" href="http://youripaddress:8080/movies">http://youripaddress:8080/movies</a> and <a class="reference external" href="http://youripaddress:8080/pdf">http://youripaddress:8080/pdf</a> from a browser on your LAN clients.</p>
+<p><a class="reference internal" href="https://blog.shichao.io/_images/nginx-fancyindex.png"><img alt="s1" src="2%28a%29.non-interactive_files/nginx-fancyindex.png" style="width: 450px;"></a></p>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Shichao An</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="https://blog.shichao.io/tags/nginx.html">Nginx</a>, <a href="https://blog.shichao.io/tags/os_x.html">OS X</a></span>
+        </div>
+        <div class="comments">
+            <a href="https://blog.shichao.io/2014/12/18/serving_local_filesystem_using_nginx_on_os_x.html#disqus_thread" data-disqus-identifier="2014/12/18/serving_local_filesystem_using_nginx_on_os_x">1 Comment</a>
+        </div></div><div class="archive_link">
+        <a href="https://blog.shichao.io/archive.html"> — Blog Archive — </a>
+    </div><ul class="related clearfix">
+            <li class="left"></li>
+            <li class="right"><a href="https://blog.shichao.io/page2.html">Older</a> » </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="https://blog.shichao.io/2016/10/03/circumventing_internet_censorship_in_china.html">Circumventing Internet Censorship in China</a>
+        </li><li>
+            <a href="https://blog.shichao.io/2015/12/13/personal_hotspot_backup_plan.html">Personal Hotspot Backup Plan</a>
+        </li><li>
+            <a href="https://blog.shichao.io/2015/07/22/relationships_among_nice_priority_and_weight_in_linux_kernel.html">Relationships among nice, priority and weight in Linux kernel</a>
+        </li><li>
+            <a href="https://blog.shichao.io/2015/05/21/setup_nss_ldapd_on_ubuntu_14_04.html">Setting up nss-ldapd on Ubuntu 14.04</a>
+        </li><li>
+            <a href="https://blog.shichao.io/2015/04/22/auditing_user_tty_and_root_commands_with_auditd_on_ubuntu.html">Auditing user TTY and root commands with auditd on Ubuntu</a>
+        </li><li>
+            <a href="https://blog.shichao.io/2015/04/19/setup_openldap_client_server_with_ssh_access_on_ubuntu.html">Setting up OpenLDAP client server with SSH access on Ubuntu 14.04</a>
+        </li><li>
+            <a href="https://blog.shichao.io/2015/04/17/setup_openldap_server_with_openssh_lpk_on_ubuntu.html">Setting up OpenLDAP server with OpenSSH-LPK on Ubuntu 14.04</a>
+        </li><li>
+            <a href="https://blog.shichao.io/2015/01/06/tunneling_rdp_over_ssh_with_xrdp_and_xfreerdp.html">Tunneling RDP over SSH with xrdp and xfreerdp</a>
+        </li><li>
+            <a href="https://blog.shichao.io/2014/12/22/rabbitmq_clustering_and_high_availability_on_ubuntu_ec2_servers.html">RabbitMQ clustering and high availability on Ubuntu EC2 servers</a>
+        </li><li>
+            <a href="https://blog.shichao.io/2014/12/18/serving_local_filesystem_using_nginx_on_os_x.html">Serving local filesystem using nginx on OS X</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox" role="search">
+    <h1><a href="#searchbox">Search</a></h1>
+    <form action="search.html" method="get">
+        <input name="q" type="text">
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="https://blog.shichao.io/tags/apache.html" style="font-size: 8pt">Apache</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/auditd.html" style="font-size: 8pt">auditd</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/aws.html" style="font-size: 9pt">AWS</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/bash.html" style="font-size: 12pt">Bash</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/bsd.html" style="font-size: 9pt">BSD</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/c.html" style="font-size: 8pt">C</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/centos.html" style="font-size: 9pt">CentOS</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/computer_science.html" style="font-size: 8pt">Computer Science</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/dns.html" style="font-size: 9pt">DNS</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/eclipse.html" style="font-size: 9pt">Eclipse</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/emacs.html" style="font-size: 8pt">Emacs</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/fedora.html" style="font-size: 11pt">Fedora</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/gdb.html" style="font-size: 8pt">GDB</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/hacking.html" style="font-size: 8pt">Hacking</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/ios.html" style="font-size: 8pt">iOS</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/iptables.html" style="font-size: 8pt">iptables</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/java.html" style="font-size: 8pt">Java</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/linux.html" style="font-size: 20pt">Linux</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/mongodb.html" style="font-size: 8pt">MongoDB</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/network.html" style="font-size: 13pt">Network</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/nginx.html" style="font-size: 8pt">Nginx</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/ocaml.html" style="font-size: 8pt">OCaml</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/openldap.html" style="font-size: 10pt">OpenLDAP</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/os_x.html" style="font-size: 18pt">OS X</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/perl.html" style="font-size: 10pt">Perl</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/php.html" style="font-size: 8pt">PHP</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/python.html" style="font-size: 15pt">Python</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/rabbitmq.html" style="font-size: 8pt">RabbitMQ</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/rdp.html" style="font-size: 8pt">RDP</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/sml.html" style="font-size: 8pt">SML</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/sphinx.html" style="font-size: 8pt">Sphinx</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/ssh.html" style="font-size: 10pt">SSH</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/tunneling.html" style="font-size: 8pt">Tunneling</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/ubuntu.html" style="font-size: 17pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/unix.html" style="font-size: 8pt">Unix</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/vim.html" style="font-size: 8pt">Vim</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/vpn.html" style="font-size: 8pt">VPN</a>&nbsp;&nbsp;
+      <a href="https://blog.shichao.io/tags/windows.html" style="font-size: 9pt">Windows</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">© Copyright 2015, Shichao An. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><script type="text/javascript">    var disqus_shortname = "shichaosblog";    disqus_count();</script><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    
+</body></html>
