@@ -266,13 +266,14 @@ fi
 
 echo "starting slapd"
 
-/etc/init.d/slapd restart
+slapd
 a2ensite ldap.conf
 a2ensite ldap-second.conf
 a2dissite 000-default.conf
 a2enmod rewrite
 a2enmod ssl
 service apache2 restart
+slapd
 
 echo "done.....!"
 tailf /root/start.sh
