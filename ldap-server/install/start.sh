@@ -191,7 +191,9 @@ cat <<EOF >> /etc/phpldapadmin/config.php
 ?>
 EOF
 
+if [ ! -e /etc/phpldapadmin/apache.conf-org ]; then
 cp -r /etc/phpldapadmin/apache.conf /etc/phpldapadmin/apache.conf-org
+fi
 sed -i "s|Alias /phpldapadmin /usr/share/phpldapadmin/htdocs|Alias /$ALIAS /usr/share/phpldapadmin/htdocs|g" /etc/phpldapadmin/apache.conf
 
      if [[ $SSL_CONFIG == "y" || $SSL_CONFIG == "Y" ]]
@@ -244,8 +246,10 @@ echo ""
      else
 
 rm -rf /etc/apache2/sites-available/ldap.conf
-cp -r /etc/phpldapadmin/apache.conf /etc/apache2/sites-available/ldap.conf
-cat <<EOF >> /etc/apache2/sites-available/ldap.conf
+#cp -r /etc/phpldapadmin/apache.conf /etc/apache2/sites-available/ldap.conf
+#rm -rf /etc/phpldapadmin/apache.conf
+#sed -i "s|Alias /phpldapadmin /usr/share/phpldapadmin/htdocs|Alias /$ALIAS /usr/share/phpldapadmin/htdocs|g" /etc/apache2/sites-available/ldap.conf
+cat <<EOF >> /etc/phpldapadmin/apache.conf
 
 <Location /$ALIAS >
     AuthType Basic
@@ -264,10 +268,14 @@ else
 echo "found already-configured slapd"
 fi
 
-echo "starting slapd"
 
+echo "starting slapd"
 slapd
+if [ ! -e /etc/apache2/sites-available/ldap.conf ]; then
+echo ""
+else
 a2ensite ldap.conf
+fi
 a2ensite ldap-second.conf
 a2dissite 000-default.conf
 a2enmod rewrite

@@ -5,4 +5,4 @@ LDAP_DOMAIN=akhil.system.local.in
 LDAP_ORGANISATION=infra
 HTPASSWORD=admin
 ALIAS=myldap
-SSL_CONFIG=N
+SSL_CONFIG=n
