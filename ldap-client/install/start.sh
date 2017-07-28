@@ -69,7 +69,7 @@ EOF
 
 ## This will create a home directory on the client machine when an LDAP user logs in who does not have a home directory.
 echo "session required    pam_mkhomedir.so skel=/etc/skel umask=0022" >> /etc/pam.d/common-session
-
+sed -i "s|use_authtok||g" /etc/pam.d/common-password
  else
 
 ## interactive configuration for ldap-client
