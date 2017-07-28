@@ -40,6 +40,7 @@ fi
 if [ ! -e /etc/pam.d/common-session-org ]; then
 cp /etc/pam.d/common-session /etc/pam.d/common-session-org
 echo "session required    pam_mkhomedir.so skel=/etc/skel umask=0022" >> /etc/pam.d/common-session
+sed -i "s|use_authtok||g" /etc/pam.d/common-password
 fi
 
 
