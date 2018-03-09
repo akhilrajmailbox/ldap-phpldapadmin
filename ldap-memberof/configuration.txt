@@ -108,11 +108,11 @@ member: cn=John Doe,ou=people,dc=example,dc=com
 
 
 
-ldapadd -x -h localhost -p 389 -D cn=admin,dc=ldap,dc=vivasa,dc=in -W -f add_user.ldif 
-ldapadd -x -h localhost -p 389 -D cn=admin,dc=ldap,dc=vivasa,dc=in -W -f group.ldif
+ldapadd -x -h localhost -p 389 -D cn=admin,dc=example,dc=com -W -f add_user.ldif 
+ldapadd -x -h localhost -p 389 -D cn=admin,dc=example,dc=com -W -f group.ldif
 
 
-ldapsearch -x -b 'cn=John Doe,ou=mf4,dc=ldap,dc=vivasa,dc=in' dn memberof
+ldapsearch -x -b 'cn=John Doe,ou=people,dc=example,dc=com' dn memberof
 
 
 
