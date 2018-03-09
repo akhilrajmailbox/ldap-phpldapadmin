@@ -1,0 +1,97 @@
+@media screen and (min-width: 1024px) {
+    #intro {
+        background-color: #ebebeb;
+        margin: inherit;
+        max-width: none;
+        max-height: 50em;
+        margin-top: 3em;
+        margin-bottom: 3em;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #intro h3 {
+        font-family: Open Sans, sans-serif;
+        font-size: 1.4em;
+        font-weight: 600;
+        box-sizing: border-box;
+        padding-bottom: 0.5em;
+        display: block;
+        text-transform: uppercase
+    }
+    #intro h3:after {
+        content: '';
+        display: block;
+        position: relative;
+        top: 5px;
+        width: 60%;
+        height: 2px;
+        background-color: #97c469
+    }
+    #intro p {
+        box-sizing: border-box;
+        padding-left: 0.5em;
+        font-size: 15px;
+        line-height: 20px
+    }
+    #intro .sustainable {
+        margin: auto;
+        width: 200px;
+        height: 200px;
+        background-color: #97c469;
+        padding: 0;
+    }
+    #intro .sustainable h1:before {
+        content: '> ';
+        display: inline-block
+    }
+    #intro .sustainable h1 {
+        width: 100%;
+        font-family: Dosis, sans-serif;
+        padding-left: 0.5em;
+        line-height: 25px;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        color: #fff;
+        text-align: left;
+        font-weight: 600;
+        display: inline-block
+    }
+    .sustainable, .complex, .optimal, .tools {
+        box-sizing: border-box;
+        display: block;
+        background-color: #fff;
+        width: 400px;
+        height: 250px;
+        vertical-align: top;
+    }
+    .tools:after {
+        content: '';
+        display: block;
+        width: 150px;
+        height: 150px;
+        background: url(../img/python_logo.svg) 50% no-repeat;
+        position: relative;
+        right: -22em;
+        top: -2.5em;
+    }
+    .sustainable {
+        -webkit-transform: translate(170%, 10%);
+        transform: translate(170%, 10%);
+        position: absolute;
+    }
+    .tools{
+        -webkit-transform: translate(150%, -90%);
+        transform: translate(150%, -90%);
+    }
+    .optimal{
+        -webkit-transform: translate(20%, -40%);
+        transform: translate(20%, -40%);
+    }
+    .complex {
+        background: url(../img/map.svg) 160% 50% no-repeat;
+        background-color: #fff;
+        left: 120%;
+        -webkit-transform: translate(160%, 0%);
+        transform: translate(160%, 0%);
+    }
+}

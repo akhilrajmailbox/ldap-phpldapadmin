@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#" class="js" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="shortlink" href="https://www.brianshowalter.com/node/7">
+<link rel="shortcut icon" href="https://www.brianshowalter.com/misc/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="Generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="https://www.brianshowalter.com/blog/installing-configuring-openldap">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="MobileOptimized" content="width">
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Installing &amp; Configuring OpenLDAP | Brian Showalter</title>
+<style>
+@import url("https://www.brianshowalter.com/modules/system/system.base.css?o15ndh");
+@import url("https://www.brianshowalter.com/modules/system/system.menus.css?o15ndh");
+@import url("https://www.brianshowalter.com/modules/system/system.messages.css?o15ndh");
+@import url("https://www.brianshowalter.com/modules/system/system.theme.css?o15ndh");
+</style>
+<style>
+@import url("https://www.brianshowalter.com/modules/comment/comment.css?o15ndh");
+@import url("https://www.brianshowalter.com/modules/field/theme/field.css?o15ndh");
+@import url("https://www.brianshowalter.com/modules/node/node.css?o15ndh");
+@import url("https://www.brianshowalter.com/modules/search/search.css?o15ndh");
+@import url("https://www.brianshowalter.com/modules/user/user.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/modules/views/css/views.css?o15ndh");
+</style>
+<style>
+@import url("https://www.brianshowalter.com/sites/all/modules/ctools/css/ctools.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/default/files/geshi/geshifilter-languages.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/modules/geshifilter/geshifilter.css?o15ndh");
+</style>
+<style media="screen">
+@import url("https://www.brianshowalter.com/sites/all/themes/adaptivetheme/at_core/css/at.settings.style.headings.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/adaptivetheme/at_core/css/at.settings.style.image.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/adaptivetheme/at_core/css/at.layout.css?o15ndh");
+</style>
+<style>
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/html-elements.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/forms.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/tables.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/page.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/articles.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/comments.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/fields.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/blocks.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/navigation.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/corolla.settings.style.css?o15ndh");
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/color/colors.css?o15ndh");
+</style>
+<style media="print">
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/print.css?o15ndh");
+</style>
+<link rel="stylesheet" href="4.reference-1_files/corolla.css" media="only screen">
+<style media="screen">
+@import url("https://www.brianshowalter.com/sites/default/files/adaptivetheme/corolla_files/corolla.fonts.css?o15ndh");
+</style>
+<link rel="stylesheet" href="4.reference-1_files/responsive_003.css" media="only screen and (max-width:320px)">
+<link rel="stylesheet" href="4.reference-1_files/responsive_002.css" media="only screen and (min-width:321px) and (max-width:480px)">
+<link rel="stylesheet" href="4.reference-1_files/responsive_005.css" media="only screen and (min-width:481px) and (max-width:768px)">
+<link rel="stylesheet" href="4.reference-1_files/responsive.css" media="only screen and (min-width:769px) and (max-width:1024px)">
+<link rel="stylesheet" href="4.reference-1_files/responsive_004.css" media="only screen and (min-width:1025px)">
+
+<!--[if lt IE 9]>
+<style media="screen">
+@import url("https://www.brianshowalter.com/sites/default/files/adaptivetheme/corolla_files/corolla.lt-ie9.layout.css?o15ndh");
+</style>
+<![endif]-->
+
+<!--[if lte IE 9]>
+<style media="screen">
+@import url("https://www.brianshowalter.com/sites/all/themes/corolla/css/ie-lte-9.css?o15ndh");
+</style>
+<![endif]-->
+<script async="" src="4.reference-1_files/analytics.js"></script><script src="4.reference-1_files/jquery.js"></script>
+<script src="4.reference-1_files/jquery_002.js"></script>
+<script src="4.reference-1_files/drupal.js"></script>
+<script src="4.reference-1_files/googleanalytics.js"></script>
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-18714695-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"corolla","theme_token":"YIcpcvuwmtm2egv1JfNLJx6VNMSpk3oU4yaxEgzDmVk","js":{"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.headings.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.image.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/corolla\/css\/html-elements.css":1,"sites\/all\/themes\/corolla\/css\/forms.css":1,"sites\/all\/themes\/corolla\/css\/tables.css":1,"sites\/all\/themes\/corolla\/css\/page.css":1,"sites\/all\/themes\/corolla\/css\/articles.css":1,"sites\/all\/themes\/corolla\/css\/comments.css":1,"sites\/all\/themes\/corolla\/css\/fields.css":1,"sites\/all\/themes\/corolla\/css\/blocks.css":1,"sites\/all\/themes\/corolla\/css\/navigation.css":1,"sites\/all\/themes\/corolla\/css\/fonts.css":1,"sites\/all\/themes\/corolla\/css\/corolla.settings.style.css":1,"sites\/all\/themes\/corolla\/color\/colors.css":1,"sites\/all\/themes\/corolla\/css\/print.css":1,"public:\/\/adaptivetheme\/corolla_files\/corolla.responsive.layout.css":1,"public:\/\/adaptivetheme\/corolla_files\/corolla.fonts.css":1,"sites\/all\/themes\/corolla\/css\/responsive.smartphone.portrait.css":1,"sites\/all\/themes\/corolla\/css\/responsive.smartphone.landscape.css":1,"sites\/all\/themes\/corolla\/css\/responsive.tablet.portrait.css":1,"sites\/all\/themes\/corolla\/css\/responsive.tablet.landscape.css":1,"sites\/all\/themes\/corolla\/css\/responsive.desktop.css":1,"public:\/\/adaptivetheme\/corolla_files\/corolla.lt-ie9.layout.css":1,"sites\/all\/themes\/corolla\/css\/ie-lte-9.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/search\/node":true},"adaptivetheme":{"corolla":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert"},"media_query_settings":{"bigscreen":"only screen and (min-width:1025px)","tablet_landscape":"only screen and (min-width:769px) and (max-width:1024px)","tablet_portrait":"only screen and (min-width:481px) and (max-width:768px)"}}}});</script>
+<!--[if lt IE 9]>
+<script src="https://www.brianshowalter.com/sites/all/themes/adaptivetheme/at_core/scripts/html5.js?o15ndh"></script>
+<![endif]-->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-7 node-type-blog atr-7.x-3.x atv-7.x-3.0 site-name-brian-showalter section-blog corolla bs-n bb-n mb-dd rc-6 rct-6">
+  <div id="skip-link" class="nocontent">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper">
+  <div id="page" class="page snc-n snw-n sna-l sns-n ssc-n ssw-n ssa-l sss-n btc-n btw-b bta-l bts-n ntc-n ntw-b nta-l nts-n ctc-n ctw-b cta-l cts-n ptc-n ptw-b pta-l pts-n">
+
+    
+    <div id="header-wrapper">
+      <div class="container clearfix">
+
+        <header class="clearfix with-logo" role="banner">
+
+                      <div id="branding" class="branding-elements clearfix">
+
+                              <div id="logo">
+                  <a href="https://www.brianshowalter.com/"><img class="site-logo" typeof="foaf:Image" src="4.reference-1_files/logo.png" alt="Brian Showalter"></a>                </div>
+              
+                              <div class="h-group" id="name-and-slogan">
+
+                                      <h1 id="site-name"><a href="https://www.brianshowalter.com/" title="Home page">Brian Showalter</a></h1>
+                  
+                  
+                </div>
+              
+            </div>
+          
+          
+        </header>
+
+      </div>
+    </div>
+
+    
+    
+    
+    <div id="content-wrapper">
+      <div class="container">
+
+        <div id="columns">
+          <div class="columns-inner clearfix">
+
+            <div id="content-column">
+              <div class="content-inner">
+
+                
+                <section id="main-content" role="main">
+
+                  
+                  <div class="content-margin">
+                    <div class="content-style">
+
+                      
+                      <div id="breadcrumb" class="clearfix"><nav class="breadcrumb-wrapper clearfix" role="navigation" aria-labelledby="breadcrumb-label"><h2 id="breadcrumb-label" class="element-invisible">You are here</h2><ol id="crumbs" class="clearfix"><li class="crumb crumb-first"><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.brianshowalter.com/blog">Blogs</a></span></li><li class="crumb crumb-last"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.brianshowalter.com/blogs/brians">brians's blog</a></span></li></ol></nav></div>
+                      
+                                              <header class="clearfix">
+                          <h1 id="page-title">
+                            Installing &amp; Configuring OpenLDAP                          </h1>
+                        </header>
+                      
+                      
+                      
+                      <div id="content">
+                        <div class="region region-content"><div id="block-system-main" class="block block-system no-title odd first last block-count-1 block-region-content block-main">  
+  
+  <article id="node-7" class="node node-blog node-promoted article odd node-full ia-n clearfix" about="/blog/installing-configuring-openldap" typeof="sioc:Post sioct:BlogPost" role="article">
+  <div class="node-inner">
+
+    
+              <header class="node-header">
+
+        
+                  <p class="submitted"><span property="dc:date dc:created" content="2013-08-12T22:11:08-05:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/users/brians" typeof="sioc:UserAccount" property="foaf:name" datatype="">brians</span> on <time datetime="2013-08-12T22:11:08-0500" pubdate="pubdate">Mon, 08/12/2013 - 22:11</time></span></p>
+        
+      </header>
+        <span property="dc:title" content="Installing &amp; Configuring OpenLDAP" class="rdf-meta element-hidden"></span>
+    <div class="node-content">
+        <div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>This
+ procedure is targeted at the Ubuntu 12.04 LTS (Precise Pangolin) 
+distribution. It also explains how to set up the on-line configuration 
+(OLC) directory information tree (DIT) for dynamic configuration without
+ needing to restart or reload the server software.</p>
+
+<ul>
+<li>Install OpenLDAP and the LDAP tools packages. You will be asked to 
+provide a base DN for the new installation, as well as an administrative
+ password.
+<div class="geshifilter"><pre class="bash geshifilter-bash"><span class="kw2">apt-get install</span> slapd ldap-utils</pre></div>
+</li>
+
+<li>Edit /etc/default/slapd and change the SLAPD_SERVICES line to match the following:
+<div class="geshifilter"><pre class="text geshifilter-text">SLAPD_SERVICES="ldap:/// ldaps:/// ldapi:///"</pre></div>
+</li>
+
+<li>Restart the LDAP server.
+<div class="geshifilter"><pre class="text geshifilter-text">service slapd restart</pre></div>
+
+</li><li>Create an LDIF file to activate the memberOf overlay. This 
+overlay enables clients to determine which groups a given directory 
+entry is a member of without having to perform an additional search, 
+which is useful in situations such as granting access rights to 
+resources based on group membership. The administrator only has to 
+indicate which directory entries are members of a given group, which 
+automatically updates each member's memberOf attribute to reflect the 
+current membership status.
+<div class="geshifilter"><pre class="text geshifilter-text">cat &gt; /etc/ldap/backend.memberof.ldif &lt;&lt;EOT
+dn: cn=module,cn=config
+cn: module
+objectClass: olcModuleList
+objectClass: top
+olcModulePath: /usr/lib/ldap
+olcModuleLoad: memberof.la
+&nbsp;
+dn: olcOverlay={0}memberof,olcDatabase={1}hdb,cn=config
+objectClass: olcConfig
+objectClass: olcMemberOf
+objectClass: olcOverlayConfig
+objectClass: top
+olcOverlay: memberof
+EOT</pre></div>
+</li>
+
+<li>Create an LDIF file to activate referential integrity for the 
+memberOf attributes. This overlay is useful to ensure that when user 
+accounts are modified or deleted from the directory, the corresponding 
+member attribute in groups in which the user was a member is also 
+handled accordingly.
+<div class="geshifilter"><pre class="text geshifilter-text">cat &gt; /etc/ldap/backend.refint.ldif &lt;&lt;EOT
+dn: cn=module,cn=config
+cn: module
+objectclass: olcModuleList
+objectclass: top
+olcmoduleload: refint.la
+olcmodulepath: /usr/lib/ldap
+&nbsp;
+dn: olcOverlay={1}refint,olcDatabase={1}hdb,cn=config
+objectClass: olcConfig
+objectClass: olcOverlayConfig
+objectClass: olcRefintConfig
+objectClass: top
+olcOverlay: {1}refint
+olcRefintAttribute: memberof member manager owner
+EOT</pre></div>
+</li>
+
+<li>Create an LDIF file that will be used to enable remote access to the
+ backend configuration. This allows configuration changes to be made 
+from clients such as <a href="http://directory.apache.org/studio/">Apache Directory Studio</a> or <a href="http://phpldapadmin.sourceforge.net/">phpLDAPadmin</a> that are running on a host separate from the OpenLDAP server.
+<div class="geshifilter"><pre class="text geshifilter-text">cat &gt; /etc/ldap/backend.remote_access.ldif &lt;&lt;EOT
+dn: olcDatabase={-1}frontend,cn=config
+changetype: modify
+delete: olcAccess
+&nbsp;
+dn: olcDatabase={0}config,cn=config
+changetype: modify
+add: olcRootDN
+olcRootDN: cn=admin,cn=config
+&nbsp;
+dn: olcDatabase={0}config,cn=config
+changetype: modify
+add: olcRootPW
+# Password is set to "admin" - use slappasswd to generate a new one if desired
+olcRootPW: {SSHA}cmaKopt8ZxsY1YvGrhhp8DyEs2itmN3w
+&nbsp;
+dn: olcDatabase={0}config,cn=config
+changetype: modify
+delete: olcAccess
+EOT</pre></div>
+</li>
+
+<li>Apply the backend configurations to OpenLDAP.
+<div class="geshifilter"><pre class="text geshifilter-text">ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/backend.memberof.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/backend.refint.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/backend.remote_access.ldif</pre></div>
+</li>
+
+<li>Validate the configuration with the following command (when prompted, use the password that was set above for the <strong>cn=admin,cn=config</strong> administrative user).
+<div class="geshifilter"><pre class="text geshifilter-text">ldapsearch -xLLL -b cn=config -D cn=admin,cn=config -W</pre></div>
+</li>
+
+<li>If you wish to set up a secured LDAPS or TLS connection, the 
+following lines add the CA certificate, server key and server 
+certificate files to the OpenLDAP configuration.
+<div class="geshifilter"><pre class="text geshifilter-text">ldapmodify -x -D cn=admin,cn=config -W -H ldapi:/// &lt;&lt; EOT
+dn: cn=config
+add: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/ldap/ssl/ldaps_cert.pem
+-
+add: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/ldap/ssl/ldaps_key.pem
+EOT</pre></div>
+<p>Interesting observation: when using a wildcard certificate that 
+requires an accompanying intermediate bundle certificate, simply 
+concatenating the contents of the intermediate bundle to the end of the 
+wildcard certificate and then restarting slapd got the signing CA to be 
+recognized by my LDAP clients.</p>
+</li>
+
+<li>Check that TLS works:
+<div class="geshifilter"><pre class="text geshifilter-text">ldapsearch -x -LLL -h ldap.example.com -ZZ -b dc=example,dc=com</pre></div>
+</li>
+
+</ul>
+
+<h4>Information sources:</h4>
+<ul>
+<li><a href="http://www.isartor.org/wiki/OpenLdap_with_dynamic_config_backend_on_Ubuntu_10.04">http://www.isartor.org/wiki/OpenLdap_with_dynamic_config_backend_on_Ubun...</a></li>
+<li><a href="http://www.schenkels.nl/2013/03/how-to-setup-openldap-with-memberof-overlay-ubuntu-12-04/">http://www.schenkels.nl/2013/03/how-to-setup-openldap-with-memberof-over...</a></li>
+<ul></ul></ul></div></div></div><section class="field field-name-field-tags field-type-taxonomy-term-reference field-label-above view-mode-full"><h2 class="field-label">Tags:&nbsp;</h2><ul class="field-items"><li class="field-item even"><a href="https://www.brianshowalter.com/tags/ldap" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">LDAP</a></li></ul></section>    </div>
+
+          <nav class="clearfix"><ul class="links inline"><li class="blog_usernames_blog first last"><a href="https://www.brianshowalter.com/blogs/brians" title="Read brians's latest blog entries.">brians's blog</a></li></ul></nav>
+    
+    
+  </div>
+</article>
+
+  </div></div>                      </div>
+
+                      
+                    </div>
+                  </div>
+
+                </section>
+
+                
+              </div>
+            </div>
+
+                        
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    
+    
+    
+  </div>
+</div>
+  
+
+</body></html>

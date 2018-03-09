@@ -1,0 +1,42 @@
+#animated-logo {
+    width: auto;
+}
+
+#background-video {
+    width: 100%;
+    max-width: inherit;
+    margin: auto;
+    opacity: 0.5;
+    margin-top: -68px;
+
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: url(blur.svg#blur);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='5');
+}
+
+#logo-insert {
+    margin: auto;
+    margin-left: 10%;
+    margin-top: -40%;
+    width: 70em;
+    position: absolute;
+}
+
+.logo-fallback {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+
+    #animated-logo {
+        display: none;
+    }
+
+    .logo-fallback {
+        display: block;
+    }
+}

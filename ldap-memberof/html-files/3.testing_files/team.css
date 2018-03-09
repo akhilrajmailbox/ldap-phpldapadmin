@@ -1,0 +1,24 @@
+#team .picture {
+    width: 200px;
+    height: 200px;
+}
+
+#team {
+    margin: auto;
+}
+
+#team a {
+    color: #404042;
+}
+
+.member-bio {
+    margin-left: 6rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.member-blog-cell {
+    padding-left: 0.5rem;
+}

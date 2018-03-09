@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://technicalnotes.wordpress.com/xmlrpc.php">
+
+<title>openldap setup with memberof overlay – Whiteboard</title>
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.pubmine.com/">
+<link rel="dns-prefetch" href="https://x.bidswitch.net/">
+<link rel="dns-prefetch" href="https://static.criteo.net/">
+<link rel="dns-prefetch" href="https://ib.adnxs.com/">
+<link rel="dns-prefetch" href="https://aax.amazon-adsystem.com/">
+<link rel="dns-prefetch" href="https://bidder.criteo.com/">
+<link rel="dns-prefetch" href="https://cas.criteo.com/">
+<link rel="dns-prefetch" href="https://gum.criteo.com/">
+<link rel="dns-prefetch" href="https://ads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://gads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://tpc.googlesyndication.com/">
+<link rel="dns-prefetch" href="https://ad.doubleclick.net/">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/">
+<link rel="dns-prefetch" href="https://www.googletagservices.com/">
+<link rel="dns-prefetch" href="https://cdn.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.g.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.swid.switchadhub.com/">
+<link rel="alternate" type="application/rss+xml" title="Whiteboard » Feed" href="https://technicalnotes.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Whiteboard » Comments Feed" href="https://technicalnotes.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Whiteboard » openldap setup with memberof&nbsp;overlay Comments Feed" href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/feed/">
+	<script src="5.reference-2_files/client.js" async="" type="text/javascript"></script><script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1516999477h&ver=4.9.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="5.reference-2_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="all-css-0-1" href="5.reference-2_files/a.css" type="text/css" media="all">
+<link rel="stylesheet" id="kelly-fonts-css" href="5.reference-2_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="all-css-2-1" href="5.reference-2_files/a_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-3-1" href="5.reference-2_files/global-print.css" type="text/css" media="print">
+<link rel="stylesheet" id="all-css-4-1" href="5.reference-2_files/a_003.css" type="text/css" media="all">
+<script type="text/javascript" src="5.reference-2_files/a"></script>
+<link rel="stylesheet" id="all-css-0-2" href="5.reference-2_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://technicalnotes.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="openldap setup issue with ldap_sasl_bind()" href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-issue-with-ldap_sasl_bind/">
+<link rel="next" title="Unable to login to myql using root&nbsp;credentials" href="https://technicalnotes.wordpress.com/2014/06/11/unable-to-login-to-myql-using-root-credentials/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="5.reference-2_files/a_002.html">
+<link rel="shortlink" href="https://wp.me/p1Doc-9">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Ftechnicalnotes.wordpress.com%2F2014%2F04%2F19%2Fopenldap-setup-with-memberof-overlay%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Ftechnicalnotes.wordpress.com%2F2014%2F04%2F19%2Fopenldap-setup-with-memberof-overlay%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="openldap setup with memberof overlay">
+<meta property="og:url" content="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/">
+<meta property="og:description" content="The post summarises steps executed to setup openldap with memberof overlay on Ubuntu 12.04. Background Post-installation, this is how our cn=config&nbsp;looked- ubuntu@PS6226:~/openldap/memberof$ sudo l…">
+<meta property="article:published_time" content="2014-04-19T18:32:20+00:00">
+<meta property="article:modified_time" content="2014-04-19T18:32:20+00:00">
+<meta property="og:site_name" content="Whiteboard">
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:text:title" content="openldap setup with memberof&nbsp;overlay">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://technicalnotes.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://technicalnotes.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://technicalnotes.wordpress.com/osd.xml" title="Whiteboard">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+<meta name="theme-color" content="#ffffff">
+<meta name="application-name" content="Whiteboard"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="... for logging everyday lessons"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://technicalnotes.wordpress.com/feed/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="title" content="openldap setup with memberof&nbsp;overlay | Whiteboard on WordPress.com">
+<meta name="description" content="The post summarises steps executed to setup openldap with memberof overlay on Ubuntu 12.04. Background Post-installation, this is how our cn=config&nbsp;looked- ubuntu@PS6226:~/openldap/memberof$ sudo ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b cn=config dn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;dn: cn=configdn: cn=module{0},cn=configdn: cn=schema,cn=configdn: cn={0}core,cn=schema,cn=configdn: cn={1}cosine,cn=schema,cn=configdn: cn={2}nis,cn=schema,cn=configdn: cn={3}inetorgperson,cn=schema,cn=configdn: olcBackend={0}hdb,cn=configdn: olcDatabase={-1}frontend,cn=configdn: olcDatabase={0}config,cn=configdn: olcDatabase={1}hdb,cn=config Steps for setting up memberof overlay Step 1: Load memberof…">
+		<script type="text/javascript">
+		var __ATA_PP = { pt: 1, ht: 0, tn: 'kelly', amp: false, siteid: 2694 };
+		var __ATA = __ATA || {};
+		__ATA.cmd = __ATA.cmd || [];
+		__ATA.criteo = __ATA.criteo || {};
+		__ATA.criteo.cmd = __ATA.criteo.cmd || [];
+		</script>
+		<script type="text/javascript" src="5.reference-2_files/head.js" async=""></script><link rel="amphtml" href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/amp/"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="5.reference-2_files/ga.js"></script>
+<script src="5.reference-2_files/publishertag.js"></script><script type="text/javascript" async="" src="5.reference-2_files/a.js"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="5.reference-2_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="5.reference-2_files/services.css"><script type="text/javascript" async="" src="5.reference-2_files/a_002.js"></script><script src="5.reference-2_files/outstream.js" async=""></script><style type="text/css">.iowo-adv {overflow: hidden;}.iowo-adv__header {font-family: "Helvetica", Arial, sans-serif !important;font-size: 11.5px !important;text-align: center;position: relative;padding: 5px 0px;letter-spacing: 0.3px !important;font-weight: 300 !important;text-transform: uppercase;color: #aaa}.iowo-adv__sound-icon {width: 32px;cursor: pointer;height: 32px;position: absolute;bottom:12px;right:5px;}.iowo-adv__sound-icon_on {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QYcDigM2jawiwAAAbhJREFUWMPtl7FLHFEQxr+ZtwTytLDwmjSnhf+AYrpUBwGvS7F2YqFNQNjieCnsTlPscdxdZ2MVCORIEewMwf/AlEkRCRaSKqQMCrnbGZtVLPRye2/dJcSpdos33292vjfvLfAQ/3tQHkkajcYqM68YY3bjOD7NsjbwFXfOhSLyDgAPBgMBsJFlPXuK10TkLTNf5ZnKmoM9PvuSqh4w8yOfInjCyhcAHBLRtG8LeQLxJyLyiZkreRg4E0AURTOq+pGZ5/LahsEodwN4A+Dxfc6BUdsw9BF3zkWqOq2q+51O5+ckLWDP4p4R0Wtm/uqcW7wvkXFiVkT6YRiaQgGGw+Gaqn4AAGZeqFarTwsF6PV6F0R0eH3oEFUKBXDO1QBsX70bY74U7YGXAObT5/5dp2QRJuyLyGbmOaCq50Re14XYGPPqb/eDOwGCINhJkkRvHrGqOkNEtXHU2+32Z69JGMfxdwDrt5hrL+1vLpHZA9baLQDvSwNoNptirV0DcFQKQArxx1r7AsBxKQApxO8kSeoi8q0UAADodru/giB4LiI/0pl/UigAALRarTMiWhaRurV25+FX65+LSxNniSadskJNAAAAAElFTkSuQmCC");}.iowo-adv__sound-icon_off {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAdBJREFUWIXt1b9r1GAcx/HP840u94jo6mD/Aae24I9NHZSCi5NDO5TO7fLkCTgdt15y4C6IdHFwEpxscRHc1dHB0UFBOvToks/Xxch53j3JExNB6XcMz+X1Ti5PApzO/zLD4fBMm99JF7hzbm86nZ6kafp02Rrv/apz7mrnAd77LRF5BCBR1fvLcJKHIvIqy7JrnQV47zdIPgFgAEBEfjvfDH4RwHmSW50EZFl2g+RzEfn535P8FsABYN9au/vHAc65K2VZvhSRwQz+JUmSjRA+GAy2R6MRZ89lWuArAN6KyKU5/PZ4PP4QgwNAcOs4524ZYy7/UmzMQwBLcefcGsmDJjgQuAPe+5sAXocCF+EAGuNA4BlQ1ZW+8WDA38BbBXSJRwfU4SSnMThQswvqcBE5BHChWiMiGoMDDe9AE7zt1Ab0idcG9I0HA0i+6xsHGn4LvPfrAA4a4Md5np+LCah9BuZxVX1G8mMM0jpgwZXvW2s3AdwB8LnXgEV49ZKZTCafVPUuyaNeAkJ4taYoivcico/kSacBTfBq8jx/Y4x5AKD8caicXxMdoKpnSSZ1eDVFUbwwxuwA+Kqqj2MDFm7DNE2vA9i01u7GvttP55+b71U6NuXe6u9vAAAAAElFTkSuQmCC");}.iowo-adv__timer {position: absolute;bottom:5px;left:5px;min-width: 60px;padding: 3px;color: #aaaaaa;border-radius: 5px;font-family: sans-serif;text-align: center;background-color:black;z-index:10;}.iowo-timeline {position: absolute;bottom:0;left:0;width: 100%;height: 5px;background-color: rgba(0, 0, 0, 0.2);}.iowo-timeline__runner {position: relative;height: 5px;background-color: red;-moz-transition: .5s;-ms-transition: .5s;-o-transition: .5s;-webkit-transition: .5s;transition: .5s;transition-property: max-width;}</style><script type="text/javascript" charset="UTF-8" src="5.reference-2_files/ima3.js"></script></head>
+
+<body class="post-template-default single single-post postid-9 single-format-standard mp6 customizer-styles-applied highlander-enabled highlander-light">
+<div id="page" class="hfeed site">
+			<header id="masthead" class="site-header" role="banner">
+		<div class="header-background"></div>
+		<div class="site-branding">
+			<h1 class="site-title"><a href="https://technicalnotes.wordpress.com/" rel="home">Whiteboard</a></h1>
+			<h2 class="site-description">… for logging everyday lessons</h2>
+		</div>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<h1 class="menu-toggle">Menu</h1>
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+			<div class="nav-menu"><ul class=" nav-menu">
+<li><a href="https://technicalnotes.wordpress.com/">Home</a></li><li class="page_item page-item-2"><a href="https://technicalnotes.wordpress.com/about/">About</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+	</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-9" class="post-9 post type-post status-publish format-standard hentry category-howto tag-howto tag-ldap-server tag-memberof tag-openldap">
+		<header class="entry-header">
+					<h1 class="entry-title">openldap setup with memberof&nbsp;overlay</h1>
+		
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/" rel="bookmark"><time class="entry-date published" datetime="2014-04-19T18:32:20+00:00">April 19, 2014</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://technicalnotes.wordpress.com/author/littlenotes/">littlenotes</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><span style="color:#3f3f3f;">The post summarises steps executed to setup openldap with memberof overlay on Ubuntu 12.04.</span></p>
+<p><span style="text-decoration:underline;"><strong>Background</strong></span></p>
+<p>Post-installation, this is how our <strong>cn=config&nbsp;</strong>looked-</p>
+<blockquote><p><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$
+ sudo ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b cn=config 
+dn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: cn=module{0},cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: cn=schema,cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: cn={0}core,cn=schema,cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: cn={1}cosine,cn=schema,cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: cn={2}nis,cn=schema,cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: cn={3}inetorgperson,cn=schema,cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: olcBackend={0}hdb,cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: olcDatabase={-1}frontend,cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: olcDatabase={0}config,cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: olcDatabase={1}hdb,cn=config</span></p></blockquote>
+<p><span style="text-decoration:underline;"><strong>Steps for setting up memberof overlay</strong></span></p>
+<p><strong>Step 1: Load memberof module and configure memberof overlay&nbsp;</strong></p>
+<blockquote><p><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$ cat <span class="skimlinks-unlinked">memberof_load_configure.ldif</span><br>
+dn: cn=module{1},cn=config<br>
+cn: module{1}<br>
+objectClass: olcModuleList<br>
+olcModuleLoad: memberof<br>
+olcModulePath: /usr/lib/ldap</span></p>
+<p>dn: olcOverlay={0}memberof,olcDatabase={1}hdb,cn=config<br>
+objectClass: olcConfig<br>
+objectClass: olcMemberOf<br>
+objectClass: olcOverlayConfig<br>
+objectClass: top<br>
+olcOverlay: memberof<br>
+olcMemberOfDangling: ignore<br>
+olcMemberOfRefInt: TRUE<br>
+olcMemberOfGroupOC: groupOfNames<br>
+olcMemberOfMemberAD: member<br>
+olcMemberOfMemberOfAD: memberOf<br>
+psl@PS6226:~/openldap/memberof$<br style="color:#3f3f3f;"><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$ sudo ldapadd -Q -Y EXTERNAL -H ldapi:/// -f <span class="skimlinks-unlinked">memberof_load_configure.ldif</span></span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">adding new entry “cn=module{1},cn=config”</span><br style="color:#3f3f3f;"><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">adding new entry “olcOverlay={0}memberof,olcDatabase={1}hdb,cn=config”</span></p></blockquote>
+<p><strong>Step 2: Add referential integrity to the ldap config</strong></p>
+<p><strong style="color:#3f3f3f;">Modify the cn=module entry to load refint</strong></p>
+<blockquote><p><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$ cat 1refint.ldif</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: cn=module{1},cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">add: olcmoduleload</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">olcmoduleload: refint</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$</span><br style="color:#3f3f3f;"><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$ sudo ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f 1refint.ldif</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">modifying entry “cn=module{1},cn=config”</span></p></blockquote>
+<p><span style="color:#3f3f3f;"><strong>Configure refint&nbsp;</strong></span><strong style="color:#3f3f3f;">module</strong></p>
+<blockquote><p><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$ cat 2refint.ldif</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: olcOverlay={1}refint,olcDatabase={1}hdb,cn=config</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">objectClass: olcConfig</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">objectClass: olcOverlayConfig</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">objectClass: olcRefintConfig</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">objectClass: top</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">olcOverlay: {1}refint</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">olcRefintAttribute: memberof member manager owner</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$</span><br style="color:#3f3f3f;"><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$ sudo ldapadd -Q -Y EXTERNAL -H ldapi:/// -f 2refint.ldif</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">adding new entry “olcOverlay={1}refint,olcDatabase={1}hdb,cn=config”</span></p></blockquote>
+<p><span style="color:#3f3f3f;">The system is configured to use&nbsp;</span><span style="color:#3f3f3f;">memberof</span><span style="color:#3f3f3f;">&nbsp;attribute for groups!</span></p>
+<p><strong>Step 3: Create groups and add members to the group</strong></p>
+<p>This is how our domain setup looked-</p>
+<blockquote><p><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$ ldapsearch -x -LLL -H ldap:/// -b dc=example,dc=com dn<br>
+dn: dc=example,dc=com<br>
+dn: cn=admin,dc=example,dc=com<br>
+dn: ou=people,dc=example,dc=com<br>
+dn: ou=groups,dc=example,dc=com<br>
+dn: uid=john,ou=people,dc=example,dc=com<br>
+dn: uid=mahesh,ou=people,dc=example,dc=com</span></p></blockquote>
+<p><strong>Add group</strong></p>
+<blockquote><p><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$ cat <span class="skimlinks-unlinked">addgroup-groupofnames.ldif</span></span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">dn: cn=peas_dev,ou=groups,dc=example,dc=com</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">objectClass: groupofnames</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">cn: peas_dev</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">description: All users</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;"># add the group members all of which are</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;"># assumed to exist under people</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">member: uid=john,ou=people,dc=example,dc=com</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">member: uid=mahesh,ou=people,dc=example,dc=com</span><br style="color:#3f3f3f;"><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$</span><br style="color:#3f3f3f;"><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$ ldapadd -x -D cn=admin,dc=example,dc=com -W -f <span class="skimlinks-unlinked">groupofnames.ldif</span></span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">Enter LDAP Password:</span><br style="color:#3f3f3f;"><span style="color:#3f3f3f;">adding new entry “cn=peas_dev,ou=groups,dc=example,dc=com”</span></p></blockquote>
+<p><strong>Check group membership</strong></p>
+<blockquote><p><span style="color:#3f3f3f;">ubuntu@PS6226:~/openldap/memberof$ ldapsearch -x -LLL -H ldap:/// -b uid=mahesh,ou=people,dc=example,dc=com dn<br>
+dn: uid=mahesh,ou=people,dc=example,dc=com</span></p>
+<p>ubuntu@PS6226:~/openldap/memberof$ ldapsearch -x -LLL -H ldap:/// -b uid=mahesh,ou=people,dc=example,dc=com dn memberof<br>
+dn: uid=mahesh,ou=people,dc=example,dc=com<br>
+memberOf: cn=peas_dev,ou=groups,dc=example,dc=com</p></blockquote>
+<p><strong>References</strong></p>
+<ol style="color:#3f3f3f;">
+<li><a style="color:#0086c0;" href="http://www.schenkels.nl/2013/03/how-to-setup-openldap-with-memberof-overlay-ubuntu-12-04/">http://www.schenkels.nl/2013/03/how-to-setup-openldap-with-memberof-overlay-ubuntu-12-04/</a></li>
+<li><a style="color:#0086c0;" href="http://www.cbjck.de/2012/05/enabling-the-memberof-overlay-for-openldap/">http://www.cbjck.de/2012/05/enabling-the-memberof-overlay-for-openldap/</a></li>
+<li>The first answer at the following link was useful-&nbsp;<a style="color:#0086c0;" href="http://stackoverflow.com/questions/15818382/what-type-of-group-to-choose-in-openldap-for-grouping-users">http://stackoverflow.com/questions/15818382/what-type-of-group-to-choose-in-openldap-for-grouping-users</a></li>
+</ol>
+<blockquote>
+<p style="color:#3f3f3f;">“LDAP/X.500 defines only&nbsp;<em>group objects</em>&nbsp;which have&nbsp;<em>member attributes</em>, the inverse relation where a user object has a&nbsp;<em>memberof</em>&nbsp;attribute in OpenLDAP can be achieved with the&nbsp;<a style="color:#4a6b82;" href="http://www.openldap.org/doc/admin24/overlays.html#Reverse%20Group%20Membership%20Maintenance" rel="nofollow"><code>memberof</code>&nbsp;overlay</a>.
+ NDS/eDir and AD make this happen by magic. LDAP proper does not define 
+dynamic bi-directional member/group objects/attributes. Related to that 
+overlay is the&nbsp;<a style="color:#4a6b82;" href="http://www.openldap.org/doc/admin24/overlays.html#Referential%20Integrity" rel="nofollow">refint</a>&nbsp;overlay
+ which helps complete the illusion (and also addresses the mildly 
+irritating problem of a group always requiring at least one member).</p>
+<p>There are generally two interesting group types to pick,&nbsp;<code>groupOfNames</code>&nbsp;or&nbsp;<code>groupOfUniqueNames</code>, the first one&nbsp;<code>GroupOfNames</code>&nbsp;is suitable for most purposes. Other types of group have distinct purposes. Less common group-type objects are&nbsp;<a style="color:#4a6b82;" href="http://www.rfc-editor.org/rfc/rfc2256.txt" rel="nofollow">RFC 2256</a>&nbsp;<em>roles</em>&nbsp;(<code>organizationalRole</code>), these are implicitly for for based role-based access control, but are otherwise similar to groups (thanks to&nbsp;<a style="color:#4a6b82;" href="http://stackoverflow.com/users/207421/ejp">EJP</a>&nbsp;for the tip).<br>
+When it comes to user accounts, group object-types should not be thought
+ of as exclusive, each type typically adds attributes to a user object 
+in a compatible way (though an&nbsp;<code>objectClass</code>&nbsp;<em>can</em>&nbsp;be exclusive if it’s&nbsp;<em>structural</em>, that’s not something you’ll often have to worry about generally).”</p>
+</blockquote>
+<ol style="color:#3f3f3f;">
+<li>Few more concepts-&nbsp;<a style="color:#0086c0;" href="http://www.openldap.org/doc/admin24/overlays.html#Reverse%20Group%20Membership%20Maintenance">http://www.openldap.org/doc/admin24/overlays.html#Reverse%20Group%20Membership%20Maintenance</a></li>
+<li><a style="color:#0086c0;" href="http://serverfault.com/questions/73213/how-do-i-configure-reverse-group-membership-maintenance-on-an-openldap-server">http://serverfault.com/questions/73213/how-do-i-configure-reverse-group-membership-maintenance-on-an-openldap-server</a></li>
+<li>For the ldapadd/search/modify syntax and help-&nbsp;<a style="color:#0086c0;" href="https://help.ubuntu.com/12.10/serverguide/openldap-server.html">https://help.ubuntu.com/12.10/serverguide/openldap-server.html</a></li>
+<li>Reference for creating <span class="skimlinks-unlinked">group.ldif</span>-&nbsp;<a style="color:#0086c0;" href="http://www.zytrax.com/books/ldap/ch11/groups.html">http://www.zytrax.com/books/ldap/ch11/groups.html</a></li>
+<li><a style="color:#0086c0;" href="http://www.openldap.org/doc/admin24/overlays.html">http://www.openldap.org/doc/admin24/overlays.html</a></li>
+</ol>
+<div id="atatags-370373-5aa0f5a084a8d">
+        <script type="text/javascript">
+            __ATA.cmd.push(function() {
+                __ATA.initVideoSlot('atatags-370373-5aa0f5a084a8d', {
+                    sectionId: '370373',
+                    format: 'inread'
+                });
+            });
+        </script>
+    </div>		<div class="wpcnt">
+			<div class="wpa wpmrec" style="display: inline-block !important;">
+				<span class="wpa-about">Advertisements</span>
+				<div class="u">		<div style="padding-bottom:15px;width:300px;height:250px;float:left;margin-right:5px;margin-top:0px">
+		<div id="atatags-26942-5aa0f5a084afb" style="overflow: hidden; position: relative; width: auto; height: auto;"><div style="width: 300px; height: 250px;"><iframe scrolling="no" style="border:none;overflow:hidden;width:300px;height:250px;" height="250" frameborder="0" width="300"></iframe></div><div id="atatags-26942-5aa0f5a084afb__controls" style="width:300px;height:10px;text-align:right;line-height:6px;"><span id="atatags-26942-5aa0f5a084afb__complain-btn" style="font-size: 10px; color: rgb(109, 171, 210); text-decoration: underline; cursor: pointer; display: inline;">Report this ad</span></div></div></div>		<div style="padding-bottom:15px;width:300px;height:250px;float:left;margin-top:0px">
+		<div id="atatags-114160-5aa0f5a084b32" style="overflow: hidden; position: relative; width: auto; height: auto;"><div style="width: 300px; height: 250px;"><iframe scrolling="no" style="border:none;overflow:hidden;width:300px;height:250px;" height="250" frameborder="0" width="300"></iframe></div><div id="atatags-114160-5aa0f5a084b32__controls" style="width:300px;height:10px;text-align:right;line-height:6px;"><span id="atatags-114160-5aa0f5a084b32__complain-btn" style="font-size: 10px; color: rgb(109, 171, 210); text-decoration: underline; cursor: pointer; display: inline;">Report this ad</span></div></div></div></div>
+						<div id="crt-1491657573" style="width: 300px; height: 250px; display: none !important;"></div>
+		<script type="text/javascript">
+(function(){var c=function(){var a=document.getElementById("crt-1491657573");window.Criteo?(a.parentNode.style.setProperty("display","inline-block","important"),a.style.setProperty("display","block","important"),window.Criteo.DisplayAcceptableAdIfAdblocked({zoneid:388248,containerid:"crt-1491657573",collapseContainerIfNotAdblocked:!0,callifnotadblocked:function(){a.style.setProperty("display","none","important");a.style.setProperty("visbility","hidden","important")}})):(a.style.setProperty("display","none","important"),a.style.setProperty("visibility","hidden","important"))};if(window.Criteo)c();else{if(!__ATA.criteo.script){var b=document.createElement("script");b.src="//static.criteo.net/js/ld/publishertag.js";b.onload=function(){for(var a=0;a<__ATA.criteo.cmd.length;a++){var b=__ATA.criteo.cmd[a];"function"===typeof b&&b()}};(document.head||document.getElementsByTagName("head")[0]).appendChild(b);__ATA.criteo.script=b}__ATA.criteo.cmd.push(c)}})();
+		</script>		<div id="crt-1032138023" style="width: 300px; height: 250px; display: none !important;"></div>
+		<script type="text/javascript">
+(function(){var c=function(){var a=document.getElementById("crt-1032138023");window.Criteo?(a.parentNode.style.setProperty("display","inline-block","important"),a.style.setProperty("display","block","important"),window.Criteo.DisplayAcceptableAdIfAdblocked({zoneid:837497,containerid:"crt-1032138023",collapseContainerIfNotAdblocked:!0,callifnotadblocked:function(){a.style.setProperty("display","none","important");a.style.setProperty("visbility","hidden","important")}})):(a.style.setProperty("display","none","important"),a.style.setProperty("visibility","hidden","important"))};if(window.Criteo)c();else{if(!__ATA.criteo.script){var b=document.createElement("script");b.src="//static.criteo.net/js/ld/publishertag.js";b.onload=function(){for(var a=0;a<__ATA.criteo.cmd.length;a++){var b=__ATA.criteo.cmd[a];"function"===typeof b&&b()}};(document.head||document.getElementsByTagName("head")[0]).appendChild(b);__ATA.criteo.script=b}__ATA.criteo.cmd.push(c)}})();
+		</script>
+			</div>
+		</div><div id="jp-post-flair" class="sharedaddy sd-like-enabled"><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-389744-9-5aa0f5a086c98" data-src="//widgets.wp.com/likes/index.html?ver=20180228#blog_id=389744&amp;post_id=9&amp;origin=technicalnotes.wordpress.com&amp;obj_id=389744-9-5aa0f5a086c98" data-name="like-post-frame-389744-9-5aa0f5a086c98"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-389744-9-5aa0f5a086c98" src="5.reference-2_files/index.html" height="55px" frameborder="0" width="100%"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+					<span class="cat-links">
+				Posted in <a href="https://technicalnotes.wordpress.com/category/howto/" rel="category tag">howto</a>			</span>
+			
+			<span class="tags-links">Tagged <a href="https://technicalnotes.wordpress.com/tag/howto/" rel="tag">howto</a>, <a href="https://technicalnotes.wordpress.com/tag/ldap-server/" rel="tag">LDAP server</a>, <a href="https://technicalnotes.wordpress.com/tag/memberof/" rel="tag">memberof</a>, <a href="https://technicalnotes.wordpress.com/tag/openldap/" rel="tag">openldap</a></span>
+			</footer><!-- .entry-meta -->
+</article><!-- #post-## -->
+
+				<nav role="navigation" id="nav-below" class="post-navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+
+	
+		<div class="nav-previous"><a href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-issue-with-ldap_sasl_bind/" rel="prev"><span class="meta-nav">←</span> openldap setup issue with ldap_sasl_bind()</a></div>		<div class="nav-next"><a href="https://technicalnotes.wordpress.com/2014/06/11/unable-to-login-to-myql-using-root-credentials/" rel="next">Unable to login to myql using root&nbsp;credentials <span class="meta-nav">→</span></a></div>
+	
+	</nav><!-- #nav-below -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			5 thoughts on “<span>openldap setup with memberof&nbsp;overlay</span>”		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-3" class="pingback even thread-even depth-1 highlander-comment">
+			<article id="div-comment-3" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="http://blog.adimian.com/2014/10/how-to-enable-memberof-using-openldap/" rel="external nofollow" class="url">How to enable MemberOf using OpenLDAP | Adimian blog</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/#comment-3">
+							<time datetime="2014-10-15T17:26:34+00:00">
+								October 15, 2014 at 5:26 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[…] do so, make the following 3 files (courtesy to this […]</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/?replytocom=3#respond" onclick='return addComment.moveForm( "div-comment-3", "3", "respond", "9" )' aria-label="Reply to How to enable MemberOf using OpenLDAP | Adimian blog">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-30" class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment">
+			<article id="div-comment-30" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="http://new.adimian.com/2016/03/30/enable-memberof-using-openldap/" rel="external nofollow" class="url">How to enable MemberOf using OpenLDAP - Adimian Website</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/#comment-30">
+							<time datetime="2016-03-30T09:40:25+00:00">
+								March 30, 2016 at 9:40 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[…] do so, make the following 3 files (courtesy to this […]</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/?replytocom=30#respond" onclick='return addComment.moveForm( "div-comment-30", "30", "respond", "9" )' aria-label="Reply to How to enable MemberOf using OpenLDAP - Adimian Website">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-35" class="pingback even thread-even depth-1 highlander-comment">
+			<article id="div-comment-35" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="http://www.ubuntu.theplayhub.com/openldap_setup_with_memberof_overlay/" rel="external nofollow" class="url">openldap setup with memberof overlay - UbuntuHub</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/#comment-35">
+							<time datetime="2016-05-06T00:00:44+00:00">
+								May 6, 2016 at 12:00 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[…] users are also loggin perfectly. Now I am trying to configure memberOf overlay by following link <a href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/" rel="nofollow">https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/</a> which is not successful, googled a lot about it but in vain. Can someone please help me on how to […]</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/?replytocom=35#respond" onclick='return addComment.moveForm( "div-comment-35", "35", "respond", "9" )' aria-label="Reply to openldap setup with memberof overlay - UbuntuHub">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-41" class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment">
+			<article id="div-comment-41" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="http://www.ubuntutextbook.com/openldap_setup_with_memberof_overlay/" rel="external nofollow" class="url">openldap setup with memberof overlay - ubuntutextbook</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/#comment-41">
+							<time datetime="2016-09-10T17:24:09+00:00">
+								September 10, 2016 at 5:24 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[…] users are also loggin perfectly. Now I am trying to configure memberOf overlay by following link <a href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/" rel="nofollow">https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/</a> which is not successful, googled a lot about it but in vain. Can someone please help me on how to […]</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/?replytocom=41#respond" onclick='return addComment.moveForm( "div-comment-41", "41", "respond", "9" )' aria-label="Reply to openldap setup with memberof overlay - ubuntutextbook">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-44" class="comment even thread-even depth-1 highlander-comment">
+			<article id="div-comment-44" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="5.reference-2_files/photo.jpg" class="avatar avatar-50" height="50" width="50">						<b class="fn"><a href="https://plus.google.com/117245349232337328500" rel="external nofollow" class="url">Sergei Leshchinsky</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/#comment-44">
+							<time datetime="2016-10-07T14:51:10+00:00">
+								October 7, 2016 at 2:51 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Great detailed post. Thanks for sharing!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/?replytocom=44#respond" onclick='return addComment.moveForm( "div-comment-44", "44", "respond", "9" )' aria-label="Reply to Sergei Leshchinsky">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond js">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://technicalnotes.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<input id="highlander_comment_nonce" name="highlander_comment_nonce" value="11a5376a70" type="hidden"><input name="_wp_http_referer" value="/2014/04/19/openldap-setup-with-memberof-overlay/" type="hidden">
+<input name="hc_post_as" id="hc_post_as" value="guest" type="hidden">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px none; padding: 0px; box-sizing: content-box; overflow-wrap: break-word; height: 0px !important; min-height: 0px !important; overflow: hidden; transition: none 0s ease 0s ; font-family: Arial,Helvetica,Tahoma,Verdana,sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none; word-spacing: 0px; text-indent: 0px; line-height: 21px; width: 1130px;" class="autosizejs ">Enter your comment here...</textarea><textarea id="comment" name="comment" title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 41px; overflow: hidden; overflow-wrap: break-word; resize: none;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="5.reference-2_files/a_003.html" scrolling="no" allowtransparency="true" seamless="seamless" height="24" frameborder="0" width="24"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="5.reference-2_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Gravatar" class="no-grav" width="25">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email"></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="url"></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="5.reference-2_files/ad516503a11cd5ca435acc9bb6523536.png" alt="WordPress.com Logo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="" type="hidden">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your <span class="skimlinks-unlinked">WordPress.com</span> account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'wordpress'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="5.reference-2_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Twitter picture" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" type="hidden">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'twitter'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="5.reference-2_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Facebook photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" type="hidden">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'facebook'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="5.reference-2_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Google+ photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="" type="hidden">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'googleplus'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p></div>
+
+
+
+
+<p class="form-submit" style="display: none;"><input name="submit" id="comment-submit" class="submit" value="Post Comment" type="submit"> <input name="comment_post_ID" value="9" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="3d88a6573d" type="hidden"></p>
+<input name="genseq" value="1520498080" type="hidden">
+<p style="display: none;"></p>			<input id="ak_js" name="ak_js" value="1520498081528" type="hidden"></form>
+			</div><!-- #respond -->
+	<div style="clear: both"></div>
+</div><!-- #comments -->
+
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com.</a>
+			
+					</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<!--  -->
+<script type="text/javascript" src="5.reference-2_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="5.reference-2_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-a0ae8317d58f1361d524b363c4c158b5">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging 
+In\u2026","submittingText":"Posting 
+Comment\u2026","postCommentText":"Post 
+Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s:
+ You are commenting using your %2$s account.","logoutText":"Log 
+Out","loginText":"Log 
+In","connectURL":"https:\/\/technicalnotes.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/technicalnotes.wordpress.com\/wp-login.php?action=logout&_wpnonce=0624a48969","homeURL":"https:\/\/technicalnotes.wordpress.com\/","postID":"9","gravDefault":"identicon","enterACommentError":"Please
+ enter a comment","enterEmailError":"Please enter your email address 
+here","invalidEmailError":"Invalid email 
+address","enterAuthorError":"Please enter your name 
+here","gravatarFromEmail":"This picture will show whenever you leave a 
+comment. Click to customize it.","logInToExternalAccount":"Log in to use
+ details from one of these 
+accounts.","change":"Change","changeAccount":"Change 
+Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"","text_direction":"ltr"};
+/*
+ ]]> */
+</script>
+<script type="text/javascript" src="5.reference-2_files/a_003"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var actionbardata = 
+{"siteID":"389744","siteName":"Whiteboard","siteURL":"http:\/\/technicalnotes.wordpress.com","icon":"<img
+ alt='' src='https:\/\/s1.wp.com\/i\/logo\/wpcom-gray-white.png' 
+class='avatar avatar-50' height='50' width='50' 
+\/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/kelly","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/technicalnotes.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Ftechnicalnotes.wordpress.com%2F2014%2F04%2F19%2Fopenldap-setup-with-memberof-overlay%2F","themeURL":"","xhrURL":"https:\/\/technicalnotes.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"85e10a1495","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input
+ type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"a7e897d8bf\" 
+\/>","referer":"https:\/\/technicalnotes.wordpress.com\/2014\/04\/19\/openldap-setup-with-memberof-overlay\/","canFollow":"1","feedID":"33372471","statusMessage":"","customizeLink":"https:\/\/technicalnotes.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Ftechnicalnotes.wordpress.com%2F2014%2F04%2F19%2Fopenldap-setup-with-memberof-overlay%2F","postID":"9","shortlink":"https:\/\/wp.me\/p1Doc-9","canEditPost":"","editLink":"https:\/\/wordpress.com\/post\/technicalnotes.wordpress.com\/9","statsLink":"https:\/\/wordpress.com\/stats\/post\/9\/technicalnotes.wordpress.com","i18n":{"view":"View
+ 
+site","follow":"Follow","following":"Following","edit":"Edit","login":"Log
+ in","signup":"Sign up","customize":"Customize","report":"Report this 
+content","themeInfo":"Get theme: Kelly","shortlink":"Copy 
+shortlink","copied":"Copied","followedText":"New posts from this site 
+will now appear in your <a 
+href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Collapse this
+ bar","unfoldBar":"Expand this bar","editSubs":"Manage 
+subscriptions","viewReader":"View site in Reader","viewReadPost":"View 
+post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email 
+address","followers":"","alreadyUser":"Already have a WordPress.com 
+account? <a 
+href=\"https:\/\/technicalnotes.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Ftechnicalnotes.wordpress.com%2F2014%2F04%2F19%2Fopenldap-setup-with-memberof-overlay%2F\">Log
+ in now.<\/a>","stats":"Stats"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="5.reference-2_files/a_002"></script><div id="actionbar" class="actnbr-pub-kelly actnbr-has-follow"><ul><li class="actnbr-btn actnbr-hidden"> 			    	<a class="actnbr-action actnbr-actn-follow" href=""><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Follow</span></a> 			    	<div class="actnbr-popover tip tip-top-left actnbr-notice"> 			    		<div class="tip-arrow"></div> 			    		<div class="tip-inner actnbr-follow-bubble"></div> 			    	</div> 			    </li><li class="actnbr-ellipsis actnbr-hidden"> 			  <svg class="gridicon gridicon__ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle></g></svg> 			  <div class="actnbr-popover tip tip-top-left actnbr-more"> 			  	<div class="tip-arrow"></div> 			  	<div class="tip-inner"> 				  <ul> 				    <li class="actnbr-sitename actnbr-hidden"><a href="http://technicalnotes.wordpress.com/"><img alt="" src="5.reference-2_files/wpcom-gray-white.png" class="avatar avatar-50" height="50" width="50"> Whiteboard</a></li> 				   	<li class="actnbr-folded-customize actnbr-hidden"><a href="https://technicalnotes.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Ftechnicalnotes.wordpress.com%2F2014%2F04%2F19%2Fopenldap-setup-with-memberof-overlay%2F"><svg class="gridicon gridicon__customize" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z" data-reactid=".2.1.1:0.1b.0"></path></g></svg><span>Customize<span></span></span></a></li> 				    <li class="actnbr-folded-follow actnbr-hidden"><a class="actnbr-action actnbr-actn-follow" href=""><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Follow</span></a></li> 					<li class="actnbr-signup actnbr-hidden"><a href="https://wordpress.com/start/">Sign up</a></li> 				    <li class="actnbr-login actnbr-hidden"><a href="https://technicalnotes.wordpress.com/wp-login.php?redirect_to=https%3A%2F%2Ftechnicalnotes.wordpress.com%2F2014%2F04%2F19%2Fopenldap-setup-with-memberof-overlay%2F">Log in</a></li> 				     				    <li class="actnbr-shortlink actnbr-hidden"><a href="https://wp.me/p1Doc-9">Copy shortlink</a></li> 				    <li class="flb-report actnbr-hidden"><a href="http://en.wordpress.com/abuse/">Report this content</a></li> 				     				     				    <li class="actnbr-subs actnbr-hidden"><a href="https://subscribe.wordpress.com/">Manage subscriptions</a></li> 				    <li class="actnbr-fold actnbr-hidden"><a href="">Collapse this bar</a></li> 			      </ul> 			    </div> 		      </div> 		    </li> 	      </ul></div>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "technicalnotes.wordpress.com";
+	</script>
+	<script type="text/javascript" defer="defer" src="5.reference-2_files/725X1342.bin"></script>		<iframe src="5.reference-2_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+<script src="5.reference-2_files/w.js" type="text/javascript" async="" defer="defer"></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', 
+{'blog_id':'389744','blog_tz':'0','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view',
+ 
+{'blog':'389744','v':'wpcom','tz':'0','user_id':'0','post':'9','subd':'technicalnotes'}]);
+_stq.push(['extra',
+ 
+{'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRU1I2fH5qamxuMVpOLVgxWURod1QmdzhKMjhjOHxRXTVdcmdRRFpudzlQQiwwRl1baGphZTVyWDUxXXp4QSs5QW8samdSbTBhQURTTWR+UnhoN2h3SkpwZ0RDWmZGJjVbYitUamUmbEVvUjBQNFsxaGVGQ2xwN21Sc1JEdG1icElhaFJCNEgtYS8yS0V2a1pwN3QvZllhRXJhSlEuYTdSfHRrV0hzbHlGLjJ6K3JWP0FxT3hYQnE1bVNoPUpRRGNKaTJ4U05XZi4xVl9PV05YW3k='}]);
+_stq.push([
+ 'clickTrackerInit', '389744', '9' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + 
+wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + 
+wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + 
+'//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba='
+ + Math.random();
+	}
+	
+}
+</script>
+
+<img src="5.reference-2_files/g.gif" alt=":)" id="wpstats"></body></html>

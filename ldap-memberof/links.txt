@@ -1,0 +1,19 @@
+====================
+links ::
+====================
+
+ldap_add insufficient access (50) openldap >>
+http://idmoim.blogspot.in/2014/05/ldapadd-insufficient-access-50-openldap.html
+
+
+ldif files for memberof attributes ::
+https://gist.github.com/dnozay/511968813c070b07bc85#file-backend-refint-ldif
+
+
+testing >>
+https://www.adimian.com/blog/2014/10/how-to-enable-memberof-using-openldap/
+
+
+reference >>
+https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/
+https://www.brianshowalter.com/blog/installing-configuring-openldap

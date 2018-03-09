@@ -1,0 +1,16 @@
+.console-container {
+    color: #404042;
+    font-family: Dosis, sans-serif;
+    font-size: 2em;
+    margin-left: auto;
+    display: block;
+    margin-left: 3em;
+    text-transform: uppercase;
+}
+.console-underscore {
+    display: inline-block;
+    top: -0.14em;
+    font-size: 25px;
+    text-align: left;
+    color: #fff;
+}

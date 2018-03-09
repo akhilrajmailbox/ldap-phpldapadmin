@@ -1,0 +1,131 @@
+.single-featured {
+	-webkit-transition: opacity .3s linear;
+	-moz-transition: opacity .3s linear;
+	-o-transition: opacity .3s linear;
+	transition: opacity .3s linear;
+	display: block;
+	margin: auto;
+	border-radius: 50%;
+	height: 210px;
+	width: 210px;
+	margin-bottom: -30px;
+	box-shadow: 0 0 8px rgba(0,0,0,.8);
+	-webkit-box-shadow: 0 0 8px rgba(0,0,0,.8);
+	-moz-box-shadow: 0 0 8px rgba(0,0,0,.8);
+}
+
+.blog-full {
+    background-color: #efefef;
+    width: 100%;
+    padding-bottom: 5em;
+    font-family: Open Sans,sans-serif;
+    font-size: 1em;
+}
+
+.blog-page {
+    max-width: 70%;
+    text-align: left;
+    margin: auto;
+}
+
+.blog-block {
+    padding: 4em;
+    padding-top: 2em;
+    padding-bottom: -2em;
+    background-color: #ffffff;
+}
+
+.blog-meta {
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    opacity: 0.6;
+}
+
+.blog-meta span {
+    margin-left: 1em;
+    margin-right: 0.3em;
+}
+
+.blog-page h2 {
+    margin-top: 2em;
+    text-align: left;
+    font-size: 1.5em;
+    opacity: 0.9;
+    color: #cc6d7e;
+    text-transform: none;
+}
+
+.blog-page h3 {
+    margin-top: 1em;
+    text-align: left;
+    font-size: 1.5em;
+    opacity: 0.9;
+    color: #cc6d7e;
+    text-transform: none;
+}
+
+.blog-credits {
+    paddin-top: 2em;
+}
+
+.blog-bio {
+    margin-top: 2em;
+    padding-top: 4em;
+    border-top: 1px solid #9d9da3;
+}
+
+.blog-index {
+	margin-top: 2rem;
+	margin-left: 4rem;
+	margin-right: 4rem;
+	font-family: Open Sans,sans-serif;
+}
+
+.blog-post-list-image {
+	box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+.blog-index a{
+	color: #6b973f;
+}
+
+.blog-row {
+    vertical-align: middle !important;
+}
+
+.blog-latest-post {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.blog-list-item {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+	.blog-page {
+		max-width: 90%;
+	}
+
+	.blog-full {
+		background-color:inherit;
+	}
+
+	.blog-block {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	.blog-index {
+		margin-left: 1rem;
+		margin-right: 1rem;
+	}
+
+	.blog-post-list-image {
+		max-width: 300px;
+	}
+}

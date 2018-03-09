@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html class="v2" dir="ltr"><head>
+<link href="1.ldap_add-insufficient-access_files/2437439463-css_bundle_v2.css" rel="stylesheet" type="text/css">
+<meta content="width=1100" name="viewport">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="blogger" name="generator">
+<link href="http://idmoim.blogspot.in/favicon.ico" rel="icon" type="image/x-icon">
+<link href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="IDM OIM Blog - Atom" href="http://idmoim.blogspot.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="IDM OIM Blog - RSS" href="http://idmoim.blogspot.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="IDM OIM Blog - Atom" href="https://www.blogger.com/feeds/8081952238935480135/posts/default">
+
+<link rel="alternate" type="application/atom+xml" title="IDM OIM Blog - Atom" href="http://idmoim.blogspot.com/feeds/8686400118620900524/comments/default">
+<!--[if IE]><script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/3061962209-ieretrofit.js"></script>
+<![endif]-->
+<meta content="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html" property="og:url">
+<meta content="ldap_add insufficient access (50) openldap" property="og:title">
+<meta content=" Error:   ldap_add insufficient access (50) openldap   Cause:   The &nbsp;ldap_add insufficient access (50) openldap exception is thrown while ad..." property="og:description">
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>IDM OIM Blog: ldap_add insufficient access (50) openldap</title>
+<style id="page-skin-1" type="text/css"><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Simple
+Designer: Blogger
+URL:      www.blogger.com
+----------------------------------------------- */
+
+/* Content
+----------------------------------------------- */
+body {
+font: normal normal 14px Georgia, Utopia, 'Palatino Linotype', Palatino, serif;
+color: #222222;
+background: #513831 url(http://themes.googleusercontent.com/image?id=1KH22PlFqsiVYxboQNAoJjYmRbw5M4REHmdJbHT5M2x9zVMGrCqwSjZvaQW_A10KPc6Il) repeat scroll top center /* Credit: luoman (http://www.istockphoto.com/googleimages.php?id=11394138&amp;platform=blogger) */;
+padding: 0 40px 40px 40px;
+}
+html body .region-inner {
+min-width: 0;
+max-width: 100%;
+width: auto;
+}
+h2 {
+font-size: 22px;
+}
+a:link {
+text-decoration:none;
+color: #993300;
+}
+a:visited {
+text-decoration:none;
+color: #888888;
+}
+a:hover {
+text-decoration:underline;
+color: #ff1900;
+}
+.body-fauxcolumn-outer .fauxcolumn-inner {
+background: transparent none repeat scroll top left;
+_background-image: none;
+}
+.body-fauxcolumn-outer .cap-top {
+position: absolute;
+z-index: 1;
+height: 400px;
+width: 100%;
+}
+.body-fauxcolumn-outer .cap-top .cap-left {
+width: 100%;
+background: transparent none repeat-x scroll top left;
+_background-image: none;
+}
+.content-outer {
+-moz-box-shadow: 0 0 40px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 10px #333333;
+box-shadow: 0 0 40px rgba(0, 0, 0, .15);
+margin-bottom: 1px;
+}
+.content-inner {
+padding: 10px 10px;
+}
+.content-inner {
+background-color: #fff9ee;
+}
+/* Header
+----------------------------------------------- */
+.header-outer {
+background: #ccb666 url(http://www.blogblog.com/1kt/simple/gradients_light.png) repeat-x scroll 0 -400px;
+_background-image: none;
+}
+.Header h1 {
+font: normal normal 48px Georgia, Utopia, 'Palatino Linotype', Palatino, serif;
+color: #ffffff;
+text-shadow: 1px 2px 3px rgba(0, 0, 0, .2);
+}
+.Header h1 a {
+color: #ffffff;
+}
+.Header .description {
+font-size: 140%;
+color: #ffffff;
+}
+.header-inner .Header .titlewrapper {
+padding: 22px 30px;
+}
+.header-inner .Header .descriptionwrapper {
+padding: 0 30px;
+}
+/* Tabs
+----------------------------------------------- */
+.tabs-inner .section:first-child {
+border-top: 0 solid #eee5dd;
+}
+.tabs-inner .section:first-child ul {
+margin-top: -0;
+border-top: 0 solid #eee5dd;
+border-left: 0 solid #eee5dd;
+border-right: 0 solid #eee5dd;
+}
+.tabs-inner .widget ul {
+background: #fff9ee none repeat-x scroll 0 -800px;
+_background-image: none;
+border-bottom: 1px solid #eee5dd;
+margin-top: 0;
+margin-left: -30px;
+margin-right: -30px;
+}
+.tabs-inner .widget li a {
+display: inline-block;
+padding: .6em 1em;
+font: normal normal 16px Georgia, Utopia, 'Palatino Linotype', Palatino, serif;
+color: #998877;
+border-left: 1px solid #fff9ee;
+border-right: 1px solid #eee5dd;
+}
+.tabs-inner .widget li:first-child a {
+border-left: none;
+}
+.tabs-inner .widget li.selected a, .tabs-inner .widget li a:hover {
+color: #000000;
+background-color: #fff9ee;
+text-decoration: none;
+}
+/* Columns
+----------------------------------------------- */
+.main-outer {
+border-top: 0 solid #eee5dd;
+}
+.fauxcolumn-left-outer .fauxcolumn-inner {
+border-right: 1px solid #eee5dd;
+}
+.fauxcolumn-right-outer .fauxcolumn-inner {
+border-left: 1px solid #eee5dd;
+}
+/* Headings
+----------------------------------------------- */
+div.widget > h2,
+div.widget h2.title {
+margin: 0 0 1em 0;
+font: normal bold 12px Georgia, Utopia, 'Palatino Linotype', Palatino, serif;
+color: #000000;
+}
+/* Widgets
+----------------------------------------------- */
+.widget .zippy {
+color: #999999;
+text-shadow: 2px 2px 1px rgba(0, 0, 0, .1);
+}
+.widget .popular-posts ul {
+list-style: none;
+}
+/* Posts
+----------------------------------------------- */
+h2.date-header {
+font: normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+}
+.date-header span {
+background-color: transparent;
+color: #222222;
+padding: inherit;
+letter-spacing: inherit;
+margin: inherit;
+}
+.main-inner {
+padding-top: 30px;
+padding-bottom: 30px;
+}
+.main-inner .column-center-inner {
+padding: 0 15px;
+}
+.main-inner .column-center-inner .section {
+margin: 0 15px;
+}
+.post {
+margin: 0 0 25px 0;
+}
+h3.post-title, .comments h4 {
+font: normal normal 24px Georgia, Utopia, 'Palatino Linotype', Palatino, serif;
+margin: .75em 0 0;
+}
+.post-body {
+font-size: 110%;
+line-height: 1.4;
+position: relative;
+}
+.post-body img, .post-body .tr-caption-container, .Profile img, .Image img,
+.BlogList .item-thumbnail img {
+padding: 2px;
+background: #ffffff;
+border: 1px solid #eeeeee;
+-moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+}
+.post-body img, .post-body .tr-caption-container {
+padding: 5px;
+}
+.post-body .tr-caption-container {
+color: #222222;
+}
+.post-body .tr-caption-container img {
+padding: 0;
+background: transparent;
+border: none;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+}
+.post-header {
+margin: 0 0 1.5em;
+line-height: 1.6;
+font-size: 90%;
+}
+.post-footer {
+margin: 20px -2px 0;
+padding: 5px 10px;
+color: #666555;
+background-color: #eee9dd;
+border-bottom: 1px solid #eeeeee;
+line-height: 1.6;
+font-size: 90%;
+}
+#comments .comment-author {
+padding-top: 1.5em;
+border-top: 1px solid #eee5dd;
+background-position: 0 1.5em;
+}
+#comments .comment-author:first-child {
+padding-top: 0;
+border-top: none;
+}
+.avatar-image-container {
+margin: .2em 0 0;
+}
+#comments .avatar-image-container img {
+border: 1px solid #eeeeee;
+}
+/* Comments
+----------------------------------------------- */
+.comments .comments-content .icon.blog-author {
+background-repeat: no-repeat;
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==);
+}
+.comments .comments-content .loadmore a {
+border-top: 1px solid #999999;
+border-bottom: 1px solid #999999;
+}
+.comments .comment-thread.inline-thread {
+background-color: #eee9dd;
+}
+.comments .continue {
+border-top: 2px solid #999999;
+}
+/* Accents
+---------------------------------------------- */
+.section-columns td.columns-cell {
+border-left: 1px solid #eee5dd;
+}
+.blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.blog-pager-older-link, .home-link,
+.blog-pager-newer-link {
+background-color: #fff9ee;
+padding: 5px;
+}
+.footer-outer {
+border-top: 0 dashed #bbbbbb;
+}
+/* Mobile
+----------------------------------------------- */
+body.mobile  {
+background-size: auto;
+}
+.mobile .body-fauxcolumn-outer {
+background: transparent none repeat scroll top left;
+}
+.mobile .body-fauxcolumn-outer .cap-top {
+background-size: 100% auto;
+}
+.mobile .content-outer {
+-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+}
+.mobile .tabs-inner .widget ul {
+margin-left: 0;
+margin-right: 0;
+}
+.mobile .post {
+margin: 0;
+}
+.mobile .main-inner .column-center-inner .section {
+margin: 0;
+}
+.mobile .date-header span {
+padding: 0.1em 10px;
+margin: 0 -10px;
+}
+.mobile h3.post-title {
+margin: 0;
+}
+.mobile .blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.mobile .footer-outer {
+border-top: none;
+}
+.mobile .main-inner, .mobile .footer-inner {
+background-color: #fff9ee;
+}
+.mobile-index-contents {
+color: #222222;
+}
+.mobile-link-button {
+background-color: #993300;
+}
+.mobile-link-button a:link, .mobile-link-button a:visited {
+color: #ffffff;
+}
+.mobile .tabs-inner .section:first-child {
+border-top: none;
+}
+.mobile .tabs-inner .PageList .widget-content {
+background-color: #fff9ee;
+color: #000000;
+border-top: 1px solid #eee5dd;
+border-bottom: 1px solid #eee5dd;
+}
+.mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
+border-left: 1px solid #eee5dd;
+}
+
+--></style>
+<style id="template-skin-1" type="text/css"><!--
+body {
+min-width: 860px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 860px;
+max-width: 860px;
+_width: 860px;
+}
+.main-inner .columns {
+padding-left: 0px;
+padding-right: 260px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0px;
+right: 260px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0px") -
+parseInt("260px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0px;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 260px;
+}
+.main-inner .column-left-outer {
+width: 0px;
+right: 100%;
+margin-left: -0px;
+}
+.main-inner .column-right-outer {
+width: 260px;
+margin-right: -260px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+body#layout div.add_widget {
+padding: 8px;
+}
+body#layout div.add_widget a {
+margin-left: 32px;
+}
+--></style>
+<style>
+    body {background-image:url(http\:\/\/themes.googleusercontent.com\/image?id=1KH22PlFqsiVYxboQNAoJjYmRbw5M4REHmdJbHT5M2x9zVMGrCqwSjZvaQW_A10KPc6Il);}
+    
+@media (max-width: 200px) { body {background-image:url(http\:\/\/themes.googleusercontent.com\/image?id=1KH22PlFqsiVYxboQNAoJjYmRbw5M4REHmdJbHT5M2x9zVMGrCqwSjZvaQW_A10KPc6Il&options=w200);}}
+@media (max-width: 400px) and (min-width: 201px) { body {background-image:url(http\:\/\/themes.googleusercontent.com\/image?id=1KH22PlFqsiVYxboQNAoJjYmRbw5M4REHmdJbHT5M2x9zVMGrCqwSjZvaQW_A10KPc6Il&options=w400);}}
+@media (max-width: 800px) and (min-width: 401px) { body {background-image:url(http\:\/\/themes.googleusercontent.com\/image?id=1KH22PlFqsiVYxboQNAoJjYmRbw5M4REHmdJbHT5M2x9zVMGrCqwSjZvaQW_A10KPc6Il&options=w800);}}
+@media (max-width: 1200px) and (min-width: 801px) { body {background-image:url(http\:\/\/themes.googleusercontent.com\/image?id=1KH22PlFqsiVYxboQNAoJjYmRbw5M4REHmdJbHT5M2x9zVMGrCqwSjZvaQW_A10KPc6Il&options=w1200);}}
+/* Last tag covers anything over one higher than the previous max-size cap. */
+@media (min-width: 1201px) { body {background-image:url(http\:\/\/themes.googleusercontent.com\/image?id=1KH22PlFqsiVYxboQNAoJjYmRbw5M4REHmdJbHT5M2x9zVMGrCqwSjZvaQW_A10KPc6Il&options=w1600);}}
+  </style>
+<link href="1.ldap_add-insufficient-access_files/authorization.css" media="all" onload="if(media!='all')media='all'" rel="stylesheet"><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=8081952238935480135&amp;zx=86fe4d03-826e-4881-8194-c3f2cf0350a8' rel='stylesheet'/></noscript>
+<script src="1.ldap_add-insufficient-access_files/cbgapi.loaded_4" async=""></script><script src="1.ldap_add-insufficient-access_files/cbgapi.loaded_3" async=""></script><script src="1.ldap_add-insufficient-access_files/cbgapi.loaded_2" async=""></script><script type="text/javascript" src="1.ldap_add-insufficient-access_files/google_top_exp.js"></script><style>.gc-bubbleDefault{background-color:transparent !important;text-align:left;padding:0 !important;margin:0 !important;border:0 !important;table-layout:auto !important}.gc-reset{background-color:transparent !important;border:0 !important;padding:0 !important;margin:0 !important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc !important}.pls-topTail,.pls-vertShimLeft,.pls-contentLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif) !important}.pls-topTail{background-repeat:repeat-x !important;background-position:bottom !important}.pls-vertShim{background-color:#fff !important;text-align:right}.tbl-grey .pls-vertShim{background-color:#f5f5f5 !important}.pls-vertShimLeft{background-repeat:repeat-y !important;background-position:right !important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2 !important}.pls-contentWrap{background-color:#fff !important;position:relative !important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png) !important;background-repeat:repeat-y !important;vertical-align:top}.pls-vert,.pls-tailleft,.pls-dropTR .pls-dropBR,.pls-dropBL,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png) !important;background-repeat:repeat-x !important;width:100%;vertical-align:top}.pls-topLeft{background:inherit !important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit !important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit !important;text-align:right}.pls-bottomRight{background:inherit !important;text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom,.pls-tailtop,.pls-tailright,.pls-tailleft,.pls-dropTR,.pls-dropBR,.pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png) !important;background-repeat:no-repeat}.tbl-grey .pls-tailbottom,.tbl-grey .pls-tailtop,.tbl-grey .pls-tailright,.tbl-grey .pls-tailleft,.tbl-grey .pls-dropTR,.tbl-grey .pls-dropBR,.tbl-grey .pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite-grey.png) !important}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacertop,.pls-spacerright,.pls-spacerbottom,.pls-spacerleft{position:static !important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0} </style><script async="" src="1.ldap_add-insufficient-access_files/lazy.js"></script></head>
+<body class=" variant-literate">
+<div class="navbar section" id="navbar" name="Navbar"><div class="widget Navbar" data-version="1" id="Navbar1"><script src="1.ldap_add-insufficient-access_files/cbgapi.loaded_1" async=""></script><script src="1.ldap_add-insufficient-access_files/cbgapi.loaded_0" async=""></script><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="" tabindex="0" vspace="0" id="navbar-iframe" name="navbar-iframe" src="1.ldap_add-insufficient-access_files/navbar.html" frameborder="0" width="100%"></iframe></div>
+<script type="text/javascript" src="1.ldap_add-insufficient-access_files/plusone.js" gapi_processed="true"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d8081952238935480135\x26blogName\x3dIDM+OIM+Blog\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dLIGHT\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttp://idmoim.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://idmoim.blogspot.com/\x26targetPostID\x3d8686400118620900524\x26blogPostOrPageUrl\x3dhttp://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html\x26vt\x3d3738932823162913014',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div class="body-fauxcolumns">
+<div class="fauxcolumn-outer body-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="content-fauxcolumns">
+<div class="fauxcolumn-outer content-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content-outer">
+<div class="content-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left content-fauxborder-left">
+<div class="fauxborder-right content-fauxborder-right"></div>
+<div class="content-inner">
+<header>
+<div class="header-outer">
+<div class="header-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left header-fauxborder-left">
+<div class="fauxborder-right header-fauxborder-right"></div>
+<div class="region-inner header-inner">
+<div class="header section" id="header" name="Header"><div class="widget Header" data-version="1" id="Header1">
+<div id="header-inner">
+<div class="titlewrapper">
+<h1 class="title">
+<a href="http://idmoim.blogspot.in/">
+IDM OIM Blog
+</a>
+</h1>
+</div>
+<div class="descriptionwrapper">
+<p class="description"><span>
+</span></p>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="header-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</header>
+<div class="tabs-outer">
+<div class="tabs-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left tabs-fauxborder-left">
+<div class="fauxborder-right tabs-fauxborder-right"></div>
+<div class="region-inner tabs-inner">
+<div class="tabs section" id="crosscol" name="Cross-Column"><div class="widget PageList" data-version="1" id="PageList1">
+<h2>Pages</h2>
+<div class="widget-content">
+<ul>
+<li>
+<a href="http://idmoim.blogspot.in/">Home</a>
+</li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8081952238935480135&amp;widgetType=PageList&amp;widgetId=PageList1&amp;action=editWidget&amp;sectionId=crosscol" onclick='return _WidgetManager._PopupConfig(document.getElementById("PageList1"));' target="configPageList1" title="Edit">
+<img alt="" src="1.ldap_add-insufficient-access_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+<div class="tabs no-items section" id="crosscol-overflow" name="Cross-Column 2"></div>
+</div>
+</div>
+<div class="tabs-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="main-outer">
+<div class="main-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left main-fauxborder-left">
+<div class="fauxborder-right main-fauxborder-right"></div>
+<div class="region-inner main-inner">
+<div class="columns fauxcolumns">
+<div class="fauxcolumn-outer fauxcolumn-center-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-left-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-right-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class="columns-inner">
+<div class="column-center-outer">
+<div class="column-center-inner">
+<div class="main section" id="main" name="Main"><div class="widget Blog" data-version="1" id="Blog1">
+<div class="blog-posts hfeed">
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>Friday, May 9, 2014</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry uncustomized-post-template" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+<meta content="8081952238935480135" itemprop="blogId">
+<meta content="8686400118620900524" itemprop="postId">
+<a name="8686400118620900524"></a>
+<h3 class="post-title entry-title" itemprop="name">
+ldap_add insufficient access (50) openldap
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-8686400118620900524" itemprop="description articleBody">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<b><span style="color: red;">Error:</span></b><br>
+<b><br></b>
+<b>ldap_add insufficient access (50) openldap</b><br>
+<b><br></b>
+<b>Cause:</b><br>
+<b><br></b>
+The &nbsp;ldap_add insufficient access (50) openldap exception is thrown
+ while adding or modifying the cn=Config object in the Open Ldap because
+ the admin user <b>CN=Manager,dc=example,dc=edu </b>don't &nbsp;have enough privileges to update the schema.<br>
+<br>
+<b>Solution:</b><br>
+<b><br></b>
+<b>1. Finding the olcRootDN in&nbsp;olcDatabase={0}config.ldif</b><br>
+<br>
+You need &nbsp;to update the schema &nbsp;using the cn=Config Object. You can find the olcRootDN as follows<br>
+<br>
+Go to the /etc/openldap/slapd.d/cn=config directory and edit the<b>&nbsp;olcDatabase={0}config.ldif</b> file. Find the olcRootDN in this file. In my config files olcRootDN is&nbsp;<b>olcRootDN: cn=config</b><br>
+<br>
+<b>2. Updating the olcRootDN password&nbsp;</b><br>
+<br>
+&nbsp; &nbsp;<b>2.1 Generating the New Password</b><br>
+&nbsp; <br>
+&nbsp;&nbsp;execute the slappasswd command and it will generate the new password as follows.<br>
+<br>
+<br class="Apple-interchange-newline">
+&nbsp;slappasswd<br>
+New password:<br>
+Re-enter new password:<br>
+{SSHA}Hfpsjkt/Am2LDOndfBmPyjWyXaBk8K+<br>
+<div>
+<br></div>
+<div>
+<br></div>
+<br>
+&nbsp; &nbsp;<b>2.2 Updating the olcRootDN password</b><br>
+<br>
+Go to the /etc/openldap/slapd.d/cn=config and edit the 
+olcDatabase={0}config.ldif file and add the generated password after 
+olcRootDN<br>
+<br>
+olcRootPW: {SSHA}Hfpsjkt/Am2LDOndfBmPyjWyXaBk8K+<br>
+<div>
+<br>
+Save the file and restart the Ldap Server<br>
+<br></div>
+<br>
+<br>
+<b>3. Updating the Config Object</b><br>
+<br>
+&nbsp;<b>3.1 &nbsp;Adding the module object (addmodule.ldif)</b><br>
+<br>
+dn: cn=module,cn=config<br>
+objectClass: olcModuleList<br>
+cn: module<br>
+olcModulePath: /usr/lib64/openldap<br>
+olcModuleLoad: memberof<br>
+<br>
+&nbsp;<b>3.2 Executing the LDAP command</b><br>
+<br>
+ldapadd-x -h &lt;hostname&gt; -p 389 -D CN=config -W -f addmodule.ldif<br>
+<br>
+<br>
+The<b>&nbsp;ldap_add insufficient access (50) openldap</b> will be resolved after executing the above steps.<br>
+<br>
+<br></div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1">
+<span class="post-author vcard">
+Posted by
+<span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+<meta content="https://www.blogger.com/profile/07451316181647650347" itemprop="url">
+<a class="g-profile" href="https://www.blogger.com/profile/07451316181647650347" rel="author" title="author profile" data-gapiscan="true" data-onload="true" data-gapiattached="true">
+<span itemprop="name">IDM OIM</span>
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+at
+<meta content="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html" itemprop="url">
+<a class="timestamp-link" href="http://idmoim.blogspot.in/2014/05/ldapadd-insufficient-access-50-openldap.html" rel="bookmark" title="permanent link"><abbr class="published" itemprop="datePublished" title="2014-05-09T16:55:00-07:00">4:55 PM</abbr></a>
+</span>
+<span class="reaction-buttons">
+</span>
+<span class="post-comment-link">
+</span>
+<span class="post-backlinks post-comment-link">
+</span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-670645749">
+<a href="https://www.blogger.com/post-edit.g?blogID=8081952238935480135&amp;postID=8686400118620900524&amp;from=pencil" title="Edit Post">
+<img alt="" class="icon-action" src="1.ldap_add-insufficient-access_files/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="https://www.blogger.com/share-post.g?blogID=8081952238935480135&amp;postID=8686400118620900524&amp;target=email" target="_blank" title="Email This"><span class="share-button-link-text">Email This</span></a><a class="goog-inline-block share-button sb-blog" href="https://www.blogger.com/share-post.g?blogID=8081952238935480135&amp;postID=8686400118620900524&amp;target=blog" onclick='window.open(this.href, "_blank", "height=270,width=475"); return false;' target="_blank" title="BlogThis!"><span class="share-button-link-text">BlogThis!</span></a><a class="goog-inline-block share-button sb-twitter" href="https://www.blogger.com/share-post.g?blogID=8081952238935480135&amp;postID=8686400118620900524&amp;target=twitter" target="_blank" title="Share to Twitter"><span class="share-button-link-text">Share to Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="https://www.blogger.com/share-post.g?blogID=8081952238935480135&amp;postID=8686400118620900524&amp;target=facebook" onclick='window.open(this.href, "_blank", "height=430,width=640"); return false;' target="_blank" title="Share to Facebook"><span class="share-button-link-text">Share to Facebook</span></a><a class="goog-inline-block share-button sb-pinterest" href="https://www.blogger.com/share-post.g?blogID=8081952238935480135&amp;postID=8686400118620900524&amp;target=pinterest" target="_blank" title="Share to Pinterest"><span class="share-button-link-text">Share to Pinterest</span></a><div class="goog-inline-block google-plus-share-container"><div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" id="I0_1520502898784" name="I0_1520502898784" src="1.ldap_add-insufficient-access_files/fastbutton.html" data-gapiattached="true" title="G+" frameborder="0" width="100%"></iframe></div></div>
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2">
+<span class="post-labels">
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3">
+<span class="post-location">
+</span>
+</div>
+</div>
+</div>
+<div class="comments" id="comments">
+<a name="comments"></a>
+<h4>13 comments:</h4>
+<div class="comments-content">
+<script async="async" src="1.ldap_add-insufficient-access_files/comments.js" type="text/javascript"></script>
+<script type="text/javascript">
+    (function() {
+      var items = [{'id': '1052636801379288400', 'body': 'It seems that by default when openldap is installed the setting is \x26quot;olcRootDN: cn\x3dcfgadmin,cn\x3dconfig\x26quot; in olcDatabase\x3d{0}config.ldif. Why is that, and why is it not set to cn\x3dconfig by default? Basically changing it places the config DB in the root cn\x3dconfig domain instead of a cn\x3dcfgadmin child of cn\x3dconfig, right? \x3cbr /\x3e\x3cbr /\x3eDoes that arrangement of the OpenLDAP tree have something to do with separating out user roles and permissions so that only certain aspects of the OLC live config can be changed by certain users? And if so what are the (security and tree structure) consequences of placing the config{0} DB directly under cn\x3dconfig? Maybe I\x26#39;m misunderstanding what this change actually does.', 'timestamp': '1409778776943', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409778776943#c1052636801379288400', 'author': {'name': 'Josh Nielsen', 'avatarUrl': '//lh5.googleusercontent.com/-86Fs36geWDI/AAAAAAAAAAI/AAAAAAAAABk/2WbLZFp2Nko/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/00503683009555059217'}, 'displayTime': 'September 3, 2014 at 2:12 PM', 'deleteclass': 'item-control blog-admin pid-1067496940'}, {'id': '831321753835320105', 'parentId': '1052636801379288400', 'body': 'I think I confused DN with Domain Name instead of Distinguished Name there for a moment. So this is a user change rather than a tree change isn\x26#39;t it? If so that makes more sense, and I guess cfgadmin is a dummy account that gets rolled out with OpenLDAP. But if my olcRootDN is set to \x26quot;cn\x3droot,dn\x3dmydomain\x26quot; in the olcDatabase\x3d{1}bdb.ldif file why should it not be the same in olcDatabase\x3d{0}config.ldif, and instead be the cn\x3dconfig object?', 'timestamp': '1409779324676', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409779324676#c831321753835320105', 'author': {'name': 'Josh Nielsen', 'avatarUrl': '//lh5.googleusercontent.com/-86Fs36geWDI/AAAAAAAAAAI/AAAAAAAAABk/2WbLZFp2Nko/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/00503683009555059217'}, 'displayTime': 'September 3, 2014 at 2:22 PM', 'deleteclass': 'item-control blog-admin pid-1067496940'}, {'id': '971762340430173687', 'parentId': '1052636801379288400', 'body': 'HI\x3cbr /\x3e\x3cbr /\x3e The cn\x3dconfig DIT is used to dynamically configure the slapd daemon, allowing the modification of schema definitions, indexes, ACLs, etc without stopping the service. \x3cbr /\x3e\x3cbr /\x3eolcRootDN: \x26quot;cn\x3dManager,dc\x3dexample,dc\x3dcom\x26quot; is a administrator user for the domain example.com.', 'timestamp': '1409786896651', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409786896651#c971762340430173687', 'author': {'name': 'IDM OIM', 'avatarUrl': '//lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA\x3ds35', 'profileUrl': 'https://www.blogger.com/profile/07451316181647650347'}, 'displayTime': 'September 3, 2014 at 4:28 PM', 'deleteclass': 'item-control blog-admin pid-670645749'}, {'id': '4272453855622510402', 'parentId': '1052636801379288400', 'body': 'HI\x3cbr /\x3e\x3cbr /\x3eI have installed the openldap in red hat linux using the yum. After installing the openldap the olcRootDN is  cn\x3dconfig in the olcDatabase\x3d{0}config.ldif, file.\x3cbr /\x3e\x3cbr /\x3ePlease let me know if you need more help.', 'timestamp': '1409787146250', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409787146250#c4272453855622510402', 'author': {'name': 'IDM OIM', 'avatarUrl': '//lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA\x3ds35', 'profileUrl': 'https://www.blogger.com/profile/07451316181647650347'}, 'displayTime': 'September 3, 2014 at 4:32 PM', 'deleteclass': 'item-control blog-admin pid-670645749'}, {'id': '1082601798001524569', 'parentId': '1052636801379288400', 'body': 'Ah you are right. I am on Centos 6 which is essentially the same and I compared a backup LDAP server with a fresh installation that I will be using for Sync Replication and it did have the cn\x3dconfig setting. I must have made a rookie mistake by blindly following some blog\x26#39;s suggestion to change my Master LDAP server to have \x26quot;\x26quot;olcRootDN: cn\x3dcfgadmin,cn\x3dconfig\x26quot; in olcDatabase\x3d{0}config.ldif. \x3cbr /\x3e\x3cbr /\x3eThat is fixable, but since the whole issue is that I can\x26#39;t do a live config edit I will have to take the Master\x26#39;s slapd process down for a second to restart it after manually editing the LDIF. Is there a better way? I am authenticating as cn\x3droot in my environment with -D with commands like ldapadd, ldapmodify, etc. Thanks!', 'timestamp': '1409840651184', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409840651184#c1082601798001524569', 'author': {'name': 'Josh Nielsen', 'avatarUrl': '//lh5.googleusercontent.com/-86Fs36geWDI/AAAAAAAAAAI/AAAAAAAAABk/2WbLZFp2Nko/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/00503683009555059217'}, 'displayTime': 'September 4, 2014 at 7:24 AM', 'deleteclass': 'item-control blog-admin pid-1067496940'}, {'id': '5144757853280260546', 'parentId': '1052636801379288400', 'body': 'BTW, I do not use the cfgadmin user and though there is a set password I don\x26#39;t know what it is, thus why I cannot edit the config database live. I must have followed a suggestion I read on a blog or tutorial when converting from slapd.conf to the cn\x3dconfig format.', 'timestamp': '1409840851275', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409840851275#c5144757853280260546', 'author': {'name': 'Josh Nielsen', 'avatarUrl': '//lh5.googleusercontent.com/-86Fs36geWDI/AAAAAAAAAAI/AAAAAAAAABk/2WbLZFp2Nko/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/00503683009555059217'}, 'displayTime': 'September 4, 2014 at 7:27 AM', 'deleteclass': 'item-control blog-admin pid-1067496940'}, {'id': '7132794155697243663', 'body': 'Okay, so I\x26#39;m going to test this on my new server first. So on that server only \x26quot;olcRootDN: cn\x3dconfig\x26quot; is present and no password. After step 2.2 above (which I dumped into a file named \x26quot;passwdchange.ldif\x26quot;) how do you bind to LDAP using ldapadd to make the password change? I have tried \x26quot;cn\x3dconfig\x26quot; and leaving the password blank when it prompts, and I have tried the \x26quot;cn\x3droot\x26quot; account I have in my olcDatabase\x3d{2}bdb.ldif file. I am using:\x3cbr /\x3e\x3cbr /\x3eldapadd -f passwdchange.ldif -D \x26quot;cn\x3dconfig\x26quot; -H \x26quot;ldap://ldap02.mydomain\x26quot; -W -x\x3cbr /\x3e\x3cbr /\x3eWith no password entered at the prompt I get:\x3cbr /\x3e\x3cbr /\x3eldap_bind: Server is unwilling to perform (53)\x3cbr /\x3e additional info: unauthenticated bind (DN with no password) disallowed\x3cbr /\x3e\x3cbr /\x3eSame message if I simply leave -W off.', 'timestamp': '1409845633902', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409845633902#c7132794155697243663', 'author': {'name': 'Josh Nielsen', 'avatarUrl': '//lh5.googleusercontent.com/-86Fs36geWDI/AAAAAAAAAAI/AAAAAAAAABk/2WbLZFp2Nko/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/00503683009555059217'}, 'displayTime': 'September 4, 2014 at 8:47 AM', 'deleteclass': 'item-control blog-admin pid-1067496940'}, {'id': '3876357688078157724', 'parentId': '7132794155697243663', 'body': 'Hi Josh,\x3cbr /\x3e\x3cbr /\x3eedit the olcDatabase\x3d{0}config.ldif file and add the olcRootPW attribute after olcRootDN : cn\x3dconfig. The password format should be olcRootPW: {SSHA}\x3cbr /\x3e\x3cbr /\x3eRestart the ldap server and issue will be resolved and you can add or modify the ldap schema using ldap client utilities like ldapadd or ldapmodify. Please let me know if you need any help.\x3cbr /\x3e\x3cbr /\x3e\x3cbr /\x3e', 'timestamp': '1409848715887', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409848715887#c3876357688078157724', 'author': {'name': 'IDM OIM', 'avatarUrl': '//lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA\x3ds35', 'profileUrl': 'https://www.blogger.com/profile/07451316181647650347'}, 'displayTime': 'September 4, 2014 at 9:38 AM', 'deleteclass': 'item-control blog-admin pid-670645749'}, {'id': '5127797727347280765', 'body': 'Okay, thanks! Maybe you should note in your post above that that is a manual step rather than an LDIF to be added (a chicken \x26amp; egg problem). \x3cbr /\x3e\x3cbr /\x3eAnyway, now I\x26#39;m on to something more frustrating. I can\x26#39;t add a new object due to a syntax error. In your Module example above, will there be a new LDIF file created in /etc/openldap/slapd.d/cn\x3dconfig/ called \x26quot;cn\x3dmodule.ldif\x26quot;, since it doesn\x26#39;t exist when you run it, or will it add those olcModule commands directly to olcDatabase\x3d {0}config.ldif?\x3cbr /\x3e\x3cbr /\x3eI\x26#39;m basically trying to do the same thing with the syncprov object and it keeps erroring:\x3cbr /\x3e\x3cbr /\x3e ldapadd -f SyncprovOverlayAdd.ldif -D \x26quot;cn\x3dconfig\x26quot; -H \x26quot;ldap://ldap02.mydomain\x26quot; -W -x\x3cbr /\x3eEnter LDAP Password: \x3cbr /\x3eadding new entry \x26quot;olcOverlay\x3d{0}syncprov,olcDatabase\x3d{0}config,cn\x3dconfig\x26quot;\x3cbr /\x3eldap_add: Invalid syntax (21)\x3cbr /\x3e additional info: objectClass: value #1 invalid per syntax\x3cbr /\x3e\x3cbr /\x3eSyncprovOverlayAdd.ldif contains:\x3cbr /\x3e\x3cbr /\x3edn: olcOverlay\x3d{0}syncprov,olcDatabase\x3d{0}config,cn\x3dconfig\x3cbr /\x3echangetype: add\x3cbr /\x3eobjectClass: olcOverlayConfig\x3cbr /\x3eobjectClass: olcSyncProvConfig\x3cbr /\x3eolcOverlay: syncprov{0}\x3cbr /\x3e\x3cbr /\x3eThere are no typos I can see, and I have tried \x26quot;syncprov\x26quot; without {0} at the end but neither way works. I know this is beyond what your article addresses but any pointers would be helpful!', 'timestamp': '1409858101698', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409858101698#c5127797727347280765', 'author': {'name': 'Josh Nielsen', 'avatarUrl': '//lh5.googleusercontent.com/-86Fs36geWDI/AAAAAAAAAAI/AAAAAAAAABk/2WbLZFp2Nko/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/00503683009555059217'}, 'displayTime': 'September 4, 2014 at 12:15 PM', 'deleteclass': 'item-control blog-admin pid-1067496940'}, {'id': '4107462379195595833', 'parentId': '5127797727347280765', 'body': 'Hi\x3cbr /\x3e\x3cbr /\x3eDid you enabled the modules library in ldap. If yes then\x3cbr /\x3e\x3cbr /\x3eFirst you need to add the module syncprov as follows\x3cbr /\x3e\x3cbr /\x3eldapadd -h localhost -p 389 -D cn\x3dconfig -W\x3cbr /\x3e\x3cbr /\x3eEnter LDAP Password: \x3cbr /\x3edn: cn\x3dmodule{0},cn\x3dconfig\x3cbr /\x3echangetype: modify\x3cbr /\x3eadd:olcModuleLoad\x3cbr /\x3eolcModuleLoad: syncprov\x3cbr /\x3e\x3cbr /\x3emodifying entry \x26quot;cn\x3dmodule{0},cn\x3dconfig\x26quot;\x3cbr /\x3e\x3cbr /\x3eldapadd -h localhost -p 389 -D cn\x3dconfig -W\x3cbr /\x3eEnter LDAP Password: \x3cbr /\x3edn: olcOverlay\x3dsyncprov,olcDatabase\x3d{2}bdb,cn\x3dconfig\x3cbr /\x3echangetype: add\x3cbr /\x3eobjectClass: olcOverlayConfig\x3cbr /\x3eobjectClass: olcSyncProvConfig\x3cbr /\x3eolcOverlay: syncprov\x3cbr /\x3e\x3cbr /\x3eAfter executing the above command successfully, syncprov module is added in the /etc/openldap/slapd.d/cn\x3dconfig/olcDatabase\x3d{2}bdb directory as a olcOverlay\x3d{1}syncprov.ldif file. If your adding the module first time the file name should be olcOverlay\x3d{0}syncprov.ldif\x3cbr /\x3e\x3cbr /\x3eIf not , Please follow the step 3.1 to enable the module. You can replace member with syncprov and also olcModulePath as per your environment. In my environment openldap modules are located at /usr/lib64/openldap. My Operating system Read Hat 6 64 bit.\x3cbr /\x3e\x3cbr /\x3eldapadd -h localhost -p 389 -D cn\x3dconfig -W\x3cbr /\x3eEnter LDAP Password: \x3cbr /\x3edn: olcOverlay\x3dsyncprov,olcDatabase\x3d{2}bdb,cn\x3dconfig\x3cbr /\x3echangetype: add\x3cbr /\x3eobjectClass: olcOverlayConfig\x3cbr /\x3eobjectClass: olcSyncProvConfig\x3cbr /\x3eolcOverlay: syncprov\x3cbr /\x3e\x3cbr /\x3e\x3cbr /\x3ePlease let me know if you need more info.\x3cbr /\x3e\x3cbr /\x3e\x3cbr /\x3e ', 'timestamp': '1409863796039', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409863796039#c4107462379195595833', 'author': {'name': 'IDM OIM', 'avatarUrl': '//lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA\x3ds35', 'profileUrl': 'https://www.blogger.com/profile/07451316181647650347'}, 'displayTime': 'September 4, 2014 at 1:49 PM', 'deleteclass': 'item-control blog-admin pid-670645749'}, {'id': '1664091817757811200', 'parentId': '5127797727347280765', 'body': 'Very helpful. Believe it or not I figured out that the Module definition was missing and I added it right before you replied! But I followed the same procedure you outlined above. I made an LDIF with this in it:\x3cbr /\x3e\x3cbr /\x3edn: cn\x3dmodule{0},cn\x3dconfig\x3cbr /\x3echangetype: add\x3cbr /\x3eobjectClass: olcModuleList\x3cbr /\x3eolcModuleLoad: accesslog\x3cbr /\x3eolcModuleLoad: syncprov\x3cbr /\x3e\x3cbr /\x3eAnd then the syntax error went away when I tried to add syncprov to the other DBs. Those darn error messages aren\x26#39;t very informative. Thanks for helping a novice to cn\x3dconfig!', 'timestamp': '1409864117400', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1409864117400#c1664091817757811200', 'author': {'name': 'Josh Nielsen', 'avatarUrl': '//lh5.googleusercontent.com/-86Fs36geWDI/AAAAAAAAAAI/AAAAAAAAABk/2WbLZFp2Nko/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/00503683009555059217'}, 'displayTime': 'September 4, 2014 at 1:55 PM', 'deleteclass': 'item-control blog-admin pid-1067496940'}, {'id': '6087954906080063410', 'body': 'is there any way to do same in slapd.conf? i am stuck badly here and and am not using slapd.d :( .', 'timestamp': '1458770904547', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1458770904547#c6087954906080063410', 'author': {'name': 'Paresh Gandhare', 'avatarUrl': '//lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA\x3ds35', 'profileUrl': 'https://www.blogger.com/profile/02279035810175261302'}, 'displayTime': 'March 23, 2016 at 3:08 PM', 'deleteclass': 'item-control blog-admin pid-1546194536'}, {'id': '5672807755320830826', 'body': 'Hi\x3cbr /\x3eAfter run the procedure suggested, I can\x26#39;t start my slapd anymore. Receive:\x3cbr /\x3e\x3cbr /\x3eslapd[9544]: config error processing cn\x3dmodule,cn\x3dconfig,cn\x3dconfig:\x3cbr /\x3e\x3cbr /\x3eany suggestion?', 'timestamp': '1471606312674', 'permalink': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment\x3d1471606312674#c5672807755320830826', 'author': {'name': 'Daniel PC', 'avatarUrl': '//4.bp.blogspot.com/-54-Qf6aq4Ko/VC53d3dQMlI/AAAAAAAAAV4/KMu9IG6OlRI/s35/arara.jpg', 'profileUrl': 'https://www.blogger.com/profile/03989311239143360450'}, 'displayTime': 'August 19, 2016 at 4:31 AM', 'deleteclass': 'item-control blog-admin pid-1191182487'}];
+      var msgs = {'loadMore': 'Load more...', 'loading': 'Loading...', 'loaded': 'No more!', 'addComment': 'Add comment', 'reply': 'Reply', 'delete': 'Delete'};
+      var config = {'blogId': '8081952238935480135', 'postId': '8686400118620900524', 'feed': 'http://idmoim.blogspot.com/feeds/8686400118620900524/comments/default', 'authorName': 'IDM OIM', 'authorUrl': 'https://www.blogger.com/profile/07451316181647650347', 'baseUri': 'https://www.blogger.com', 'maxThreadDepth': 2};
+
+// <![CDATA[
+      var cursor = null;
+      if (items && items.length > 0) {
+        cursor = parseInt(items[items.length - 1].timestamp) + 1;
+      }
+
+      var bodyFromEntry = function(entry) {
+        var text = (entry &&
+                    ((entry.content && entry.content.$t) ||
+                     (entry.summary && entry.summary.$t))) ||
+            '';
+        if (entry && entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+              return '<span class="deleted-comment">' + text + '</span>';
+            }
+          }
+        }
+        return text;
+      }
+
+      var parse = function(data) {
+        cursor = null;
+        var comments = [];
+        if (data && data.feed && data.feed.entry) {
+          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+            var comment = {};
+            // comment ID, parsed out of the original id format
+            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+            comment.id = id ? id[2] : null;
+            comment.body = bodyFromEntry(entry);
+            comment.timestamp = Date.parse(entry.published.$t) + '';
+            if (entry.author && entry.author.constructor === Array) {
+              var auth = entry.author[0];
+              if (auth) {
+                comment.author = {
+                  name: (auth.name ? auth.name.$t : undefined),
+                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                };
+              }
+            }
+            if (entry.link) {
+              if (entry.link[2]) {
+                comment.link = comment.permalink = entry.link[2].href;
+              }
+              if (entry.link[3]) {
+                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                if (pid && pid[1]) {
+                  comment.parentId = pid[1];
+                }
+              }
+            }
+            comment.deleteclass = 'item-control blog-admin';
+            if (entry.gd$extendedProperty) {
+              for (var k in entry.gd$extendedProperty) {
+                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+                  comment.displayTime = entry.gd$extendedProperty[k].value;
+                }
+              }
+            }
+            comments.push(comment);
+          }
+        }
+        return comments;
+      };
+
+      var paginator = function(callback) {
+        if (hasMore()) {
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          if (cursor) {
+            url += '&published-min=' + new Date(cursor).toISOString();
+          }
+          window.bloggercomments = function(data) {
+            var parsed = parse(data);
+            cursor = parsed.length < 50 ? null
+                : parseInt(parsed[parsed.length - 1].timestamp) + 1
+            callback(parsed);
+            window.bloggercomments = null;
+          }
+          url += '&callback=bloggercomments';
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      };
+      var hasMore = function() {
+        return !!cursor;
+      };
+      var getMeta = function(key, comment) {
+        if ('iswriter' == key) {
+          var matches = !!comment.author
+              && comment.author.name == config.authorName
+              && comment.author.profileUrl == config.authorUrl;
+          return matches ? 'true' : '';
+        } else if ('deletelink' == key) {
+          return config.baseUri + '/delete-comment.g?blogID='
+               + config.blogId + '&postID=' + comment.id;
+        } else if ('deleteclass' == key) {
+          return comment.deleteclass;
+        }
+        return '';
+      };
+
+      var replybox = null;
+      var replyUrlParts = null;
+      var replyParent = undefined;
+
+      var onReply = function(commentId, domId) {
+        if (replybox == null) {
+          // lazily cache replybox, and adjust to suit this style:
+          replybox = document.getElementById('comment-editor');
+          if (replybox != null) {
+            replybox.height = '250px';
+            replybox.style.display = 'block';
+            replyUrlParts = replybox.src.split('#');
+          }
+        }
+        if (replybox && (commentId !== replyParent)) {
+          replybox.src = '';
+          document.getElementById(domId).insertBefore(replybox, null);
+          replybox.src = replyUrlParts[0]
+              + (commentId ? '&parentID=' + commentId : '')
+              + '#' + replyUrlParts[1];
+          replyParent = commentId;
+        }
+      };
+
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
+
+      // Configure commenting API:
+      var configJso = {
+        'maxDepth': config.maxThreadDepth
+      };
+      var provider = {
+        'id': config.postId,
+        'data': items,
+        'loadNext': paginator,
+        'hasMore': hasMore,
+        'getMeta': getMeta,
+        'onReply': onReply,
+        'rendered': true,
+        'initComment': targetComment,
+        'initReplyThread': startThread,
+        'config': configJso,
+        'messages': msgs
+      };
+
+      var render = function() {
+        if (window.goog && window.goog.comments) {
+          var holder = document.getElementById('comment-holder');
+          window.goog.comments.render(holder, provider);
+        }
+      };
+
+      // render now, or queue to render when library loads:
+      if (window.goog && window.goog.comments) {
+        render();
+      } else {
+        window.goog = window.goog || {};
+        window.goog.comments = window.goog.comments || {};
+        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+        window.goog.comments.loadQueue.push(render);
+      }
+    })();
+// ]]>
+  </script>
+<div id="comment-holder">
+
+<div id="bc_0_14C" kind="c"><div id="bc_0_14CT"><div id="bc_0_13T" class="comment-thread" kind="r" t="0" u="0"><ol id="bc_0_13TB"><li id="bc_0_5B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/photo.png"></div><div id="c1052636801379288400" class="comment-block"><div id="bc_0_5M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/00503683009555059217">Josh Nielsen</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409778776943#c1052636801379288400">September 3, 2014 at 2:12 PM</a></span></div><p id="bc_0_5MC" class="comment-content">It
+ seems that by default when openldap is installed the setting is 
+"olcRootDN: cn=cfgadmin,cn=config" in olcDatabase={0}config.ldif. Why is
+ that, and why is it not set to cn=config by default? Basically changing
+ it places the config DB in the root cn=config domain instead of a 
+cn=cfgadmin child of cn=config, right? <br><br>Does that arrangement of 
+the OpenLDAP tree have something to do with separating out user roles 
+and permissions so that only certain aspects of the OLC live config can 
+be changed by certain users? And if so what are the (security and tree 
+structure) consequences of placing the config{0} DB directly under 
+cn=config? Maybe I'm misunderstanding what this change actually does.</p><span id="bc_0_5MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1067496940"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=1052636801379288400">Delete</a></span></span></div><div id="bc_0_5BR" class="comment-replies"><span id="bc_0_5b+seedD9riD" kind="d"><div id="bc_0_0T" class="comment-thread inline-thread" kind="t" t="0" u="0"><span id="bc_0_0TT" class="thread-toggle thread-expanded" kind="g"><span id="bc_0_0TA" class="thread-arrow"></span><span id="bc_0_0TN" class="thread-count"><span id="bc_0_0TNT" style="display: none;"></span><span id="bc_0_0TNU" style="display: none;"></span><a href="javascript:;" target="_self">Replies</a><div id="bc_0_0TD" class="thread-dropContainer thread-expanded"><span class="thread-drop"></span></div></span></span><ol id="bc_0_0TC" class="thread-chrome thread-expanded"><div><li id="bc_0_0B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/photo.png"></div><div id="c831321753835320105" class="comment-block"><div id="bc_0_0M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/00503683009555059217">Josh Nielsen</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409779324676#c831321753835320105">September 3, 2014 at 2:22 PM</a></span></div><p id="bc_0_0MC" class="comment-content">I
+ think I confused DN with Domain Name instead of Distinguished Name 
+there for a moment. So this is a user change rather than a tree change 
+isn't it? If so that makes more sense, and I guess cfgadmin is a dummy 
+account that gets rolled out with OpenLDAP. But if my olcRootDN is set 
+to "cn=root,dn=mydomain" in the olcDatabase={1}bdb.ldif file why should 
+it not be the same in olcDatabase={0}config.ldif, and instead be the 
+cn=config object?</p><span id="bc_0_0MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-1067496940"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=831321753835320105">Delete</a></span></span></div><div id="bc_0_0BR" class="comment-replies"></div><div id="bc_0_0B_box" class="comment-replybox-single"></div></li><li id="bc_0_1B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-.png"></div><div id="c971762340430173687" class="comment-block"><div id="bc_0_1M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/07451316181647650347">IDM OIM</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409786896651#c971762340430173687">September 3, 2014 at 4:28 PM</a></span></div><p id="bc_0_1MC" class="comment-content">HI<br><br>
+ The cn=config DIT is used to dynamically configure the slapd daemon, 
+allowing the modification of schema definitions, indexes, ACLs, etc 
+without stopping the service. <br><br>olcRootDN: "cn=Manager,dc=example,dc=com" is a administrator user for the domain example.com.</p><span id="bc_0_1MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-670645749"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=971762340430173687">Delete</a></span></span></div><div id="bc_0_1BR" class="comment-replies"></div><div id="bc_0_1B_box" class="comment-replybox-single"></div></li><li id="bc_0_2B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-.png"></div><div id="c4272453855622510402" class="comment-block"><div id="bc_0_2M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/07451316181647650347">IDM OIM</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409787146250#c4272453855622510402">September 3, 2014 at 4:32 PM</a></span></div><p id="bc_0_2MC" class="comment-content">HI<br><br>I
+ have installed the openldap in red hat linux using the yum. After 
+installing the openldap the olcRootDN is  cn=config in the 
+olcDatabase={0}config.ldif, file.<br><br>Please let me know if you need more help.</p><span id="bc_0_2MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-670645749"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=4272453855622510402">Delete</a></span></span></div><div id="bc_0_2BR" class="comment-replies"></div><div id="bc_0_2B_box" class="comment-replybox-single"></div></li><li id="bc_0_3B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/photo.png"></div><div id="c1082601798001524569" class="comment-block"><div id="bc_0_3M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/00503683009555059217">Josh Nielsen</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409840651184#c1082601798001524569">September 4, 2014 at 7:24 AM</a></span></div><p id="bc_0_3MC" class="comment-content">Ah
+ you are right. I am on Centos 6 which is essentially the same and I 
+compared a backup LDAP server with a fresh installation that I will be 
+using for Sync Replication and it did have the cn=config setting. I must
+ have made a rookie mistake by blindly following some blog's suggestion 
+to change my Master LDAP server to have ""olcRootDN: 
+cn=cfgadmin,cn=config" in olcDatabase={0}config.ldif. <br><br>That is 
+fixable, but since the whole issue is that I can't do a live config edit
+ I will have to take the Master's slapd process down for a second to 
+restart it after manually editing the LDIF. Is there a better way? I am 
+authenticating as cn=root in my environment with -D with commands like 
+ldapadd, ldapmodify, etc. Thanks!</p><span id="bc_0_3MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-1067496940"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=1082601798001524569">Delete</a></span></span></div><div id="bc_0_3BR" class="comment-replies"></div><div id="bc_0_3B_box" class="comment-replybox-single"></div></li><li id="bc_0_4B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/photo.png"></div><div id="c5144757853280260546" class="comment-block"><div id="bc_0_4M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/00503683009555059217">Josh Nielsen</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409840851275#c5144757853280260546">September 4, 2014 at 7:27 AM</a></span></div><p id="bc_0_4MC" class="comment-content">BTW,
+ I do not use the cfgadmin user and though there is a set password I 
+don't know what it is, thus why I cannot edit the config database live. I
+ must have followed a suggestion I read on a blog or tutorial when 
+converting from slapd.conf to the cn=config format.</p><span id="bc_0_4MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-1067496940"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=5144757853280260546">Delete</a></span></span></div><div id="bc_0_4BR" class="comment-replies"></div><div id="bc_0_4B_box" class="comment-replybox-single"></div></li></div><div id="bc_0_0I" class="continue" kind="ci"><a href="javascript:;" target="_self">Reply</a></div></ol><div id="bc_0_0T_box" class="comment-replybox-thread"></div></div></span></div><div id="bc_0_5B_box" class="comment-replybox-single"></div></li><li id="bc_0_7B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/photo.png"></div><div id="c7132794155697243663" class="comment-block"><div id="bc_0_7M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/00503683009555059217">Josh Nielsen</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409845633902#c7132794155697243663">September 4, 2014 at 8:47 AM</a></span></div><p id="bc_0_7MC" class="comment-content">Okay,
+ so I'm going to test this on my new server first. So on that server 
+only "olcRootDN: cn=config" is present and no password. After step 2.2 
+above (which I dumped into a file named "passwdchange.ldif") how do you 
+bind to LDAP using ldapadd to make the password change? I have tried 
+"cn=config" and leaving the password blank when it prompts, and I have 
+tried the "cn=root" account I have in my olcDatabase={2}bdb.ldif file. I
+ am using:<br><br>ldapadd -f passwdchange.ldif -D "cn=config" -H "ldap://ldap02.mydomain" -W -x<br><br>With no password entered at the prompt I get:<br><br>ldap_bind: Server is unwilling to perform (53)<br> additional info: unauthenticated bind (DN with no password) disallowed<br><br>Same message if I simply leave -W off.</p><span id="bc_0_7MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1067496940"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=7132794155697243663">Delete</a></span></span></div><div id="bc_0_7BR" class="comment-replies"><span id="bc_0_7b+seedD9roD" kind="d"><div id="bc_0_6T" class="comment-thread inline-thread" kind="t" t="0" u="0"><span id="bc_0_6TT" class="thread-toggle thread-expanded" kind="g"><span id="bc_0_6TA" class="thread-arrow"></span><span id="bc_0_6TN" class="thread-count"><span id="bc_0_6TNT" style="display: none;"></span><span id="bc_0_6TNU" style="display: none;"></span><a href="javascript:;" target="_self">Replies</a><div id="bc_0_6TD" class="thread-dropContainer thread-expanded"><span class="thread-drop"></span></div></span></span><ol id="bc_0_6TC" class="thread-chrome thread-expanded"><div><li id="bc_0_6B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-.png"></div><div id="c3876357688078157724" class="comment-block"><div id="bc_0_6M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/07451316181647650347">IDM OIM</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409848715887#c3876357688078157724">September 4, 2014 at 9:38 AM</a></span></div><p id="bc_0_6MC" class="comment-content">Hi Josh,<br><br>edit
+ the olcDatabase={0}config.ldif file and add the olcRootPW attribute 
+after olcRootDN : cn=config. The password format should be olcRootPW: 
+{SSHA}<br><br>Restart the ldap server and issue will be resolved and you
+ can add or modify the ldap schema using ldap client utilities like 
+ldapadd or ldapmodify. Please let me know if you need any help.<br><br><br></p><span id="bc_0_6MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-670645749"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=3876357688078157724">Delete</a></span></span></div><div id="bc_0_6BR" class="comment-replies"></div><div id="bc_0_6B_box" class="comment-replybox-single"></div></li></div><div id="bc_0_6I" class="continue" kind="ci"><a href="javascript:;" target="_self">Reply</a></div></ol><div id="bc_0_6T_box" class="comment-replybox-thread"></div></div></span></div><div id="bc_0_7B_box" class="comment-replybox-single"></div></li><li id="bc_0_10B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/photo.png"></div><div id="c5127797727347280765" class="comment-block"><div id="bc_0_10M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/00503683009555059217">Josh Nielsen</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409858101698#c5127797727347280765">September 4, 2014 at 12:15 PM</a></span></div><p id="bc_0_10MC" class="comment-content">Okay,
+ thanks! Maybe you should note in your post above that that is a manual 
+step rather than an LDIF to be added (a chicken &amp; egg problem). <br><br>Anyway,
+ now I'm on to something more frustrating. I can't add a new object due 
+to a syntax error. In your Module example above, will there be a new 
+LDIF file created in /etc/openldap/slapd.d/cn=config/ called 
+"cn=module.ldif", since it doesn't exist when you run it, or will it add
+ those olcModule commands directly to olcDatabase= {0}config.ldif?<br><br>I'm basically trying to do the same thing with the syncprov object and it keeps erroring:<br><br> ldapadd -f SyncprovOverlayAdd.ldif -D "cn=config" -H "ldap://ldap02.mydomain" -W -x<br>Enter LDAP Password: <br>adding new entry "olcOverlay={0}syncprov,olcDatabase={0}config,cn=config"<br>ldap_add: Invalid syntax (21)<br> additional info: objectClass: value #1 invalid per syntax<br><br>SyncprovOverlayAdd.ldif contains:<br><br>dn: olcOverlay={0}syncprov,olcDatabase={0}config,cn=config<br>changetype: add<br>objectClass: olcOverlayConfig<br>objectClass: olcSyncProvConfig<br>olcOverlay: syncprov{0}<br><br>There
+ are no typos I can see, and I have tried "syncprov" without {0} at the 
+end but neither way works. I know this is beyond what your article 
+addresses but any pointers would be helpful!</p><span id="bc_0_10MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1067496940"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=5127797727347280765">Delete</a></span></span></div><div id="bc_0_10BR" class="comment-replies"><span id="bc_0_10b+seedD9rqD" kind="d"><div id="bc_0_8T" class="comment-thread inline-thread" kind="t" t="0" u="0"><span id="bc_0_8TT" class="thread-toggle thread-expanded" kind="g"><span id="bc_0_8TA" class="thread-arrow"></span><span id="bc_0_8TN" class="thread-count"><span id="bc_0_8TNT" style="display: none;"></span><span id="bc_0_8TNU" style="display: none;"></span><a href="javascript:;" target="_self">Replies</a><div id="bc_0_8TD" class="thread-dropContainer thread-expanded"><span class="thread-drop"></span></div></span></span><ol id="bc_0_8TC" class="thread-chrome thread-expanded"><div><li id="bc_0_8B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-.png"></div><div id="c4107462379195595833" class="comment-block"><div id="bc_0_8M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/07451316181647650347">IDM OIM</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409863796039#c4107462379195595833">September 4, 2014 at 1:49 PM</a></span></div><p id="bc_0_8MC" class="comment-content">Hi<br><br>Did you enabled the modules library in ldap. If yes then<br><br>First you need to add the module syncprov as follows<br><br>ldapadd -h localhost -p 389 -D cn=config -W<br><br>Enter LDAP Password: <br>dn: cn=module{0},cn=config<br>changetype: modify<br>add:olcModuleLoad<br>olcModuleLoad: syncprov<br><br>modifying entry "cn=module{0},cn=config"<br><br>ldapadd -h localhost -p 389 -D cn=config -W<br>Enter LDAP Password: <br>dn: olcOverlay=syncprov,olcDatabase={2}bdb,cn=config<br>changetype: add<br>objectClass: olcOverlayConfig<br>objectClass: olcSyncProvConfig<br>olcOverlay: syncprov<br><br>After
+ executing the above command successfully, syncprov module is added in 
+the /etc/openldap/slapd.d/cn=config/olcDatabase={2}bdb directory as a 
+olcOverlay={1}syncprov.ldif file. If your adding the module first time 
+the file name should be olcOverlay={0}syncprov.ldif<br><br>If not , 
+Please follow the step 3.1 to enable the module. You can replace member 
+with syncprov and also olcModulePath as per your environment. In my 
+environment openldap modules are located at /usr/lib64/openldap. My 
+Operating system Read Hat 6 64 bit.<br><br>ldapadd -h localhost -p 389 -D cn=config -W<br>Enter LDAP Password: <br>dn: olcOverlay=syncprov,olcDatabase={2}bdb,cn=config<br>changetype: add<br>objectClass: olcOverlayConfig<br>objectClass: olcSyncProvConfig<br>olcOverlay: syncprov<br><br><br>Please let me know if you need more info.<br><br><br> </p><span id="bc_0_8MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-670645749"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=4107462379195595833">Delete</a></span></span></div><div id="bc_0_8BR" class="comment-replies"></div><div id="bc_0_8B_box" class="comment-replybox-single"></div></li><li id="bc_0_9B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/photo.png"></div><div id="c1664091817757811200" class="comment-block"><div id="bc_0_9M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/00503683009555059217">Josh Nielsen</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1409864117400#c1664091817757811200">September 4, 2014 at 1:55 PM</a></span></div><p id="bc_0_9MC" class="comment-content">Very
+ helpful. Believe it or not I figured out that the Module definition was
+ missing and I added it right before you replied! But I followed the 
+same procedure you outlined above. I made an LDIF with this in it:<br><br>dn: cn=module{0},cn=config<br>changetype: add<br>objectClass: olcModuleList<br>olcModuleLoad: accesslog<br>olcModuleLoad: syncprov<br><br>And
+ then the syntax error went away when I tried to add syncprov to the 
+other DBs. Those darn error messages aren't very informative. Thanks for
+ helping a novice to cn=config!</p><span id="bc_0_9MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-1067496940"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=1664091817757811200">Delete</a></span></span></div><div id="bc_0_9BR" class="comment-replies"></div><div id="bc_0_9B_box" class="comment-replybox-single"></div></li></div><div id="bc_0_8I" class="continue" kind="ci"><a href="javascript:;" target="_self">Reply</a></div></ol><div id="bc_0_8T_box" class="comment-replybox-thread"></div></div></span></div><div id="bc_0_10B_box" class="comment-replybox-single"></div></li><li id="bc_0_11B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-.png"></div><div id="c6087954906080063410" class="comment-block"><div id="bc_0_11M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/02279035810175261302">Paresh Gandhare</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1458770904547#c6087954906080063410">March 23, 2016 at 3:08 PM</a></span></div><p id="bc_0_11MC" class="comment-content">is there any way to do same in slapd.conf? i am stuck badly here and and am not using slapd.d :( .</p><span id="bc_0_11MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1546194536"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=6087954906080063410">Delete</a></span></span></div><div id="bc_0_11BR" class="comment-replies"></div><div id="bc_0_11B_box" class="comment-replybox-single"></div></li><li id="bc_0_12B" class="comment" kind="b"><div class="avatar-image-container"><img src="1.ldap_add-insufficient-access_files/arara.jpg"></div><div id="c5672807755320830826" class="comment-block"><div id="bc_0_12M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/03989311239143360450">Daniel PC</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html?showComment=1471606312674#c5672807755320830826">August 19, 2016 at 4:31 AM</a></span></div><p id="bc_0_12MC" class="comment-content">Hi<br>After run the procedure suggested, I can't start my slapd anymore. Receive:<br><br>slapd[9544]: config error processing cn=module,cn=config,cn=config:<br><br>any suggestion?</p><span id="bc_0_12MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1191182487"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=8081952238935480135&amp;postID=5672807755320830826">Delete</a></span></span></div><div id="bc_0_12BR" class="comment-replies"></div><div id="bc_0_12B_box" class="comment-replybox-single"></div></li></ol><div id="bc_0_13I" class="continue" kind="ci" style="display: none;"><a href="javascript:;" target="_self">Add comment</a></div><div id="bc_0_13T_box" class="comment-replybox-thread"><iframe allowtransparency="true" class="blogger-iframe-colorize blogger-comment-from-post" id="comment-editor" name="comment-editor" src="1.ldap_add-insufficient-access_files/comment-iframe.html" style="display: block;" data-resized="true" height="212px" frameborder="0" width="100%"></iframe></div><div id="bc_0_13L" class="loadmore loaded" kind="rb"><a href="javascript:;" target="_self">Load more...</a></div></div></div></div></div>
+</div>
+<p class="comment-footer">
+</p><div class="comment-form">
+<a name="comment-form"></a>
+<p>
+</p>
+<a href="https://www.blogger.com/comment-iframe.g?blogID=8081952238935480135&amp;postID=8686400118620900524&amp;blogspotRpcToken=1244056" id="comment-editor-src"></a>
+
+<script src="1.ldap_add-insufficient-access_files/2244480862-comment_from_post_iframe.js" type="text/javascript"></script>
+<script type="text/javascript">
+      BLOG_CMT_createIframe('https://www.blogger.com/rpc_relay.html');
+    </script>
+</div>
+<p></p>
+<div id="backlinks-container">
+<div id="Blog1_backlinks-container">
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://idmoim.blogspot.in/2014/05/installing-open-ldap-centos-65.html" id="Blog1_blog-pager-newer-link" title="Newer Post">Newer Post</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://idmoim.blogspot.in/2014/05/testing-oim-11g-r2-ps2-identity-manager.html" id="Blog1_blog-pager-older-link" title="Older Post">Older Post</a>
+</span>
+<a class="home-link" href="http://idmoim.blogspot.in/">Home</a>
+</div>
+<div class="clear"></div>
+<div class="post-feeds">
+<div class="feed-links">
+Subscribe to:
+<a class="feed-link" href="http://idmoim.blogspot.com/feeds/8686400118620900524/comments/default" target="_blank" type="application/atom+xml">Post Comments (Atom)</a>
+</div>
+</div>
+<script type="text/javascript">
+    window.___gcfg = { 'lang': 'en' };
+  </script>
+</div></div>
+</div>
+</div>
+<div class="column-left-outer">
+<div class="column-left-inner">
+<aside>
+</aside>
+</div>
+</div>
+<div class="column-right-outer">
+<div class="column-right-inner">
+<aside>
+<div class="sidebar section" id="sidebar-right-1"><div class="widget Followers" data-version="1" id="Followers1">
+<h2 class="title">Followers</h2>
+<div class="widget-content">
+<div id="Followers1-wrapper">
+<div style="margin-right:2px;">
+<div><script type="text/javascript" src="1.ldap_add-insufficient-access_files/plusone.js" gapi_processed="true"></script>
+<div id="followers-iframe-container"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="" tabindex="0" vspace="0" id="I0_1520502898898" name="I0_1520502898898" src="1.ldap_add-insufficient-access_files/followers.html" height="249" frameborder="0" width="100%"></iframe></div>
+<script type="text/javascript">
+    window.followersIframe = null;
+    function followersIframeOpen(url) {
+      gapi.load("gapi.iframes", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          window.followersIframe = gapi.iframes.getContext().openChild({
+            url: url,
+            where: document.getElementById("followers-iframe-container"),
+            messageHandlersFilter: gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER,
+            messageHandlers: {
+              '_ready': function(obj) {
+                window.followersIframe.getIframeEl().height = obj.height;
+              },
+              'reset': function() {
+                window.followersIframe.close();
+                followersIframeOpen("https://www.blogger.com/followers.g?blogID\x3d8081952238935480135\x26colors\x3dCgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMyMjIyMjIiByM5OTMzMDAqByNmZmY5ZWUyByMwMDAwMDA6ByMyMjIyMjJCByM5OTMzMDBKByM5OTk5OTlSByM5OTMzMDBaC3RyYW5zcGFyZW50\x26pageSize\x3d21\x26postID\x3d8686400118620900524\x26origin\x3dhttp://idmoim.blogspot.in/");
+              },
+              'open': function(url) {
+                window.followersIframe.close();
+                followersIframeOpen(url);
+              },
+              'blogger-ping': function() {
+              }
+            }
+          });
+        }
+      });
+    }
+    followersIframeOpen("https://www.blogger.com/followers.g?blogID\x3d8081952238935480135\x26colors\x3dCgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMyMjIyMjIiByM5OTMzMDAqByNmZmY5ZWUyByMwMDAwMDA6ByMyMjIyMjJCByM5OTMzMDBKByM5OTk5OTlSByM5OTMzMDBaC3RyYW5zcGFyZW50\x26pageSize\x3d21\x26postID\x3d8686400118620900524\x26origin\x3dhttp://idmoim.blogspot.in/");
+  </script></div>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8081952238935480135&amp;widgetType=Followers&amp;widgetId=Followers1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("Followers1"));' target="configFollowers1" title="Edit">
+<img alt="" src="1.ldap_add-insufficient-access_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget BlogArchive" data-version="1" id="BlogArchive1">
+<h2>Blog Archive</h2>
+<div class="widget-content">
+<div id="ArchiveList">
+<div id="BlogArchive1_ArchiveList">
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2017/">
+2017
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2017/01/">
+January
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2016/">
+2016
+</a>
+<span class="post-count" dir="ltr">(3)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2016/11/">
+November
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2016/09/">
+September
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2016/01/">
+January
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2015/">
+2015
+</a>
+<span class="post-count" dir="ltr">(13)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2015/10/">
+October
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2015/08/">
+August
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2015/07/">
+July
+</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2015/06/">
+June
+</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2015/05/">
+May
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2015/02/">
+February
+</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy toggle-open">
+
+        ▼&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/">
+2014
+</a>
+<span class="post-count" dir="ltr">(48)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/12/">
+December
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/11/">
+November
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/09/">
+September
+</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/07/">
+July
+</a>
+<span class="post-count" dir="ltr">(8)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/06/">
+June
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy toggle-open">
+
+        ▼&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/05/">
+May
+</a>
+<span class="post-count" dir="ltr">(20)</span>
+<ul class="posts">
+<li><a href="http://idmoim.blogspot.in/2014/05/adding-new-attribute-to-grouper-psp.html">Adding new attribute to Grouper psp provisioning</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/adding-edumember-schema-to-openldap.html">Adding the eduMember schema to Openldap</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/enabling-memberof-attribute-in-openldap.html">Enabling the memberof attribute in openldap</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/installing-open-ldap-centos-65.html">Installing the Open ldap centos 6.5</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/ldapadd-insufficient-access-50-openldap.html">ldap_add insufficient access (50) openldap</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/testing-oim-11g-r2-ps2-identity-manager.html">Testing the OIM 11G R2 PS2 Identity Manager Instal...</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/starting-oim-11g-r2-ps2-managed-server.html">Starting the OIM 11G R2 PS2 Managed Server</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/configuring-oracle-identity-manager-11g.html">Configuring the Oracle Identity Manager 11G R2 PS2...</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/start-web-logic-admin-server-and-soa.html">Start the Web Logic Admin Server and SOA managed S...</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/configuring-node-manager.html">Configuring the Node Manager</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/configure-database-security-store-oim.html">Configure the Database Security Store OIM 11G R2 P...</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/upgrade-opss-schema-using-patch-set.html">Upgrade the OPSS schema using Patch Set</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/creating-web-logic-admin-domain-oim-11g.html">Creating the Web Logic Admin domain OIM 11G R2 PS2...</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/installing-soa-111170.html">Installing SOA 11.1.1.7.0</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/installing-oracle-identity-manager.html">Installing Oracle Identity Manager 11.1.2.2.0</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/creating-oracle-identity-manager.html">Creating Oracle Identity Manager Database Schema U...</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/installing-web-logic-1036.html">Installing Web Logic 10.3.6</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/installing-jdk-17.html">Installing the JDK 1.7</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/installing-oracle-data-base-11204-cent.html">Installing the Oracle Data Base 11.2.0.4 Cent OS 6...</a></li>
+<li><a href="http://idmoim.blogspot.in/2014/05/installing-oracle-identity-manager-11g.html">Installing Oracle Identity Manager 11G R2 PS2 in C...</a></li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/04/">
+April
+</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/03/">
+March
+</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/02/">
+February
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2014/01/">
+January
+</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2013/">
+2013
+</a>
+<span class="post-count" dir="ltr">(26)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2013/12/">
+December
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2013/11/">
+November
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2013/10/">
+October
+</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2013/07/">
+July
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2013/05/">
+May
+</a>
+<span class="post-count" dir="ltr">(13)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2013/04/">
+April
+</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2013/02/">
+February
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2012/">
+2012
+</a>
+<span class="post-count" dir="ltr">(18)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2012/08/">
+August
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2012/07/">
+July
+</a>
+<span class="post-count" dir="ltr">(11)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2012/06/">
+June
+</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2012/05/">
+May
+</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2011/">
+2011
+</a>
+<span class="post-count" dir="ltr">(13)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2011/09/">
+September
+</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2011/08/">
+August
+</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2011/07/">
+July
+</a>
+<span class="post-count" dir="ltr">(6)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2011/06/">
+June
+</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2010/">
+2010
+</a>
+<span class="post-count" dir="ltr">(12)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="http://idmoim.blogspot.in/2010/08/">
+August
+</a>
+<span class="post-count" dir="ltr">(12)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8081952238935480135&amp;widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target="configBlogArchive1" title="Edit">
+<img alt="" src="1.ldap_add-insufficient-access_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Profile" data-version="1" id="Profile1">
+<h2>About Me</h2>
+<div class="widget-content">
+<dl class="profile-datablock">
+<dt class="profile-data">
+<a class="profile-name-link g-profile" href="https://www.blogger.com/profile/07451316181647650347" rel="author" style="background-image: url(//www.blogger.com/img/logo-16.png);" data-gapiscan="true" data-onload="true" data-gapiattached="true">
+IDM OIM
+</a>
+</dt>
+</dl>
+<a class="profile-link" href="https://www.blogger.com/profile/07451316181647650347" rel="author">View my complete profile</a>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8081952238935480135&amp;widgetType=Profile&amp;widgetId=Profile1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("Profile1"));' target="configProfile1" title="Edit">
+<img alt="" src="1.ldap_add-insufficient-access_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+</aside>
+</div>
+</div>
+</div>
+<div style="clear: both"></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class="main-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<footer>
+<div class="footer-outer">
+<div class="footer-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left footer-fauxborder-left">
+<div class="fauxborder-right footer-fauxborder-right"></div>
+<div class="region-inner footer-inner">
+<div class="foot no-items section" id="footer-1"></div>
+<table class="section-columns columns-2" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="foot no-items section" id="footer-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="foot no-items section" id="footer-2-2"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class="foot section" id="footer-3" name="Footer"><div class="widget Attribution" data-version="1" id="Attribution1">
+<div class="widget-content" style="text-align: center;">
+Simple theme. Theme images by <a href="http://www.istockphoto.com/googleimages.php?id=11394138&amp;platform=blogger&amp;langregion=en" target="_blank">luoman</a>. Powered by <a href="https://www.blogger.com/" target="_blank">Blogger</a>.
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8081952238935480135&amp;widgetType=Attribution&amp;widgetId=Attribution1&amp;action=editWidget&amp;sectionId=footer-3" onclick='return _WidgetManager._PopupConfig(document.getElementById("Attribution1"));' target="configAttribution1" title="Edit">
+<img alt="" src="1.ldap_add-insufficient-access_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</div>
+</div>
+<div class="footer-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class="content-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+<script src="1.ldap_add-insufficient-access_files/plusone.js" type="text/javascript" gapi_processed="true"></script><iframe name="oauth2relay544396787" id="oauth2relay544396787" src="1.ldap_add-insufficient-access_files/postmessageRelay.html" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe>
+
+<script type="text/javascript" src="1.ldap_add-insufficient-access_files/2227587253-widgets.js"></script>
+<script type="text/javascript">
+window['__wavt'] = 'AOuZoY6NqGXzS96KSOJuBlaKXQbzLlbneA:1520371010631';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d8081952238935480135','//idmoim.blogspot.in/2014/05/ldapadd-insufficient-access-50-openldap.html','8081952238935480135');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '8081952238935480135', 'title': 'IDM OIM Blog', 'url': 'http://idmoim.blogspot.in/2014/05/ldapadd-insufficient-access-50-openldap.html', 'canonicalUrl': 'http://idmoim.blogspot.com/2014/05/ldapadd-insufficient-access-50-openldap.html', 'homepageUrl': 'http://idmoim.blogspot.in/', 'searchUrl': 'http://idmoim.blogspot.in/search', 'canonicalHomepageUrl': 'http://idmoim.blogspot.com/', 'blogspotFaviconUrl': 'http://idmoim.blogspot.in/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'en', 'localeUnderscoreDelimited': 'en', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22IDM OIM Blog - Atom\x22 href\x3d\x22http://idmoim.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22IDM OIM Blog - RSS\x22 href\x3d\x22http://idmoim.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22IDM OIM Blog - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/8081952238935480135/posts/default\x22 /\x3e\n\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22IDM OIM Blog - Atom\x22 href\x3d\x22http://idmoim.blogspot.com/feeds/8686400118620900524/comments/default\x22 /\x3e\n', 'meTag': '', 'openIdOpTag': '', 'adsenseClientId': 'ca-pub-2608213691023037', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'ieCssRetrofitLinks': '\x3c!--[if IE]\x3e\x3cscript type\x3d\x22text/javascript\x22 src\x3d\x22https://www.blogger.com/static/v1/jsbin/3061962209-ieretrofit.js\x22\x3e\x3c/script\x3e\n\x3c![endif]--\x3e', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/eb64ec4eb42dbc14', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sharing': {'platforms': [{'name': 'Get link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Share to Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Google+', 'key': 'googlePlus', 'shareMessage': 'Share to Google+', 'target': 'googleplus'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'googlePlusShareButtonWidth': 300, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Read more', 'pageType': 'item', 'postId': '8686400118620900524', 'pageName': 'ldap_add insufficient access (50) openldap', 'pageTitle': 'IDM OIM Blog: ldap_add insufficient access (50) openldap'}}, {'name': 'features', 'data': {'lazy_images': 'false', 'unsupported_browser_message': 'false', 'sharing_get_link_dialog': 'true', 'sharing_native': 'false'}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Link copied to clipboard!', 'ok': 'Ok', 'postLink': 'Post Link'}}, {'name': 'template', 'data': {'name': 'Simple', 'localizedName': 'Simple', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': false, 'variant': 'literate', 'variantId': 'literate'}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'ldap_add insufficient access (50) openldap', 'description': ' Error:   ldap_add insufficient access (50) openldap   Cause:   The &#160;ldap_add insufficient access (50) openldap exception is thrown while ad...', 'url': 'http://idmoim.blogspot.in/2014/05/ldapadd-insufficient-access-50-openldap.html', 'type': 'item', 'isSingleItem': true, 'isMultipleItems': false, 'isError': false, 'isPage': false, 'isPost': true, 'isHomepage': false, 'isArchive': false, 'isLabelSearch': false, 'postId': 8686400118620900524}}]);
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PageListView', new _WidgetInfo('PageList1', 'crosscol', null, document.getElementById('PageList1'), {'title': 'Pages', 'links': [{'isCurrentPage': false, 'href': 'http://idmoim.blogspot.in/', 'title': 'Home'}], 'mobile': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'useNgc': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/2881030338-lbx.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/368954415-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowersView', new _WidgetInfo('Followers1', 'sidebar-right-1', null, document.getElementById('Followers1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar-right-1', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': 'Loading\x26hellip;'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'sidebar-right-1', null, document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer-3', null, document.getElementById('Attribution1'), {}, 'displayModeFull'));
+</script>
+
+</body></html>

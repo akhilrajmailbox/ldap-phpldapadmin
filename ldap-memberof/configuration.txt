@@ -1,0 +1,137 @@
+===================================================================
+Enable memberOf attribute on an openldap server
+===================================================================
+step 1)
+==========
+
+ldap_add insufficient access (50) openldap >>
+links :: http://idmoim.blogspot.in/2014/05/ldapadd-insufficient-access-50-openldap.html
+
+1. Finding the olcRootDN in olcDatabase={0}config.ldif
+2. Updating the olcRootDN password 
+3. restart the server
+
+nano /etc/ldap/slapd.d/cn\=config/olcDatabase={0}config.ldif
+
+
+restart the server
+
+==========
+step 2)
+==========
+memberOf attribute configuration
+
+
+memberof.ldif >>
+====================
+
+dn: cn=module,cn=config
+cn: module
+objectclass: olcModuleList
+objectclass: top
+olcmoduleload: memberof
+olcmodulepath: /usr/lib/ldap
+
+dn: olcOverlay={0}memberof,olcDatabase={1}hdb,cn=config
+objectClass: olcConfig
+objectClass: olcMemberOf
+objectClass: olcOverlayConfig
+objectClass: top
+olcOverlay: memberof
+
+
+
+refint.ldif >>
+====================
+
+
+dn: cn=module,cn=config
+cn: module
+objectclass: olcModuleList
+objectclass: top
+olcmoduleload: refint
+olcmodulepath: /usr/lib/ldap
+
+dn: olcOverlay={1}refint,olcDatabase={1}hdb,cn=config
+objectClass: olcConfig
+objectClass: olcMemberOf
+objectClass: olcOverlayConfig
+objectClass: top
+olcOverlay: refint
+
+
+
+ldapadd -x -h localhost -p 389 -D cn=config -W -f memberof_config.ldif 
+ldapadd -x -h localhost -p 389 -D cn=config -W -f refint.ldif
+
+
+==========
+step 3)
+==========
+Testing
+
+
+Adding a user 
+add_user.ldif >>
+====================
+
+   43  slappasswd -h {SHA} -s secret
+
+dn: cn=John Doe,ou=people,dc=example,dc=com
+cn: John Doe
+givenName: John
+sn: Doe
+uid: john
+uidNumber: 5000
+gidNumber: 10000
+homeDirectory: /home/john
+mail: john.doe@example.com
+objectClass: top
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+loginShell: /bin/bash
+userPassword: {SHA}M6XDJwA47cNw9gm5kXV1uTQuMoY=
+
+
+Adding a group
+add_group.ldif >>
+====================
+
+dn: cn=mygroup,ou=groups,dc=example,dc=com
+objectClass: groupofnames
+cn: mygroup
+description: All users
+member: cn=John Doe,ou=people,dc=example,dc=com
+
+
+
+ldapadd -x -h localhost -p 389 -D cn=admin,dc=ldap,dc=vivasa,dc=in -W -f add_user.ldif 
+ldapadd -x -h localhost -p 389 -D cn=admin,dc=ldap,dc=vivasa,dc=in -W -f group.ldif
+
+
+ldapsearch -x -b 'cn=John Doe,ou=mf4,dc=ldap,dc=vivasa,dc=in' dn memberof
+
+
+
+====================
+links ::
+====================
+
+ldap_add insufficient access (50) openldap >>
+http://idmoim.blogspot.in/2014/05/ldapadd-insufficient-access-50-openldap.html
+
+
+ldif files for memberof attributes ::
+https://gist.github.com/dnozay/511968813c070b07bc85#file-backend-refint-ldif
+
+
+testing >>
+https://www.adimian.com/blog/2014/10/how-to-enable-memberof-using-openldap/
+
+
+reference >>
+https://technicalnotes.wordpress.com/2014/04/19/openldap-setup-with-memberof-overlay/
+https://www.brianshowalter.com/blog/installing-configuring-openldap
