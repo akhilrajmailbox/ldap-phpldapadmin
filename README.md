@@ -6,7 +6,7 @@ docker run command ::
 
 ```
 
-MOUNT_LOCATION=/home/akhil/Desktop/vivasa/ldap-phpldapadmin/ldap-server/install
+MOUNT_LOCATION=/home/akhil/Desktop/ldap-phpldapadmin/ldap-server/install
 docker run --env-file env-file -v $MOUNT_LOCATION/mount/apache2:/etc/apache2 -v $MOUNT_LOCATION/mount/phpldapadmin:/etc/phpldapadmin -v $MOUNT_LOCATION/mount/ldap:/var/lib/ldap -v $MOUNT_LOCATION/mount/slapd.d:/etc/ldap/slapd.d -p <<host-port>>:80 -p <<host-port>>:389 -it --name <<container-name>> --hostname <<hostname>> akhilrajmailbox/ldap-server:latest /bin/bash
 
 ```
